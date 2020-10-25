@@ -26,7 +26,5 @@
           url: "docs/sdks/sdk-keys"
         - title: Java SDK
           url: "docs/sdks/java-sdk"
-    - title: "About"
-      url: "about"
-    - title: "News"
-      url: "news"
+    - title: "FAQ"
+      url: "faq"
