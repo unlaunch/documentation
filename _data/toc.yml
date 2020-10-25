@@ -1,0 +1,32 @@
+- title: Documentation
+  url: docs
+  links:
+    - title: "Getting Started"
+      url: "docs/getting-started"
+      children:
+        - title: Features
+          url: "docs/getting-started#getting-started"
+        - title: Development
+          url: "docs/getting-started#development"
+        - title: Customization
+          url: "docs/getting-started#customization"
+    - title: "Managing Flags"
+      url: "docs/managingflags"
+      children:
+        - title: Console
+          url: "docs/managingflags/projects-and-environments"
+        - title: Projects & Environments
+          url: "docs/managingflags/projects-and-environments"
+    - title: "SDKs"
+      url: "docs/sdks"
+      children:
+        - title: Client-side vs Server-side
+          url: "docs/sdks/client-vs-server-side-sdks"
+        - title: SDK Keys
+          url: "docs/sdks/sdk-keys"
+        - title: Java SDK
+          url: "docs/sdks/java-sdk"
+    - title: "About"
+      url: "about"
+    - title: "News"
+      url: "news"

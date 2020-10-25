@@ -1,0 +1,12 @@
+.td-navbar {
+    background: #000;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+.td-navbar .nav-link {
+    text-transform: none;
+    font-weight: 500;
+}
