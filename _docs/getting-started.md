@@ -69,7 +69,7 @@ After you've finished with the feature flag that you created for this tutorial, 
 
 **To clean up your flag:**
 
-1. In the right sidebar, click on **Feature Flags. In the list of instances, select the feature flag you created for this tutorial.
+1. In the right sidebar, click on **Feature Flags**. In the list of instances, select the feature flag you created for this tutorial.
 2. Click on the **Setting** tab.
 3. Click on **Archive**.
 4. Choose **Yes** when prompted for confirmation.

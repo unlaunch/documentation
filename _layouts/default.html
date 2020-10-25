@@ -18,7 +18,16 @@
               <li><ul id="TOC">
                 <!-- Links will be appended here-->
               </ul></li>
-              </ul></nav>
+              </ul>
+            </nav>
+
+            <div>
+              <hr/>
+              <a class="ml-3 pt-2" href="{{ site.repo }}/edit/main/{{ page.path }}" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+              
+              <a class="ml-3" href="{{ site.repo }}/issues/new?labels={% if page.editable %}{{ page.editable }}{% else %}question{% endif %}&title=Question:&body=Question on: {{ site.repo }}/tree/main/{{ page.path }}" target="_blank"><i class="fab fa-github fa-fw"></i> Report a mistake</a>
+            </div>
+
           </div>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
