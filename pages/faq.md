@@ -17,4 +17,5 @@ permalink: /faq/
    <hr>
 {% endfor %}
 
-**Do you have a question?** Please email unlaunch-at-gmail.com and we'll get right back very quickly.
+**Do you have a question?** Please <a href="{{ site.repo }}/issues/new?labels={% if page.editable %}{{ page.editable }}{% else %}question{% endif %}&title=Question:&body=I have a question." target="_blank">ask it here <i class="fab fa-github fa-fw"></i> </a>
+
