@@ -21,7 +21,7 @@ If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https
 2. You have created an Unlaunch feature flag and enabled it. You also know the [Server SDK key](sdk-keys). If you haven't already, please see our [Getting Started](../getting-started) tutorial.
 3. (Optional) Understand the difference between [cient-side and server-side SDKs](client-vs-server-side-sdks). This SDK is server-side and optimized for applications that run on the cloud such as web servers, backend services, etc.
 
-## Import Dependency
+## Import the SDK Library
 
 The first step is to import the Unlaunch SDK as Maven or Gradle dependency in your application. 
 
@@ -34,12 +34,19 @@ For Maven,
 </dependency>
 ```
 
+For Gradle,
+```
+compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.1'
+```
+
+For the latest version of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
+
 ## Initializing a New Unlaunch Client Instance
 
 In a nutshell, here is how this SDK works:
 
-1. You initialize the client using one of your project's [SDK keys](sdk-keys). The SDK key uniquely identifies the environment within the project you have defined feature flags.
-2. When you build the client, it starts a background task to download all active feature flags and configuration data and store them in an in-memory cache. This process can take some time depending on the size of the data. We'll discuss this process in detail later.
+1. You initialize the client using one of your project's [SDK keys](sdk-keys). The SDK key uniquely identifies the environment within the project and all feature flags in it.
+2. When you build the client, it starts a *background task* to download all active feature flags and configuration data and store them in an in-memory cache. This process can take some time depending on the size of the data. We'll discuss this process in detail later.
 3. You can wait for the initialization to complete using the [`awaitUntilReady`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. You must pass a timeout value as an argument so it doesn't block your application forever.
 3. After the initialization is complete, you can evaluate feature flags using the public [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method.
 
@@ -86,7 +93,7 @@ The Unlaunch Java SDK provides a few different ways to evaluate feature flags an
 
 This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](app.unlaunch.io).
 
-This method will returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never throw an exception* nor will it ever return `null`. Instead, it will return `control` if there are any errors such as:
+This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never throw an exception* nor will it ever return `null`. Instead, it will return `control` if there are any errors such as:
 
 - The flag was not found.
 - There was an exception evaluation the feature flag.
@@ -112,7 +119,7 @@ otherwise
 ```
 
 When evaluating this flag, you must pass in `country` and `subscriber` attributes. If the 
-user is from USA and is subscriber, the "on" variation will be returned. Otherwise, "off". For example, 
+user is from USA and is a subscriber, the "on" variation will be returned. Otherwise, "off". For example, 
 
 ```java
 client.getVariation(
@@ -125,7 +132,7 @@ client.getVariation(
 
 ##### `getFeature(String flagKey, String identity)`
 
-This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. Use this method when you want to get more than just the variation. This is mostly used for fetching dynamic configuration associated with the feature flag. 
+This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. Use this method when you want to get more than just the variation. This is mostly used for fetching *dynamic configuration* associated with the feature flag. 
 
 For example, say you want to change the color of a button for some users. You'd define the colors for each variation in the Unlaunch Console as a key-value pair. Then in your application, you can fetch like this:
 
@@ -137,7 +144,7 @@ renderButton(colorHexCode);
 ```
 
 <div class="d-flex justify-content-center">
-    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="900"/>
+    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="500"/>
 </div>
 
 ##### `getFeature(flagKey, identity, attributes)`
