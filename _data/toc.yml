@@ -17,6 +17,8 @@
           url: "docs/managingflags/projects-and-environments"
         - title: Projects & Environments
           url: "docs/managingflags/projects-and-environments"
+        - title: Live Tail
+          url: "docs/managingflags/livetail"
     - title: "SDKs"
       url: "docs/sdks"
       children:
@@ -24,6 +26,10 @@
           url: "docs/sdks/client-vs-server-side-sdks"
         - title: SDK Keys
           url: "docs/sdks/sdk-keys"
+        - title: Metrics - Impressions
+          url: "docs/sdks/metrics-impressions"
+         - title: Metrics - Variation Counts
+          url: "docs/sdks/metrics-variationcounts"
         - title: Java SDK
           url: "docs/sdks/java-sdk"
     - title: "FAQ"
