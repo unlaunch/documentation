@@ -5,15 +5,16 @@ description: Use Live Tail to see impression events coming in from SDKs in real-
 
 # Live tail
 
-Live Tail is another developer-friendly feature that we have added to make it easy for you to get real-time insights into feature flag evaluations that are happening on SDKs to identify and debug any issues. 
+Live Tail is a developer-friendly feature that we have added to make it easy for you to get real-time insights into feature flag evaluations that are happening on SDKs to identify and debug any issues. 
+
+When you are testing a new feature flag, you might run into issues such as *"our QA Engineer was supposed to get OFF variation, but getting ON variation instead. Why?"* or *"is my application even processing the login feature flag*? Use Live Tail to investigate these further. Whenever your application using one of SDKs process the feature flag you are troubleshooting, it will show up here. 
+
+While Live Tail is most useful in pre-production environments, you can also run it in your production environments. Please know that doing so might generate a lot of data on the page as it will capture all events.
+
 
 ## What is Live Tail?
 
-As the word 'Live' in its name hints, Live Tail is a feature that allows you to see all [Impression](../sdks/metrics-impressions) events in real-time that (Unlaunch SDKs) your applications are sending. 
-
-<div class="d-flex justify-content-center">
-    <img src="/assets/img/live_tail.gif" alt="Unlaunch Live Tail - Showing SDK events in real-time" width="600"/>
-</div>
+As the word 'live' in its name hints, Live Tail is a feature that allows you to see all [Impression](../sdks/metrics-impressions) events in real-time that (Unlaunch SDKs) your applications are sending. 
 
 ## How to use Live Tail?
 
@@ -23,9 +24,15 @@ To use Live Tail:
 
 1. Navigate to the feature flag that you want to troubleshoot by clicking on its name on the feature flags list page in the [Unlaunch Console](https://app.unlaunch.io). 
 2. On feature flag details page, click on the "Live Tail" tab. 
-3. Click on the "Start Capture" button.
+3. Click on the **Start Capture** button.
+
+<div class="d-flex justify-content-center">
+    <img src="/assets/img/live_tail.gif" alt="Unlaunch Live Tail - Showing SDK events in real-time" width="600"/>
+</div>
 
 That's all, you should start seeing events within seconds. Please note that it might take up to 60 seconds to see any events. On non-production environments, the SDKs default to 15 seconds for submitting these events. You can usually control this setting by configuring the `metricsFlush()` interval when initializing the SDK client. 
+
+When you are done, don't forget click on **Stop Capture** button. The captures will automatically timeout in 5 minutes or more.
 
 ## Performance Concerns
 
