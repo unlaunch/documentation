@@ -28,7 +28,7 @@
           url: "docs/sdks/sdk-keys"
         - title: Metrics - Impressions
           url: "docs/sdks/metrics-impressions"
-         - title: Metrics - Variation Counts
+        - title: Metrics - Variation Counts
           url: "docs/sdks/metrics-variationcounts"
         - title: Java SDK
           url: "docs/sdks/java-sdk"
