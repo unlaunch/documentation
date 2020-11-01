@@ -7,7 +7,7 @@ description: High level overview of Unlaunch SDKs and concepts.
 
 Our SDKs are designed for you to easily integrate with Unlaunch and call feature flags from your application. They expose an API in your favorite programming language so you can easily integrate.
 
- This section contains a high-level overview of our SDKs and designed to help you understand the main concepts. 
+This section contains a high-level overview of our SDKs and designed to help you understand the main concepts. 
 
 ### General Topics
  - [Client-side and Server-side SDKs](client-vs-server-side-sdks)

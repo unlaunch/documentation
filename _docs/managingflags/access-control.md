@@ -5,7 +5,7 @@ description: High level overview of Unlaunch SDKs and concepts.
 
 # Client-side and Server-side SDKs
 
-We have provided several SDKs in several different languages to help you access feature flags from your applications. All of Unlaunch's SDKs are divided into two main categories, regarless of the programming language:
+We have provided several SDKs in several different languages to help you access feature flags from your applications. All of Unlaunch's SDKs are divided into two main categories, regardless of the programming language:
 
 - Client-side SDKs
 - Server-side SDKs
@@ -42,7 +42,7 @@ To further increase security, you should initialize client-side SDKs using [Mobi
 
 #### Server-side
 
-Server-side SDKs are embedded in applications that run on your servers such as web servers or backend servers. These are considered safe environment. Server-side SDKs download all feature flags that you have defined in a project and store them in memory. You must use [Server SDK keys](sdk-keys) to initialize an Unlaunch SDK in your server-side applications.
+Server-side SDKs are embedded in applications that run on your servers such as web servers or backend servers. These are considered safe environments. Server-side SDKs download all feature flags that you have defined in a project and store them in memory. You must use [Server SDK keys](sdk-keys) to initialize an Unlaunch SDK in your server-side applications.
 
 ### Peformance
 
@@ -50,7 +50,7 @@ Unlaunch is built for performance. We understand that adding even a millisecond 
 
 #### Client-side
 
-To improve performance, client-side SDKs download only as much data as is needed to evaluate a feature flag. In addition, you control when and how often a flag is downloaded. For example, in a webpage, you might want to get feature flag when the page starts loading, or you can delay it until user navigates to the appropriate section.
+To improve performance, client-side SDKs download only as much data as is needed to evaluate a feature flag. In addition, you control when and how often a flag is downloaded. For example, in a webpage, you might want to get feature flag when the page starts loading, or you can delay it until the user navigates to the appropriate section.
 
 #### Server-side
 
@@ -58,4 +58,4 @@ To improve performance in multi-user environments, server-side SDKs download **a
 
 # Summary
 
-Unlaunch SDKs come in two main categories, client-side and server-side for security and peformance considerations.
+Unlaunch SDKs come in two main categories, client-side and server-side for security and performance considerations.
