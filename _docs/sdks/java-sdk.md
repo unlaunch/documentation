@@ -1,5 +1,5 @@
 ---
-title: Java SDK
+title: Unlaunch Java SDK - Official Guide
 description: This guide provides complete information about the Unlaunch Java SDK.
 ---
 
@@ -201,6 +201,9 @@ UnlaunchClient client = UnlaunchClient.builder()
                             .build();
 ```
 
+##### `eventsQueueSize()`
+This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
+
 ##### `eventsFlushInterval()`
 This controls how frequently tracking events are sent to the server. The default value is 60 seconds for production and 15 seconds for non-production environments.
 
@@ -276,5 +279,5 @@ This means you need to provide a concrete implementation. [Apache Log4j 2](https
 
 ## More Questions?
 
-At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as, please email **unlaunch@gmail.com**.
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **unlaunch@gmail.com**.
 
