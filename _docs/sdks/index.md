@@ -12,6 +12,8 @@ Our SDKs are designed for you to easily integrate with Unlaunch and call feature
 ### General Topics
  - [Client-side and Server-side SDKs](client-vs-server-side-sdks)
  - [SDK keys](sdk-keys)
+ - [Metrics - Impressions](metrics-impressions)
+ - [Metrics - Variation Counts](metrics-variationcounts)
 
 ### Server-side SDKs
 - [Java SDK](java-sdk)
