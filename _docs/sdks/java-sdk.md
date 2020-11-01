@@ -144,12 +144,30 @@ renderButton(colorHexCode);
 ```
 
 <div class="d-flex justify-content-center">
-    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="500"/>
+    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="600"/>
 </div>
 
 ##### `getFeature(flagKey, identity, attributes)`
 
 Just like the method above but uses attributes that are passed in to evaluate targeting rules.
+
+### awaitUntilReady
+
+After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `getVariation` or `getFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+
+```java
+UnlaunchClient client = UnlaunchClient.builder()
+                            .sdkKey("your_sdk_key")
+                            .build();
+
+try {
+    client.awaitUntilReady(2, TimeUnit.SECONDS);
+} catch (InterruptedException | TimeoutException e) {
+    System.out.println("client wasn't ready " + e.getMessage());
+}
+```
+
+You can check if the client is ready by calling the [`isReady`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html#isReady()) method.
 
 ### Shutdown 
 
@@ -179,7 +197,7 @@ The SDK periodically sends events like metrics and diagnostics data to our serve
 ```java 
 UnlaunchClient client = UnlaunchClient.builder()
                             .metricsFlushInterval(2, TimeUnit.MINUTES)
-                            .sdkKey("<your environment sdk key>")
+                            .sdkKey("your_environment_sdk_key")
                             .build();
 ```
 
@@ -190,10 +208,10 @@ This controls how frequently tracking events are sent to the server. The default
 This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
 
 ##### `offlineMode()`
-When enabled, this starts the SDK in offline mode where no flags are downloaded from the server, nor anything is sent. All calls to [`getVariation()`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html#getVariation(java.lang.String,java.lang.String)) will return `control`. Please see **Offline Mode** below for more information.
+When enabled, this starts the SDK in offline mode where no flags are downloaded from the server, nor anything is sent. All calls to [`getVariation()`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html#getVariation(java.lang.String,java.lang.String)) will return `control`. Please see [Offline Mode](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) below for more information.
 
 ##### `offlineModeWithLocalFeatures()`
-This is intended for testing, including unit testing. This allows you to pass a YAML file containing feature flags and the variations to return when they are evaluated. You can also control dynamic configuration and specify which values to return. Please see **Offline Mode** below for more information and a YAML template.
+This is intended for testing, including unit testing. This allows you to pass a YAML file containing feature flags and the variations to return when they are evaluated. You can also control dynamic configuration and specify which values to return. Please see [Offline Mode](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) below for more information and a YAML template.
 
 ##### `host()`
 Unlaunch server to connect to for downloading feature flags and for submitting events. Only use this if you are running Unlaunch backend service on-premise or are enterprise customer. The default value is https://api.unlaunch.io
@@ -256,7 +274,7 @@ This means you need to provide a concrete implementation. [Apache Log4j 2](https
 </dependency>
 ```
 
-## More Question
+## More Questions?
 
-At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as, please email unlaunch@gmail.com.
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as, please email **unlaunch@gmail.com**.
 
