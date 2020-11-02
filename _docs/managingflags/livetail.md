@@ -11,7 +11,6 @@ When you are testing a new feature flag, you might run into issues such as *"our
 
 While Live Tail is most useful in pre-production environments, you can also run it in your production environments. Please know that doing so might generate a lot of data on the page as it will capture all events.
 
-
 ## What is Live Tail?
 
 As the word 'live' in its name hints, Live Tail is a feature that allows you to see all [Impression](../sdks/metrics-impressions) events in real-time that (Unlaunch SDKs) your applications are sending. 
