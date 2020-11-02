@@ -28,7 +28,7 @@ To use Live Tail:
 <div class="d-flex justify-content-center">
     <figure class="figure">
         <img class="figure-img img-fluid rounded" src="/assets/img/live_tail.gif" alt="Unlaunch Live Tail - Showing SDK events in real-time" width="600"/>
-        <figcaption class="figure-caption text-center">Live Tail tab showing real-time events</figcaption>
+        <figcaption class="figure-caption text-center">Live Tail tab showing real-time events for a feature flag</figcaption>
     </figure>
 </div>
 
