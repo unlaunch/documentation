@@ -3,7 +3,7 @@ title: Live Tail
 description: Use Live Tail to see impression events coming in from SDKs in real-time. This page describes how to use Live Tail for real-time insights into feature flag evaluations and to debug errors.
 ---
 
-# Live tail
+# Live Tail
 
 Live Tail is a developer-friendly feature that we have added to make it easy for you to get real-time insights into feature flag evaluations that are happening on SDKs to identify and debug any issues. 
 
@@ -11,12 +11,11 @@ When you are testing a new feature flag, you might run into issues such as *"our
 
 While Live Tail is most useful in pre-production environments, you can also run it in your production environments. Please know that doing so might generate a lot of data on the page as it will capture all events.
 
-
 ## What is Live Tail?
 
 As the word 'live' in its name hints, Live Tail is a feature that allows you to see all [Impression](../sdks/metrics-impressions) events in real-time that (Unlaunch SDKs) your applications are sending. 
 
-## How to use Live Tail?
+## How to Use Live Tail
 
 Live Tail is very easy to use. You don't need to initialize your SDKs with any special configuration options. All SDKs that are not running in [**Offline Mode**](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) submit events periodically to Unlaunch servers. 
 
@@ -27,7 +26,10 @@ To use Live Tail:
 3. Click on the **Start Capture** button.
 
 <div class="d-flex justify-content-center">
-    <img src="/assets/img/live_tail.gif" alt="Unlaunch Live Tail - Showing SDK events in real-time" width="600"/>
+    <figure class="figure">
+        <img class="figure-img img-fluid rounded" src="/assets/img/live_tail.gif" alt="Unlaunch Live Tail - Showing SDK events in real-time" width="600"/>
+        <figcaption class="figure-caption text-center">Live Tail tab showing real-time events</figcaption>
+    </figure>
 </div>
 
 That's all, you should start seeing events within seconds. Please note that it might take up to 60 seconds to see any events. On non-production environments, the SDKs default to 15 seconds for submitting these events. You can usually control this setting by configuring the `metricsFlush()` interval when initializing the SDK client. 
