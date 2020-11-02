@@ -17,6 +17,8 @@
           url: "docs/managingflags/projects-and-environments"
         - title: Projects & Environments
           url: "docs/managingflags/projects-and-environments"
+        - title: Access Control
+          url: "docs/managingflags/access-control"
         - title: Live Tail
           url: "docs/managingflags/livetail"
     - title: "SDKs"
