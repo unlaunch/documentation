@@ -7,7 +7,7 @@ description: Overview of impression metrics that are sent by Unlaunch SDKs.
 
 Unlaunch SDKs regularly send metrics to Unlaunch servers. These are useful for statistics and debugging purposes. 
 
-Metrics are a type of an [event](event). Metric events are automatically generated when feature flags are evaluated on SDKs. Unlaunch SDKs keep a separate queue for metrics and allows fine-grained control over how frequently metrics are submitted to the server, separate from other types of events. 
+Metrics are a type of an [event](event). Metric events are automatically generated when feature flags are evaluated on SDKs. Unlaunch SDKs keep a separate queue for metrics and allow fine-grained control over how frequently metrics are submitted to the server, separate from other types of events. 
 
 When a feature flag is evaluated on the SDK, an **impression** capturing the details of the evaluation is generated and recorded by the SDK in a queue. This queue is periodically flushed and events are sent to Unlaunch servers. This information includes the flag details, evaluation results, user information, timestamp etc. These events are then stored in a database. You can view these events in real-time using [**Live Tail**](../managingflags/livetail). 
 

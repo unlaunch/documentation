@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Documentation
+title: All Documents
 permalink: /docs/
 ---
 
-# Documentation
+# All Documents
 
-Welcome to the {{ site.title }} Documentation pages! Here you can quickly jump to a 
-particular page.
+Explore all Unlaunch guides and articles. This is the directory of all articles. 
+
 
 <div class="section-index">
     <hr class="panel-line">

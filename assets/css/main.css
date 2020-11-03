@@ -18092,17 +18092,21 @@ html body .md-typeset .headerlink {
     }
 }
 
+
+
 .td-sidebar-nav__section-title {
     display: block;
     font-weight: 500
 }
 
 .td-sidebar-nav__section-title .active {
-    font-weight: 700
+    font-weight: 500
 }
 
 .td-sidebar-nav__section-title a {
-    color: #222
+    color: #171717;
+    font-family: 'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 1rem;
 }
 
 .td-sidebar-nav .td-sidebar-link {
@@ -18432,7 +18436,6 @@ html body .md-typeset .headerlink {
 
 .td-search-input {
     background: transparent;
-    border-radius: 1rem;
     font-family: "font awesome 5 free", open sans, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol
 }
 

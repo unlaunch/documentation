@@ -11,7 +11,7 @@ The Unlaunch Java SDK provides a Java API to access Unlaunch. Using the SDK, you
 
 ### Language Support
 
-The Unlaunch Java SDK support Java version 8 and above.
+The Unlaunch Java SDK supports Java version 8 and above.
 
 If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/index.html).
 
@@ -19,7 +19,7 @@ If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https
 
 1. You'll need an Unlaunch account. Register for a free account at: [https://app.unlaunch.io/signup](https://app.unlaunch.io/signup)
 2. You have created an Unlaunch feature flag and enabled it. You also know the [Server SDK key](sdk-keys). If you haven't already, please see our [Getting Started](../getting-started) tutorial.
-3. (Optional) Understand the difference between [cient-side and server-side SDKs](client-vs-server-side-sdks). This SDK is server-side and optimized for applications that run on the cloud such as web servers, backend services, etc.
+3. (Optional) Understand the difference between [client-side and server-side SDKs](client-vs-server-side-sdks). This SDK is server-side and optimized for applications that run on the cloud such as web servers, backend services, etc.
 
 ## Import the SDK Library
 
@@ -58,17 +58,17 @@ UnlaunchClient ulClient = UnlaunchClient.create("INSERT_YOUR_SDK_KEY");
 ulClient.awaitUntilReady(2, TimeUnit.SECONDS); // Wait until all data is downloaded
 ```
 
-{% include alert-note.html type="danger" content="For performance reasons, we strongly recommend initialization the Unlaunch client as a SINGLETON and reusing it throughout your application. The client is thread-safe." %}
+{% include alert-note.html type="danger" content="For performance reasons, we strongly recommend initializing the Unlaunch client as a SINGLETON and reusing it throughout your application. The client is thread-safe." %}
 
-##### Why Unlaunch Client Should be a Singleton?
+##### Why should an Unlaunch Client be a Singleton?
 
 When you build an Unlaunch client, it starts a background task to download data and store it in an in-memory cache. This process might take some time depending on the size of the data that needs to be transferred. It is extremely poor practice to initialize a new client for each client request such as in a web request handler method or in Spring's `@Controller` method. It will add latency to the request and all downloaded data will be discarded once the request is complete. You may also get rate-limited and throttled by our intrusion detection systems.
 
-It is important that you create Unlaunch client as a singleton and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
+It is important that you create an Unlaunchclient as a singleton and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
 
 ## Using the SDK
 
-After the initialization is complete, you are ready to start evaluating feature flags using the [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. This method will return a variation that you have defined in the Unlaunch Console. You can check using simple if-else block to execute code depending on the variation that's returned.
+After the initialization is complete, you are ready to start evaluating feature flags using the [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. This method will return a variation that you have defined in the Unlaunch Console. You can check using a simple `if-else` block to execute code depending on the variation that's returned.
 
 The `getVariation` method requires that you pass in the `flag key`and the `user id` of the user that you are evaluating the feature flag for. If the flag is an Operations flag such as a global kill switch and doesn't require users, you can define a String constant, e.g. `userId=System` and pass it instead.
 
@@ -96,7 +96,7 @@ This method evaluates and returns the variation (variation key) for this feature
 This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never throw an exception* nor will it ever return `null`. Instead, it will return `control` if there are any errors such as:
 
 - The flag was not found.
-- There was an exception evaluation the feature flag.
+- There was an exception evaluating the feature flag.
 - The flag was archived.
 
 ```java
@@ -119,7 +119,7 @@ otherwise
 ```
 
 When evaluating this flag, you must pass in `country` and `subscriber` attributes. If the 
-user is from USA and is a subscriber, the "on" variation will be returned. Otherwise, "off". For example, 
+user is from the USA *and* is a subscriber, the "on" variation will be returned. Otherwise, "off". For example, 
 
 ```java
 client.getVariation(
@@ -171,7 +171,7 @@ You can check if the client is ready by calling the [`isReady`](https://javadoc.
 
 ### Shutdown 
 
-When your application is shutting down, you can shutdown Unlaunch client using the `shutdown` method. Calling shutdown ensures that any pending metrics are sent you Unlaunch servers.
+When your application is shutting down, you can shutdown the Unlaunch client using the `shutdown` method. Calling shutdown ensures that any pending metrics are sent to Unlaunch servers.
 
 ```java
 client.shutdown();
@@ -201,7 +201,7 @@ UnlaunchClient client = UnlaunchClient.builder()
                             .build();
 ```
 
-##### `eventsQueueSize()`
+##### `metricsQueueSize()`
 This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
 
 ##### `eventsFlushInterval()`
@@ -217,7 +217,7 @@ When enabled, this starts the SDK in offline mode where no flags are downloaded 
 This is intended for testing, including unit testing. This allows you to pass a YAML file containing feature flags and the variations to return when they are evaluated. You can also control dynamic configuration and specify which values to return. Please see [Offline Mode](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) below for more information and a YAML template.
 
 ##### `host()`
-Unlaunch server to connect to for downloading feature flags and for submitting events. Only use this if you are running Unlaunch backend service on-premise or are enterprise customer. The default value is https://api.unlaunch.io
+Unlaunch server to connect to for downloading feature flags and for submitting events. Only use this if you are running Unlaunch backend service on-premise or are an enterprise customer. The default value is https://api.unlaunch.io
 
 ## Advanced Usage
 

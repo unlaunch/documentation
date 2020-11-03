@@ -12,7 +12,7 @@ An SDK key uniquely identifies an Unlaunch [environment](../managingflags/projec
 Each environment in your project has a unique SDK key. For enhanced security, we generate three different SDK keys belonging to one of the following categories:
 
 - **Server Keys** - Can access all feature flags. Use only within applications that run on your own Cloud or servers.
-- **Mobile / App Keys** - Can access all feature flags (at this time.) Use this key in mobile application such as Android or iOS SDKs.
+- **Mobile / App Keys** - Can access all feature flags (at this time.) Use this key in mobile applications such as Android or iOS using Unlaunch SDKs.
 - **Browser / Public Keys** - Very limited access. This key is considered public and you can embed in client-side SDKs like React or Angular.
 
 #### Where to find Unlaunch SDK Keys?
@@ -25,7 +25,7 @@ Each environment in your project has a unique SDK key. For enhanced security, we
 
 Server keys allow **read-only** access to **all** feature flags, attributes and configurations. These are designed to be used for internal applications that you run on your own servers or Cloud. Examples: web servers, backend services, etc. 
 
-Server keys are sensitive and should be kept **secret**. You must never share it with your users. If you suspect that Server key has been compromised, you can reset it using the **[Settings](https://app.unlaunch.io/settings)** page.
+Server keys are sensitive and should be kept **secret**. You must never share it with your users. If you suspect that the Server key has been compromised, you can reset it using the **[Settings](https://app.unlaunch.io/settings)** page.
 
 ### Mobile / App Keys
 
