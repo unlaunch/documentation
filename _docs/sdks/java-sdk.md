@@ -213,6 +213,12 @@ This controls the maximum number of events to keep in memory. Events are sent to
 ##### `offlineMode()`
 When enabled, this starts the SDK in offline mode where no flags are downloaded from the server, nor anything is sent. All calls to [`getVariation()`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html#getVariation(java.lang.String,java.lang.String)) will return `control`. Please see [Offline Mode](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) below for more information.
 
+##### `connectionTimeout()`
+Sets the default connection timeout for the HTTP client SDK uses to connect to Unlaunch servers. The default value is 10 seconds. The minimum value allowed is 1 second.
+
+##### `readTimeout()`
+Sets the default read timeout for the HTTP connections. Specifies the time to wait for data to arrive after establishing the connection. The default value is 10 seconds. The minimum value allowed is 1 second.
+
 ##### `offlineModeWithLocalFeatures()`
 This is intended for testing, including unit testing. This allows you to pass a YAML file containing feature flags and the variations to return when they are evaluated. You can also control dynamic configuration and specify which values to return. Please see [Offline Mode](https://docs.unlaunch.io/docs/sdks/java-sdk#offline-mode) below for more information and a YAML template.
 
