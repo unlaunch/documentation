@@ -17,11 +17,33 @@ To get started, you must sign up for Unlaunch. If you haven't done so already, p
 
 To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**.
 
-<hr>
+#### Understanding Feature Flags, Variations and Dynamic Configurations
+
+Let's review a few important **concepts** quickly that will help you understand Unlaunch and this guide better.
+
+Feature flags are akin to having `if/else` blocks in your code that your code where you can change the condition on the fly without changing or deploying your code. The conditions are known as **variations**. A typical use of variation is to indicate whether the feature is **on** or **off**:
+
+```javascript
+let newLoginVariation = // fetch feature flag
+
+if (newLoginVariation === 'on') {
+  // show new login form
+} else {
+  // show old login form
+}
+```
+
+Variations are for deciding which branch (if or else) to execute in your code. They are always of type `string`. Unlanuch feature flags have two variations by default but you can add more than 2 variations (multivariate flags.) 
+
+You can also *attach* **dynamic configurations** to variations to change configuration on the fly such as UI button color, banner text, sepcial offers, algorithm weights, and anything else!
+
+For more information on feature flags, please see this [blog post](https://blog.unlaunch.io/2020-08-01-feature-flags/).
+
+<hr/>
 
 ## Step 1: Create New Feature Flag
 
-In this step, you'll create your first feature flag. A feature flag can have many options including targeting rules, configuration, and more. We won't cover all possible options here.
+In this step, you'll create your first feature flag. A feature flag can have many options including targeting rules, configuration, and more. We won't cover all possible options here. In this example, we'll create a simple feature flag that has *two* variations that you can control to show or hide a feature.
 
 **To create a feature flag:**
 
@@ -33,6 +55,8 @@ In this step, you'll create your first feature flag. A feature flag can have man
 <div class="d-flex justify-content-center mb-3">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7ltRZNpKCzQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+At this time, you have created a feature flag with two *variations* : **on** and **off** and have **enabled** it. Because this flag is enabled and there are no targeting rules, it will serve variation specified under **Default Rule**, which is *on*. In other words, anyone who calls this flag will get the *on* variation. We can change this behavior, as we'll see later.
 
 Your feature flag is now ready to use. In Step 2, we'll learn how to call Unlaunch to evaluate flags from your SDKs using one of Unlaunch SDKs.
 
