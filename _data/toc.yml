@@ -34,5 +34,10 @@
           url: "docs/sdks/metrics-variationcounts"
         - title: Java SDK
           url: "docs/sdks/java-sdk"
+    - title: "Integrations"
+      url: "docs/integrations"
+      children:
+        - title: Slack
+          url: "docs/integrations/slack"
     - title: "FAQ"
       url: "faq"
