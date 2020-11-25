@@ -14,7 +14,7 @@ This tutorial explains how to connect Unlaunch to your Slack account to get real
 
 Please follow these steps to connect Unaunch to your Slack account.
 
-### Step 1: Add 'Incoming WebHooks' App to Your Slack
+### Step 1: Add 'Incoming WebHooks' App to Slack
 
 Make sure you are signed into your Slack account. Open the Incoming Webhook in [Slack app directory](https://crovate.slack.com/apps/A0F7XDUAZ-incoming-webhooks).If you are a Slack Workspace Owner, you'll see "Add to Slack" button. Click it and move to Step #2. 
 

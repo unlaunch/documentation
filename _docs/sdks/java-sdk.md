@@ -36,7 +36,7 @@ For Maven,
 
 For Gradle,
 ```
-compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.1'
+compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '1.0.0'
 ```
 
 For the latest version of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
