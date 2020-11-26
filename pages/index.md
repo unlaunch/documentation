@@ -14,7 +14,7 @@ Feature flags are a powerful and modern way to allow teams to launch new feature
 
 ## Your First Feature Flag
 
-Need to Unlaunch? Get started in minutes with our [Getting Started]() page.
+Need to Unlaunch? Get started in minutes with our [Getting Started](docs/getting-started) page.
 
 ## SDKs
 

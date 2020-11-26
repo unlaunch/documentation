@@ -30,13 +30,13 @@ For Maven,
 <dependency>
     <groupId>io.unlaunch.sdk</groupId>
     <artifactId>unlaunch-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
 For Gradle,
 ```
-compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '1.0.0'
+compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.2'
 ```
 
 For the latest version of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
@@ -126,7 +126,7 @@ client.getVariation(
     "show_bonus_pack", 
     userId, 
     UnlaunchAttribute.newString("country", "USA"),
-    UnlaunchAttribute.newBoolean("sbscriber", true)
+    UnlaunchAttribute.newBoolean("subscriber", true)
 );
 ```
 

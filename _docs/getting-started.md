@@ -15,9 +15,9 @@ Let's get started.
 
 To get started, you must sign up for Unlaunch. If you haven't done so already, please [visit our registration page](https://app.unlaunch.io/signup) to create a new account for free. 
 
-To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**.
+To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**. Each projects gets two environments by default: *Production* and *Test*. For this tutorial, you will use the Production environment. To learn more about projects and environments, please see [this guide](managingflags/projects-and-environments).
 
-#### Understanding Feature Flags, Variations and Dynamic Configurations
+#### Main Concepts
 
 Let's review a few important **concepts** quickly that will help you understand Unlaunch and this guide better.
 
@@ -35,7 +35,7 @@ if (newLoginVariation === 'on') {
 
 Variations are for deciding which branch (if or else) to execute in your code. They are always of type `string`. Unlanuch feature flags have two variations by default but you can add more than 2 variations (multivariate flags.) 
 
-You can also *attach* **dynamic configurations** to variations to change configuration on the fly such as UI button color, banner text, sepcial offers, algorithm weights, and anything else!
+You can also *attach* **dynamic configurations** to variations to change configuration on the fly such as UI button color, banner text, sepcial offers, algorithm weights, and anything else. Dynamic configuration is not covered in this tutorial.
 
 For more information on feature flags, please see this [blog post](https://blog.unlaunch.io/2020-08-01-feature-flags/).
 
@@ -48,9 +48,10 @@ In this step, you'll create your first feature flag. A feature flag can have man
 **To create a feature flag:**
 
 1. Open the Unlanch Console at [https://app.unlaunch.io](https://app.unlaunch.io/)
-2. From the *Feature Flags* page, click on **Create Feature Flag**.
-3. The **New Feature Flag** screen asks you to input values to create a new flag. In the **Name** field, type in the name that you'd like to call this flag e.g. `2fa-rollout`. Leave the rest of the fields to their default values and click on **Save.**
-4. The feature flag is created immediately and you're taken to the **Flag Details** page. On this page, click **Enable Flag** to enable your flag in the current environment. On the popup asking you to confirm, click **Yes**.
+2. Switch to *Production* environment using the dropdown on the top-left corner. 
+3. From the *Feature Flags* page, click on **Create Feature Flag**.
+4. The **New Feature Flag** screen asks you to input values to create a new flag. In the **Name** field, type in the name that you'd like to call this flag e.g. `2fa-rollout`. Leave the rest of the fields to their default values and click on **Save.**
+5. The feature flag is created immediately and you're taken to the **Flag Details** page. On this page, click **Enable Flag** to enable your flag in the current environment. On the popup asking you to confirm, click **Yes**.
 
 <div class="d-flex justify-content-center mb-3">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7ltRZNpKCzQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -62,32 +63,40 @@ Your feature flag is now ready to use. In Step 2, we'll learn how to call Unlaun
 
 <hr>
 
-## Step 2: Call Your Feature Flag From Your Application
+## Step 2: Copy SDK Keys
 
-To use the feature flag you've created from your application, you'd need to integrate one of Unlaunch SDKs depending on which programming language your app is written in. 
+To use feature flags in your application, you'd need to integrate one of Unlaunch SDKs depending on which programming language your app is written in. In order to integrate SDKs with your project, you'd need to initialize it with an SDK key
 
-**Prerequisite:**
+Each Unlaunch environment has a unique set of SDK keys for security and performance reasons. You can read [more here](sdks/sdk-keys). 
 
-1. Decide whether you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. Choosing the right type of SDK is important for security and performance reasons.
-2. Find the **SDK key** to use. You can find SDK keys by clicking **Settings** in the right sidebar. More Info: to initialize any Unlaunch SDK, you must pass it an SDK key. All environments within projects have unique SDKs keys. Depending on your use case, you'll have to choose between Server, Mobile/App or Browser/Public keys. See this post which describes the [different categories](sdks/sdk-keys) and when you use which key.
+For this tutorial, we'll use the *Production* environment. Follow the steps in the diagram below to choose an SDK key.
 
-**Integrate Unlaunch SDK in your application:**
+
+<div class="d-flex justify-content-center border">
+    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys" width="900"/>
+</div>
+
+<hr>
+
+## Step 3: Integrate Unlaunch SDK in Your Application
+
+This step will depend on the type of SDK that you choose depending on the programming language you're using. The first step is deciding whether  you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. 
 
 Follow SDK integration guides to integrate SDK in your application:
 
-Server-side SDKs:
+**Server-side SDKs:**
 
 - [Java](sdks/java-sdk)
 - Node.js (Server-side)
 
-Client-side SDKs:
+**Client-side SDKs:**
 
 - Javascript 
 - React
 
 <hr>
 
-## Step 3: Clean up
+## Step 4: Clean up
 
 After you've finished with the feature flag that you created for this tutorial, you should clean up by archiving the flag. If you want to do more with this flag before you clean up, see Next steps.
 

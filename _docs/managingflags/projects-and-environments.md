@@ -9,9 +9,9 @@ This page will help you understand Projects and Environments in Unlaunch and how
 
 ## Projects
 
-Unlaunch projects allow you to separate feature flags by applications or products. 
+Unlaunch projects allow you to separate feature flags by applications or products. For example, you can create one project for your iOS mobile application called *MyMobileAppIPhone*, and another one for Android *MyMobileAppAndroid* and one for backend *MyMobileBackend*.
 
-Projects are cheap. We encourage creating a new project for each GitHub repository. You can also create multiple projects for each repository by teams. For example if you have a monolith, you could create multiple projects, for Frontend, Backend, Database, and Core teams.
+When you register a new account or Organization, you are asked to create your first project. Projects are cheap. We encourage creating a new project for each GitHub repository. You can also create multiple projects for each repository by teams. For example if you have a monolith, you could create multiple projects, for Frontend, Backend, Database, and Core teams.
 
 Project Admins control who gets access to their projects. For more information, see [Access Control](access-control).
 

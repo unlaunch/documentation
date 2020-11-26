@@ -9,7 +9,9 @@ When you are integrating Unlaunch SDKs with your application, you'll need to pro
 
 An SDK key uniquely identifies an Unlaunch [environment](../managingflags/projects-and-environments) within a project in which you have defined your feature flags.
 
-Each environment in your project has a unique SDK key. For enhanced security, we generate three different SDK keys belonging to one of the following categories:
+**Each environment** in your project has a unique SDK key. A good practice is to keep the keys seprate from your application configuration and supply them at run-time. You could do this by setting and reading the keys as environment variables, or have them supplied via [Vault](https://www.vaultproject.io/), [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) or whichever solution you use to manager secrets in your organization.
+
+For enhanced security, *each environment* gets **three** different SDK keys belonging to one of the following categories:
 
 - **Server Keys** - Can access all feature flags. Use only within applications that run on your own Cloud or servers.
 - **Mobile / App Keys** - Can access all feature flags (at this time.) Use this key in mobile applications such as Android or iOS using Unlaunch SDKs.
