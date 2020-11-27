@@ -23,6 +23,10 @@ For enhanced security, *each environment* gets **three** different SDK keys belo
 2. On the right sidebar, click on **Settings**
 3. In the *Projects* tab, you should see all your projects and SDK keys for each environment.
 
+<div class="d-flex justify-content-center border">
+    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys" width="900"/>
+</div>
+
 ### Server Keys
 
 Server keys allow **read-only** access to **all** feature flags, attributes and configurations. These are designed to be used for internal applications that you run on your own servers or Cloud. Examples: web servers, backend services, etc. 

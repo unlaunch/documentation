@@ -18106,12 +18106,13 @@ html body .md-typeset .headerlink {
 .td-sidebar-nav__section-title a {
     color: #171717;
     font-family: 'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 180%;
 }
 
 .td-sidebar-nav .td-sidebar-link {
     display: block;
-    padding-bottom: .375rem
+    padding-bottom: .475rem
 }
 
 .td-sidebar-nav .td-sidebar-link__page {

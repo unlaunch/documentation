@@ -71,7 +71,6 @@ Each Unlaunch environment has a unique set of SDK keys for security and performa
 
 For this tutorial, we'll use the *Production* environment. Follow the steps in the diagram below to choose an SDK key.
 
-
 <div class="d-flex justify-content-center border">
     <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys" width="900"/>
 </div>
@@ -86,13 +85,55 @@ Follow SDK integration guides to integrate SDK in your application:
 
 **Server-side SDKs:**
 
-- [Java](sdks/java-sdk)
+- [Java](sdks/java-sdk) (Also see below)
 - Node.js (Server-side)
 
 **Client-side SDKs:**
 
 - Javascript 
 - React
+
+### (Optional) Integration Instructions for the Java SDK
+
+If you are using the Java SDK, here's how you can integrate it. This assumes that the feature flag you have created has the key `2fa-rollout`.
+
+First add the dependency:
+
+```xml
+<dependency>
+    <groupId>io.unlaunch.sdk</groupId>
+    <artifactId>unlaunch-java-sdk</artifactId>
+    <version>0.0.2</version>
+</dependency>
+```
+
+Then, use the following code where you wish to use the feature flag:
+
+```java
+// initialize the client
+UnlaunchClient client = UnlaunchClient.create(->"INSERT_YOUR_SDK_KEY_HERE"<-);
+
+// wait for the client to be ready
+try {
+  client.awaitUntilReady(2, TimeUnit.SECONDS);
+} catch (InterruptedException | TimeoutException e) {
+  System.out.println("client wasn't ready " + e.getMessage());
+}
+// get variation
+String variation = client.getVariation("2fa-rollout", "user-id-123");
+
+// take action based on the returned variation
+if (variation.equals("on")) {
+    System.out.println("Variation is on");
+} else if (variation.equals("off")) {
+    System.out.println("Variation is off");
+} else {
+    System.out.println("control variation");
+}
+
+// shutdown the client to flush any events or metrics 
+client.shutdown();
+```
 
 <hr>
 
