@@ -23,7 +23,7 @@ You can create, edit and delete projects from the *Projects* tab in the [Setting
 
 Each Unlaunch project can have many environments to help you manage your product development and deployment life-cycle. 
 
-By default, all projects get two environments when they are created: *Production* and *Test*. You can create more environments to map to your deployment life-cycle, for example,
+By default, all projects get **two** environments when they are created: *Production* and *Test*. You can create more environments to map to your deployment life-cycle, for example,
 
 - Production / Canary
 - Stage

@@ -7,7 +7,7 @@ description: This guide provides complete information about the Unlaunch Java SD
 
 This guide provides complete information about the Unlaunch Java SDK and how to integrate it in your applications to call feature flags.
 
-The Unlaunch Java SDK provides a Java API to access Unlaunch. Using the SDK, you can easily build Java applications that can evaluate feature flags, access configuration, and more. Unlaunch Java SDK is *open source*. Complete source code is available on <a href="https://github.com/unlaunch/java-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a>
+The Unlaunch Java SDK provides a Java API to access Unlaunch. Using the SDK, you can easily build Java applications that can evaluate feature flags, access configuration, and more. Unlaunch Java SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/java-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the Java [example project](https://github.com/unlaunch/hello-java/blob/main/src/main/java/io/unlaunch/sdk/Hello.java).
 
 ### Language Support
 

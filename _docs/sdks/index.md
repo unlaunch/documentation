@@ -17,9 +17,10 @@ This section contains a high-level overview of our SDKs and designed to help you
 
 ### Server-side SDKs
 - [Java SDK](java-sdk)
+- [Node.js SDK](nodejs-sdk)
 
 ### Client-side SDKs
-- Javascript SDK - Vanilla Javascript SDK
+- [Javascript (Browser) Library](javascript-library)
 
 Would you like to see another question type, or another kind of extra? Please
 [open an issue]({{ site.repo }}/issues/new).
