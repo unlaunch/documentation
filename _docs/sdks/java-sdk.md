@@ -132,7 +132,7 @@ client.getVariation(
 
 ##### `getFeature(String flagKey, String identity)`
 
-This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. Use this method when you want to get more than just the variation. This is mostly used for fetching *dynamic configuration* associated with the feature flag. 
+This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. Use this method when you want to get more than just the variation. This is mostly used for fetching *dynamic configuration* associated with the feature flag or for getting the *evaluation reason*. 
 
 For example, say you want to change the color of a button for some users. You'd define the colors for each variation in the Unlaunch Console as a key-value pair. Then in your application, you can fetch like this:
 
@@ -146,6 +146,18 @@ renderButton(colorHexCode);
 <div class="d-flex justify-content-center">
     <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="600"/>
 </div>
+
+###### Evaluation Reason
+When you evaluate a feature flag, the SDK applies various rules to determine which variation should be returned. If you want to know why a certain variation was returned for debugging purposes, you can use the `getEvaluationReason()` method of the `UnlaunchFeature` class.
+
+```java
+UnlaunchFeature feature = client.getFeature("new_login_ui", userId);
+String reason = feature.getEvaluationReason();
+
+logger.debug("{} variation was returned because: {}", feature.getVariation(), reason);
+// This might print
+// on variation was returned because: Default Rule match
+```
 
 ##### `getFeature(flagKey, identity, attributes)`
 

@@ -24,8 +24,10 @@ The Unlaunch Javascript Library can be used in all major browsers. However, some
 To load the JavaScript Library, include the following in the `<head>` or `<body>` tag of your webpage.
 
 ```html
-<script crossorigin="anonymous" src="https://unpkg.com/..."></script>
+<script crossorigin="anonymous" src="https://unpkg.com/unlaunch-js-client-lib@0.0.3"></script>
 ```
+
+You can also import the client to be used in a Node.js project by running `npm install unlaunch-js-client-lib`. This is not recommended and you should use the Unlaunch [Nodejs SDK](nodejs-sdk) instead. 
 
 ## Initialization
 
@@ -81,13 +83,27 @@ if (variation === 'on') {
 ## Using the Library
 
 ### Variation
-TODO
+The `variation()` method will return the variation for the feature flag. It's method signature is:
+
+```javascript
+unlaunchclient.variation(flagKey)
+```
+
+It only takes the `flagKey` as argument. It will return the variation for the flag. This method will never throw an error. If there's an error such as no internet connection or flag not found, it will return a special string value: `control`. 
+
+### Fetching Configuration Attached to Variations
+To get configuration (key-value properties) attached to variations. It's method signature is:
+
+```javascript
+unlaunchclient.variationConfiguration(flagKey)
+```
+
+It will return a JSON object containing your configuration as key-value pairs. If there's no configuration attached, it will return an empty object.
+
 
 ### Evaluation Reason
 TODO
 
-### Fetching Configuration Attached to Variations
-TODO
 
 ### Metrics and Impressions
 Metrics and Impression events are sent automatically. These events are used for showing metrics and to generate data for the Insights Graph.
@@ -105,10 +121,17 @@ var options = {
 ```
 
 ### bootstrap 
-LocalStorage TODO
+When this option is enabled, the library will store evaluated feature flags in Browser's Local Storage after the first evaluation so that the result is immediately available the next time user visits the page. Here's how Local Storage works:
+
+1. Page is loaded and Unlaunch client is initialized.
+2. Check the Local Storage to see if we have a result already available for the given identity and attributes.
+3. If the result is not available, call the backend service to evaluate and store the result in memory.
+4. If the result is available, immediately fire the 'ready' event, marking the library as ready to use. Asynchronously, call the backend service to evaluate again and store the result in memory, if changed.
+
+You can disable Local Storage although we don't recommend it. When you disable Local Storage, each time the page loads and the Unlaunch Client is initialized, it will call the backend service to evaluate feature flag.
 
 ### evaluationReason 
-evaluationReason TODO
+Evaluation reason is used for debugging purposes. It will tell you why a certain variation for a feature flag was returned. For example, it might tell you that "off" variation was returned because the flag was diabled or that "on" was returned because userId matched targeting rules.
 
 ### offline 
 Feature flags start their journey on a developer's computer. A developer should be able to build and run their code locally even if they don't have network connectivity. To achieve this, Unlaunch JavaScript Library can be started in **offline mode**. When running in offline mode, the library will not connect to Unlaunch servers nor will it send any data to it. 
