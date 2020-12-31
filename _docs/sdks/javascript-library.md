@@ -7,24 +7,33 @@ description: This guide provides complete information about the Unlaunch JavaScr
 
 This guide provides complete information about the Unlaunch JavaScript SDK and how to integrate it in your (Browser) based applications to use feature flags.
 
-The Unlaunch JavaScript SDK provides a JavaScript API to access Unlaunch feature flags within the browser and send metrics for analytics. The library is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/javascript-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the [example project](https://github.com/unlaunch/javascript-sdk/blob/develop/example.html).
+This is a [client-side SDK](client-vs-server-side-sdks). It supports using feature flags in Browser or be used in client-side rendered apps. In other words, it provides a JavaScript API to access Unlaunch feature flags and is optimized to be used by end-users such as embedded within your HTML pages that run in your users' browsers.
+
+The JavaScript library is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/javascript-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also check out the [example project](https://github.com/unlaunch/javascript-sdk/blob/develop/example.html).
 
 ### Browser Support
 
-The Unlaunch Javascript Library can be used in all major browsers. However, some browser may not support some features that the library uses, such as ES6 Promises. You may have to use polyfill if your target users use browsers that do not support ES6 Promise.
+The Unlaunch Javascript Library can be used in all major browsers. However, some browsers may not support some features that the library uses, such as ES6 Promises. You may have to use polyfill if your target users use browsers that do not support ES6 Promise.
 
 ## Prerequisite
 
 1. You'll need an Unlaunch account. Register for a free account at: [https://app.unlaunch.io/signup](https://app.unlaunch.io/signup)
-2. You have created an Unlaunch feature flag and enabled it. You also know the [Browser / Public Key](sdk-keys). If you haven't already, please see our [Getting Started](../getting-started) tutorial.
-3. (Optional) Understand the difference between [client-side and server-side SDKs](client-vs-server-side-sdks). Unlaunch JavaScript Library is client-side and optimized to be used by end-users such as embedded within your HTML pages that run in your users' browsers.
+2. Create a new feature flag that you want to access in your HTML pages. If you are new to Unlaunch, please see our [Getting Started guide](../getting-started).
+3. Make sure you enable **client-side access** for the feature flag. You can find this option in the 'Setting' tab when you open the feature flag in the Unlaunch Console.
+4. Copy the [Browser / Public Key](sdk-keys). You can find this key for your project and environment by clicking the 'Settings' link on the sidebar. This is a public key and it is safe to embed it in your apps and distribute it to your users. You must **never** use *Server Key* or *Mobile / App Key* with this SDK. Those keys are supposed to be kept secret.
+
+<div class="d-flex justify-content-center border">
+    <img src="/assets/img/publickey.png" alt="Choose SDK keys" width="900"/>
+</div>
+
 
 ## Import the Library
 
 To load the JavaScript Library, include the following in the `<head>` or `<body>` tag of your webpage.
 
 ```html
-<script crossorigin="anonymous" src="https://unpkg.com/unlaunch-js-client-lib@0.0.3"></script>
+<script crossorigin="anonymous" src="https://unpkg.com/unlaunch-js-client-lib@0.0.7">
+</script>
 ```
 
 You can also import the client to be used in a Node.js project by running `npm install unlaunch-js-client-lib`. This is not recommended and you should use the Unlaunch [Nodejs SDK](nodejs-sdk) instead. 
@@ -36,11 +45,11 @@ Once the library is imported, you'd have to initialize the client to create a ne
 Here's a basic example showing how to initialize the client. You'd have to wrap it in the `<script>` tag.
 
 ```javascript
-
 // This is the flag (key) you want to fetch. You can fetch one or multiple flags
 let flagKeys = ['new-bkg-img-flag']; 
 
-// User identity 
+// User identity. You can also set this to 'anonymous'. 
+// See 'Anonymous Users' section below.
 let identity = 'user@yourdomain.com';
 
 // (Optional) user attributes that are used in flag evaluation (targeting rules)
@@ -49,10 +58,12 @@ let attributes = {
 };
 
 // client configuration options
+// See 'Client Configuration' section below
 var options = {
     bootstrap: 'localstorage',
-     evaluationReason: true,
+    evaluationReason: true,
     offline: false,
+    requestTimeoutInMillis: 1000
 }
 
 // initialize the client
@@ -67,7 +78,7 @@ let ulclient = ULClient.initialize(
 
 After you initialize the client, it will call Unlaunch Service to initialize the flag (or flags) that you passed, get the result and store it. On average, it takes up anywhere from 100-250 milliseconds to initialize the client. We recommended initializing the client ahead of time and not when right you need it.
 
-When the client is ready, it will emit `ready` event. When this event is emitted, you can start using the flag.
+When the client is ready, it will emit a `ready` event. When this event is emitted, you can start using the flag.
 
 ```javascript
 ulclient.on('ready', function() {
@@ -82,14 +93,14 @@ if (variation === 'on') {
 
 ## Using the Library
 
-### Variation
+### Fetching Feature Flag Variation
 The `variation()` method will return the variation for the feature flag. It's method signature is:
 
 ```javascript
 unlaunchclient.variation(flagKey)
 ```
 
-It only takes the `flagKey` as argument. It will return the variation for the flag. This method will never throw an error. If there's an error such as no internet connection or flag not found, it will return a special string value: `control`. 
+It only takes the `flagKey` as an argument. It will return the variation for the flag. This method will never throw an error. If there's an error such as no internet connection or flag not found, it will return a special string value: `control`. 
 
 ### Fetching Configuration Attached to Variations
 To get configuration (key-value properties) attached to variations. It's method signature is:
@@ -102,13 +113,27 @@ It will return a JSON object containing your configuration as key-value pairs. I
 
 
 ### Evaluation Reason
-TODO
+Evaluation reason is used for debugging purposes. It will tell you why a certain variation for a feature flag was returned. For example, it might tell you that "off" variation was returned because the flag was diabled or that "on" was returned because userId matched targeting rules. To get evaluation reason and status use `variationDetail(flag)` method. This will return a JSON object.
 
+```javascript
+{
+      value:    result,
+      status:   flagStatus,
+      reason:   evaluationReason
+}
+```
+
+For example,
+
+```javascript
+const details = ulclient.variationDetail("js-flag");
+logger.log(details.reason)
+```
 
 ### Metrics and Impressions
 Metrics and Impression events are sent automatically. These events are used for showing metrics and to generate data for the Insights Graph.
 
-## Configuration
+## Client Configuration
 
 When initializing the client, you can use `options` to configure and customize the client.
 
@@ -117,31 +142,73 @@ var options = {
      bootstrap: 'localstorage',
      evaluationReason: true,
      offline: false,
+     requestTimeoutInMillis: 1000
 }
 ```
 
-### bootstrap 
-When this option is enabled, the library will store evaluated feature flags in Browser's Local Storage after the first evaluation so that the result is immediately available the next time user visits the page. Here's how Local Storage works:
+Each option is described below.
 
-1. Page is loaded and Unlaunch client is initialized.
+#### bootstrap 
+When this option is enabled, the library will store evaluated feature flags in Browser's Local Storage after the first evaluation so that the result is immediately available the next time the user visits the page. Here's how Local Storage works:
+
+1. Page is loaded and the Unlaunch client is initialized.
 2. Check the Local Storage to see if we have a result already available for the given identity and attributes.
 3. If the result is not available, call the backend service to evaluate and store the result in memory.
 4. If the result is available, immediately fire the 'ready' event, marking the library as ready to use. Asynchronously, call the backend service to evaluate again and store the result in memory, if changed.
 
-You can disable Local Storage although we don't recommend it. When you disable Local Storage, each time the page loads and the Unlaunch Client is initialized, it will call the backend service to evaluate feature flag.
+You can disable Local Storage although we don't recommend it. When you disable Local Storage, each time the page loads and the Unlaunch Client is initialized, it will call the backend service to evaluate the feature flag.
 
-### evaluationReason 
-Evaluation reason is used for debugging purposes. It will tell you why a certain variation for a feature flag was returned. For example, it might tell you that "off" variation was returned because the flag was diabled or that "on" was returned because userId matched targeting rules.
+#### evaluationReason 
+If you set this to false, the evaluation reason will not be available.
 
-### offline 
+#### offline 
 Feature flags start their journey on a developer's computer. A developer should be able to build and run their code locally even if they don't have network connectivity. To achieve this, Unlaunch JavaScript Library can be started in **offline mode**. When running in offline mode, the library will not connect to Unlaunch servers nor will it send any data to it. 
 
 When activating offline mode, you don't need to pass in the API key. When you evaluate a feature flag in offline mode, it will always return the `control` variation. 
 
-## User Identity
-TODO
-Describe anonymous mode 
+#### requestTimeoutInMillis
+This specifies the timeout in milliseconds that the client waits for the Unlaunch servers to evaluate and return feature flag response. If the timeout is reached the the server hasn't responded, the `ready` event will fire and **control** will be returned by the `variation()` method
+
+
+## Anonymous Users
+When initializing the client, you provide the `identity` parameter. Set this to the User Id of your user, such as their email address. If the User Id is not available, set the value to `anonymous`. The library will internally generate and assign a unique identifier to the user and will keep it consistent across browser sessions.
+To define user as anonymous set identity value to 'anonymous' or ''. The library will assign a unique id to user , and the id will remain constant across browser sessions
+
+```javascript
+let identity = 'anonymous' // generate a new UUID and save it across browser sessions
+
+let ulclient = ULClient.initialize(
+    '<BROWSER_PUBLIC_KEY>', 
+    flagKeys, 
+    identity, 
+    attributes, 
+    options
+);
+```
 
 ## Attributes
-TODO
+You can attributes that are used in Targeting Rules to calculate feature flag variation. You can pass attributes as a simple key-value JSON object when initializing the client.
 
+```javascript
+
+// Set user's country to US so it can be used as a condition
+// in Targeting Rules
+let attributes = {
+  "country": "US"
+};
+
+let ulclient = ULClient.initialize(
+    '<BROWSER_PUBLIC_KEY>', 
+    flagKeys, 
+    identity, 
+    attributes, 
+    options
+);
+```
+
+## Logging
+To come. 
+
+## More Questions?
+
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **unlaunch@gmail.com**.

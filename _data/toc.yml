@@ -17,16 +17,25 @@
     - title: "SDKs"
       url: "docs/sdks"
       children:
-        - title: Client-side vs Server-side
+        - title: Client vs Server-side
           url: "docs/sdks/client-vs-server-side-sdks"
         - title: SDK Keys
           url: "docs/sdks/sdk-keys"
-        - title: Metrics - Impressions
-          url: "docs/sdks/metrics-impressions"
-        - title: Metrics - Variation Counts
-          url: "docs/sdks/metrics-variationcounts"
         - title: Java SDK
           url: "docs/sdks/java-sdk"
+        - title: JavaScript Library
+          url: "docs/sdks/javascript-library"
+        - title: Node.js SDK
+          url: "docs/sdks/nodejs-sdk"
+        - title: Go SDK
+          url: "docs/sdks/go-sdk"
+        - title: .NET SDK
+          url: "docs/sdks/dotnet-sdk"
+        - title: Metrics - Impressions
+          url: "docs/sdks/metrics-impressions"
+        - title: Metrics - Insights
+          url: "docs/sdks/metrics-variationcounts"
+        
     - title: "Integrations"
       url: "docs/integrations"
       children:

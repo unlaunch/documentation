@@ -86,11 +86,13 @@ Follow SDK integration guides to integrate SDK in your application:
 **Server-side SDKs:**
 
 - [Java](sdks/java-sdk) (Also see below)
-- Node.js (Server-side)
+- [Node.js](sdks/nodejs-sdk)
+- [.NET](sdks/dotnet-sdk)
+- [Go](sdks/go-sdk)
 
 **Client-side SDKs:**
 
-- Javascript 
+- [Javascript Library](sdks/javascript-library) 
 - React
 
 ### (Optional) Integration Instructions for the Java SDK
