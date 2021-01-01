@@ -4,18 +4,32 @@ title: Unlaunch Documentation
 permalink: /
 ---
 
-# Unlaunch Documentation
+# Welcome to Unlaunch Documentation
 
-Welcome to Unlaunch Docs. Here you'll find user guides, developer guides, API references, tutorials, and more. If you don't have an *Unlaunch account*, please [create one for free](https://app.unlaunch.io).
- 
-## What is Unlaunch?
+Learn how you and your team can use Unlaunch to release new features to your users safely and confidently. Unlaunch is a feature flag and configuration management solution designed for both small teams and large enterprises. In thos section, you'll fine developer guides, API references, tutorials, and more. If you don't already have an *Unlaunch account*, please [create one for free](https://app.unlaunch.io).
 
-Feature flags are a powerful and modern way to allow teams to launch new features safely and modify behavior without pushing any code changes. Unlaunch is a complete feature flag and configuration management solution designed for both small and very large teams. Continue Reading.
+## New to Feature Flags?
 
-## Your First Feature Flag
+- [Blog: What are feature flags?](https://blog.unlaunch.io/2020-08-01-feature-flags/)
+- [Getting Started](docs/getting-started)
 
-Need to Unlaunch? Get started in minutes with our [Getting Started](docs/getting-started) page.
 
 ## SDKs
 
-To access feature flags from your applications, you'll need to use one of Unlaunch SDKs. To learn more, visit the [SDK page](docs/sdks).
+To access feature flags from your applications, you'll need to use one of Unlaunch SDKs. 
+
+- [Difference between server-side and client-side SDKs](docs/sdks/client-vs-server-side-sdks)
+- [How to get API Keys to use in SDKs](docs/sdks/sdk-keys)
+
+### Server-side SDKs
+- [Java SDK](docs/sdks/java-sdk)
+- [Node.js SDK](docs/sdks/nodejs-sdk)
+- [.NET SDK](docs/sdks/dotnet-sdk)
+- [Go](docs/sdks/go-sdk)
+
+### Client-side SDKs
+- [JavaScript Library](docs/sdks/javascript-library)
+- React
+
+## Integrations
+- [Slack](docs/integrations/slack)
