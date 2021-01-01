@@ -72,7 +72,7 @@ Each Unlaunch environment has a unique set of SDK keys for security and performa
 For this tutorial, we'll use the *Production* environment. Follow the steps in the diagram below to choose an SDK key.
 
 <div class="d-flex justify-content-center border">
-    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys" width="900"/>
+    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys"/>
 </div>
 
 <hr>

@@ -23,9 +23,8 @@ The Unlaunch Javascript Library can be used in all major browsers. However, some
 4. Copy the [Browser / Public Key](sdk-keys). You can find this key for your project and environment by clicking the 'Settings' link on the sidebar. This is a public key and it is safe to embed it in your apps and distribute it to your users. You must **never** use *Server Key* or *Mobile / App Key* with this SDK. Those keys are supposed to be kept secret.
 
 <div class="d-flex justify-content-center border">
-    <img src="/assets/img/publickey.png" alt="Choose SDK keys" width="900"/>
+    <img src="/assets/img/publickey.png" alt="Choose SDK keys"/>
 </div>
-
 
 ## Import the Library
 
