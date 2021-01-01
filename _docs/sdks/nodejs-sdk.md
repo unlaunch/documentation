@@ -127,7 +127,7 @@ const colorHexCode = feature.config.login_button_color;
 renderButton(colorHexCode);
 ```
 
-<div class="d-flex justify-content-center">
+<div class="justify-content-center">
     <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="600"/>
 </div>
 

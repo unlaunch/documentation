@@ -23,8 +23,8 @@ For enhanced security, *each environment* gets **three** different SDK keys belo
 2. On the right sidebar, click on **Settings**
 3. In the *Projects* tab, you should see all your projects and SDK keys for each environment.
 
-<div class="d-flex justify-content-center border">
-    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys" width="900"/>
+<div class="justify-content-center border">
+    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys"/>
 </div>
 
 ### Server Keys
@@ -56,12 +56,12 @@ Each *environment* in an Unlaunch *project* has three different SDK keys. You mu
 
 | SDK          | Key Type             | Examples                                  |
 |--------------|----------------------|-------------------------------------------|
-| Java         | SDK Key              | SpringBoot Backend Service, etc.          |
+| Java         | Server Key           | SpringBoot Backend Service, etc.          |
 | Java         | Mobile / App Key     | iPhone apps, Desktop applications, etc.   |
 | Javascript   | Browser / Public Key | Javascript code that runs in the browser. |
 | React        | Browser / Public Key |                                           |
 | Angular      | Browser / Public Key |                                           |
-| Node.js      | SDK Key              | Express.js based servers, gateways, etc.  |
+| Node.js      | Server Key           | Express.js based servers, gateways, etc.  |
 | Node.js      | Browser / Public Key | Client side based Node.js applications    |
 | Android      | Mobile / App Key     |                                           |
 | iOS          | Mobile / App Key     |                                           |

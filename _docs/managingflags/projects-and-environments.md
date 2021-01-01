@@ -34,7 +34,7 @@ When you create a feature flag, it is created on all environments within that pr
 
 You can switch environments using the environments **dropdown** in the sidebar of [Unlaunch Console](https://app.unlaunch.io/). Each environment gets assigned a different color to help you easily distinguish and prevent mistakes when managing flags through Console.
 
-<div class="d-flex justify-content-center">
+<div class="justify-content-center">
     <img src="/assets/img/environment-switcher.png" alt="environment switcher dropdown" width="220"/>
 </div>
 
@@ -46,6 +46,6 @@ You can create, edit and delete environments from the *Projects* tab in the [Set
 
 Here's a diagram to show you how it all fits together.
 
-<div class="d-flex justify-content-center">
+<div class="justify-content-center">
     <img src="/assets/img/o-p-e-hierarchy.png" alt="Organization, Project, Environments hierarchy diagram" width="900"/>
 </div>
