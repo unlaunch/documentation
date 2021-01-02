@@ -11,8 +11,10 @@ This is a [client-side SDK](client-vs-server-side-sdks). It supports using featu
 
 The JavaScript library is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/javascript-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also check out the [example project](https://github.com/unlaunch/javascript-sdk/blob/develop/example.html).
 
-### Browser Support
+### Compatibility
+The Unlaunch JavaScript library doesn't require or depend on any specific JavaScript framework. You can use it with your favorite framework like Angular. If you want to integrate with **React**, we have a separate React SDK available.
 
+#### Browser Support
 The Unlaunch Javascript Library can be used in all major browsers. However, some browsers may not support some features that the library uses, such as ES6 Promises. You may have to use polyfill if your target users use browsers that do not support ES6 Promise.
 
 ## Prerequisite
@@ -28,14 +30,28 @@ The Unlaunch Javascript Library can be used in all major browsers. However, some
 
 ## Import the Library
 
+Depending on whether you want to integrate the JavaScript library in your HTML pages or the JavaScript app, you can use on the following:
+
+### Embed directly in your HTML
 To load the JavaScript Library, include the following in the `<head>` or `<body>` tag of your webpage.
 
-```html
+```javascript
 <script crossorigin="anonymous" src="https://unpkg.com/unlaunch-js-client-lib@0.0.7">
 </script>
 ```
 
-You can also import the client to be used in a Node.js project by running `npm install unlaunch-js-client-lib`. This is not recommended and you should use the Unlaunch [Nodejs SDK](nodejs-sdk) instead. 
+### Integrate with a JavaScript framework
+Or using, `npm install`:
+
+```
+npm i unlaunch-js-client-lib
+```
+
+and then,
+
+```javascript
+import * as ULClient from "unlaunch-js-client-lib";
+```
 
 ## Initialization
 
@@ -138,10 +154,10 @@ When initializing the client, you can use `options` to configure and customize t
 
 ```javascript
 var options = {
-     bootstrap: 'localstorage',
-     evaluationReason: true,
-     offline: false,
-     requestTimeoutInMillis: 1000
+     bootstrap: 'localstorage',    // Use local storage to store results
+     evaluationReason: true,       // Return evaluation reasons
+     offline: false,               // Run in offline mode. All calls to variation() will return control
+     requestTimeoutInMillis: 1000  // HTTP timeout
 }
 ```
 
