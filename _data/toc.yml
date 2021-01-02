@@ -10,10 +10,12 @@
           url: "docs/managingflags/projects-and-environments"
         - title: Projects & Environments
           url: "docs/managingflags/projects-and-environments"
-        - title: Access Control
-          url: "docs/managingflags/access-control"
+        - title: Attributes
+          url: "docs/managingflags/attributes"
         - title: Live Tail
           url: "docs/managingflags/livetail"
+        - title: Debugger
+          url: "docs/managingflags/debugger"
     - title: "SDKs"
       url: "docs/sdks"
       children:
@@ -35,7 +37,16 @@
           url: "docs/sdks/metrics-impressions"
         - title: Metrics - Insights
           url: "docs/sdks/metrics-variationcounts"
-        
+    - title: "Managing Users"
+      url: "docs/managingusers"
+      children:
+        - title: Adding & Managing Users
+          url: "docs/managingusers/team"
+        - title: Access Control
+          url: "docs/managingusers/access-control"
+        - title: Audit Log
+          url: "docs/managingusers/audit-log"
+      
     - title: "Integrations"
       url: "docs/integrations"
       children:

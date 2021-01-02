@@ -35,8 +35,11 @@ When you create a feature flag, it is created on all environments within that pr
 You can switch environments using the environments **dropdown** in the sidebar of [Unlaunch Console](https://app.unlaunch.io/). Each environment gets assigned a different color to help you easily distinguish and prevent mistakes when managing flags through Console.
 
 <div class="justify-content-center">
-    <img src="/assets/img/environment-switcher.png" alt="environment switcher dropdown" width="220"/>
+    <img src="/assets/img/environment-switcher.png" alt="environment switcher dropdown"/>
 </div>
+
+#### Production vs Non-Production environments
+The Production environment is **special**. Unlike other environments, it cannot be deleted. In other words, all projects must have at least the _Production_ environment. Unlaunch SDKs will try and use sensisble defaults for production versus non-production environments. We refer to all environments besides production as **non-production** environments. 
 
 ### Create, Edit & Delete Environments
 
