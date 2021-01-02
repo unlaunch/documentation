@@ -4,18 +4,18 @@
     - title: "Getting Started"
       url: "docs/getting-started"
     - title: "Managing Flags"
-      url: "docs/managingflags"
+      url: "docs/features"
       children:
         - title: Console
-          url: "docs/managingflags/projects-and-environments"
+          url: "docs/features/projects-and-environments"
         - title: Projects & Environments
-          url: "docs/managingflags/projects-and-environments"
+          url: "docs/features/projects-and-environments"
         - title: Attributes
-          url: "docs/managingflags/attributes"
+          url: "docs/features/attributes"
         - title: Live Tail
-          url: "docs/managingflags/livetail"
+          url: "docs/features/livetail"
         - title: Debugger
-          url: "docs/managingflags/debugger"
+          url: "docs/features/debugger"
     - title: "SDKs"
       url: "docs/sdks"
       children:
@@ -38,14 +38,14 @@
         - title: Metrics - Insights
           url: "docs/sdks/metrics-variationcounts"
     - title: "Managing Users"
-      url: "docs/managingusers"
+      url: "docs/users"
       children:
         - title: Adding & Managing Users
-          url: "docs/managingusers/team"
+          url: "docs/users/team"
         - title: Access Control
-          url: "docs/managingusers/access-control"
+          url: "docs/users/access-control"
         - title: Audit Log
-          url: "docs/managingusers/audit-log"
+          url: "docs/users/audit-log"
       
     - title: "Integrations"
       url: "docs/integrations"

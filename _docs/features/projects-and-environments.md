@@ -13,7 +13,7 @@ Unlaunch projects allow you to separate feature flags by applications or product
 
 When you register a new account or Organization, you are asked to create your first project. Projects are cheap. We encourage creating a new project for each GitHub repository. You can also create multiple projects for each repository by teams. For example if you have a monolith, you could create multiple projects, for Frontend, Backend, Database, and Core teams.
 
-Project Admins control who gets access to their projects. For more information, see [Access Control](access-control).
+Project Admins control who gets access to their projects. For more information, see [Access Control](../users/access-control).
 
 ### Create, Edit & Delete Projects
 

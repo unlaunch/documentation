@@ -12,10 +12,10 @@ For more information on what feature flags are, please read this [blog post](htt
 ### General Topics 
 - Unlaunch Console
 - [Projects and Environments](projects-and-environments)
-- [Access Control](access-control)
+- [Access Control](../users/access-control)
 - Targeting Users
 - Feature Flag Settings
-- SDK Keys
+- [SDK Keys](../sdks/sdk-keys)
 - [Live Tail](livetail)
 
 Would you like to see another question type, or another kind of extra? Please

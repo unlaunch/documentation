@@ -15,7 +15,7 @@ Let's get started.
 
 To get started, you must sign up for Unlaunch. If you haven't done so already, please [visit our registration page](https://app.unlaunch.io/signup) to create a new account for free. 
 
-To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**. Each projects gets two environments by default: *Production* and *Test*. For this tutorial, you will use the Production environment. To learn more about projects and environments, please see [this guide](managingflags/projects-and-environments).
+To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**. Each projects gets two environments by default: *Production* and *Test*. For this tutorial, you will use the Production environment. To learn more about projects and environments, please see [this guide](features/projects-and-environments).
 
 #### Main Concepts
 

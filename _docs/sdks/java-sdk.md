@@ -144,7 +144,7 @@ renderButton(colorHexCode);
 ```
 
 <div class="justify-content-center">
-    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
+    <img src="/assets/img/features_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
 </div>
 
 ###### Evaluation Reason
