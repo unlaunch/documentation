@@ -14,6 +14,8 @@ The JavaScript library is *open source*. SDK source code is available on <a href
 ### Compatibility
 The Unlaunch JavaScript library doesn't require or depend on any specific JavaScript framework. You can use it with your favorite framework like Angular. If you want to integrate with **React**, we have a separate React SDK available.
 
+[Angular example on GitHub](https://github.com/unlaunch/hello-angular)
+
 #### Browser Support
 The Unlaunch Javascript Library can be used in all major browsers. However, some browsers may not support some features that the library uses, such as ES6 Promises. You may have to use polyfill if your target users use browsers that do not support ES6 Promise.
 
