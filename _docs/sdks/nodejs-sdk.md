@@ -113,7 +113,6 @@ if (variation == "on")) {
 } else {
     // default code when feature isn't found or evaluated
 }
-
 ```
 
 ##### `feature(flagKey, identity)`
@@ -128,7 +127,7 @@ renderButton(colorHexCode);
 ```
 
 <div class="justify-content-center">
-    <img src="/assets/img/features_flag_config.png" alt="Dynamic Configuration in Unlaunch" width="600"/>
+    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
 </div>
 
 ###### Evaluation Reason

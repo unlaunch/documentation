@@ -30,13 +30,13 @@ For Maven,
 <dependency>
     <groupId>io.unlaunch.sdk</groupId>
     <artifactId>unlaunch-java-sdk</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
 For Gradle,
 ```
-compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.2'
+compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.4'
 ```
 
 For the latest version of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
@@ -144,7 +144,7 @@ renderButton(colorHexCode);
 ```
 
 <div class="justify-content-center">
-    <img src="/assets/img/features_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
+    <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
 </div>
 
 ###### Evaluation Reason
