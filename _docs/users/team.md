@@ -3,78 +3,49 @@ title: Adding Team Members to your Project
 description: This page will help you understand how to invite team members to your Unlaunch project and give them the right access.
 ---
 
-# Overview
-Unlaunch has a feature to *Add Members* to your project. You can add members who are existing in Unlaunch application **OR** You can invite a new member in your Unlaunch project.
+# Members Overview
 
-## Add Existing Unlaunch User
-First you need to go to Settings menu > Teams tab. Click on *Add Member* button  bind with each project. Please see attached screenshots.
+This page will help you understand how to add and remove members to your Unlaunch project and assign them appropriate roles. To understand roles and permissions, please take a look at this [guide](access-control).
+
+To add, remove and change members, you **must** have admin privileges.
+
+To invite a new user, click on **'Settings'** in the right sidebar. Once the page loads, cick on the **'Teams'** tab.
 
 <div class="justify-content-center">
-    <img src="/assets/img/add-member.png" alt="add member button"/>
+    <img src="/assets/img/add-member-1.png" class="border" alt="add member button"/>
 </div>
 
-Then invite member popup displayed where you need to enter email and set user role on selected project.
+## Add New User
+On the Teams tab, click "Add Member" button.
 
-<div class="justify-content-center">
-    <img src="/assets/img/invite-member-popup.png" alt="invite member popup"/>
+<div class="justify-content-center pb-3">
+    <img src="/assets/img/add-member-2.png" class="border" alt="add member button"/>
 </div>
 
-On clicking Add button confirmation dialog box appears.
+The next screen will ask you to enter the email address of the user who want to invite and the [role](access-control) you want to assign. 
 
-<div class="justify-content-center">
-    <img src="/assets/img/confirmation-dialog.png" alt="confirmation popup"/>
+<div class="justify-content-center pb-3">
+    <img src="/assets/img/add-member-3.png" class="border" alt="invite member popup"/>
 </div>
 
-Now member is added in your project as shown below.
+If the user you are adding is already a part of the organization, they will be added to the project immediately. Otherwise, they'll receive an email invite to create Unlaunch account and join the project. When they accept the invite, they will be added to the project and will assume the same role that you assigned when inviting them.
 
-<div class="justify-content-center">
-    <img src="/assets/img/existing-user-added.png" alt="existing member added"/>
-</div>
+## Change Role / Access 
+If you have Admin privileges, you can change a member's role by clicking the 'Edit' button beside their email address. 
 
-## Add a new User
-
-When you are adding a new member ( not existing in Unlaunch app ) in your Unlaunch project. An invitation email is sent to the user and his status is set to *Pending Request*. When invited user accept the invitation then that user is added in your project with the same role set at the time of invitation as show below.
-
-<div class="justify-content-center">
-    <img src="/assets/img/add-new-user.png" alt="add new member"/>
-</div>
-
-<div class="justify-content-center">
-    <img src="/assets/img/invite-accepted-screen.png" alt="invite accepted screen"/>
-</div>
-
-<div class="justify-content-center">
-    <img src="/assets/img/new-user-added.png" alt="new user added"/>
+<div class="justify-content-center pb-3">
+    <img src="/assets/img/existing-user-added.png" class="border" alt="edit role button"/>
 </div>	
 
-## Edit Member Role
-You can edit role on clicking edit button associated with each member as shown below. For more details on Role based Access Control please visit [access-control](https://docs.unlaunch.io/docs/users/access-control)
-
-<div class="justify-content-center">
-    <img src="/assets/img/existing-user-added.png" alt="edit role button"/>
-</div>	
-
-<div class="justify-content-center">
-    <img src="/assets/img/edit-member-role.png" alt="edit member role"/>
-</div>	
-
-<div class="justify-content-center">
-    <img src="/assets/img/role-edited.png" alt="role edited"/>
-</div>	
+For more information on Role based Access Control please see [access control guide](access-control)
 
 ## Remove Member
-Member can be removed from your Unlaunch project who is no longer part of your project team.
-Please see screenshots here.
+You can also remove users using the same page. To remove a user, click on "Remove" button beside their email address. 
 
-<div class="justify-content-center">
+<div class="justify-content-center pb-3">
     <img src="/assets/img/remove-member.png" alt="remove member"/>
 </div>	
 
-<div class="justify-content-center">
-    <img src="/assets/img/remove-popup.png" alt="remove popup"/>
-</div>	
+## More Questions?
 
-<div class="justify-content-center">
-    <img src="/assets/img/member-removed.png" alt="member removed"/>
-</div>	
-
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **unlaunch@gmail.com**.

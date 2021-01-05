@@ -13,7 +13,11 @@ You can edit the files directly in GitHub. Please use `development` branch. It w
 
 ### How to run locally
 
-Depending on how you installed Jekyll
+1. Edit _config.yml to uncomment
+
+baseurl: "" # for local
+
+2. Depending on how you installed Jekyll
 ```
 jekyll serve
 # or
