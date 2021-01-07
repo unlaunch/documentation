@@ -30,15 +30,15 @@ For example, you create a flag with two variations: variation 1 is *on* and vari
 
 ### Default Rule
 
-When you create a feature flag, the first variation defined is set as a default rule. A default rule is a variation that is served when your feature flag is [enabled]((enable-disable-flags)) and no other targeting rule is matches when evaluating the feature flag.
+When you create a feature flag, the first variation defined is set as a default rule. A default rule is a variation that is served when your feature flag is [enabled](enable-disable-flags) and no other targeting rule is matched when evaluating the feature flag.
 
-The default rule can be set as *on*, *off* or some percentage of *on* and some percentage of *off* variation. It is referred to as **Percentage Rollout**
+The default rule can be set to serve a variation or do a percentage based split. It is referred to as **Percentage or Gradual Rollout**. 
 
 <div class="justify-content-center">
     <img src="/assets/img/default-rule.png" alt="Default Rule"/>
 </div> 
 
-Please note that any changes to flag rules or variations after the flag has been created only applies to the current environment (for safety reasons.) You must make changes manually to all other environments.
+Please note that any changes to flag targeting rules or variations after the flag has been created only applies to the current environment (for safety reasons.) You must make changes manually to all other environments.
 
 
 
