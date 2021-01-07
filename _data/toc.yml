@@ -10,12 +10,20 @@
           url: "docs/features/projects-and-environments"
         - title: Projects & Environments
           url: "docs/features/projects-and-environments"
+        - title: Flag Variations
+          url: "docs/features/flagvariations"
         - title: Attributes
           url: "docs/features/attributes"
         - title: Live Tail
           url: "docs/features/livetail"
         - title: Debugger
           url: "docs/features/debugger"
+        - title: Enable/Disable Flags 
+          url: "docs/features/enable-disable-flags"
+        - title: Archive/Delete Flags 
+          url: "docs/features/archive-delete-flags"
+        - title: Activity 
+          url: "docs/features/audit-log"
     - title: "SDKs"
       url: "docs/sdks"
       children:

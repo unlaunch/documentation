@@ -3,49 +3,34 @@ title: Managing Flag Variations
 description: This page will help you understand what flag variations are, how to create and manage them.
 ---
 
-# Flag variations
+# Flag Variations
 
-## Overview
+This page describes how to use a flag **Variations** tab to add and alter your feature flag's variations.
 
-This page describes how to use a flag's **Variations** tab to add and alter your feature flag's variations.
+## What are Variations?
 
-To add or update variations, click on **‘Feature Flags’** in the right sidebar. Once the page loads, click on the **‘Variations’** tab.
+A feature flag can have two or more variations. Variations determine the action to take or the path to choose in your applications. For example, suppose you create a new feature flag with two *variations*: *on* and *off*. In your application, you'd define the logic to handle both these variations e.g. when the variation is *on*, show the feature. Otherwise, don't show the feature. When you **evaluate** a feature flag using one of Unlaunch SDKs, it returns a *variation* based on the evaluation logic and input (user identity and attributes.)
 
-<div class="justify-content-center">
-    <img src="/assets/img/flag-variations.png" alt="Flag Variations"/>
-</div> 
-
-Variations define the return type when you evaluate the flag in your code using SDKs.
-
-## Managing flag variations
-
-In the flag's Variations tab, you can add or edit variations of existing flags.
+## Managing Feature Flag Variations
+To add or update variations, click on **Feature Flags** in the right sidebar. Once the page loads, click on the **Variations** tab. This tab displays all variations of the selected flag. You can add or edit variations of existing flags. To Add new variations, click on the "Add Variation" button at the bottom.
 
 <div class="justify-content-center">
     <img src="/assets/img/update-variation.png" alt="Add Flag Variation"/>
 </div>
 
-The Variations tab displays all variations of the selected flag.
+### Default Variation
 
-## Default flag variations
+When you create a feature flag, the last variation is set as a default variation. A flag's default variation is served when your feature flag is [disabled](enable-disable-flags).
 
-When you create a feature flag, the last variation is set as a default variation. A flag's default variation is served when your feature flag is disabled.
-
-For example, a  flag could have two variations, variation 1 is *on* and variation 2 is *off*. Then every time *off* variation is set as default variation.
+For example, you create a flag with two variations: variation 1 is *on* and variation 2 is *off*. Then by default, variation 2 (*off*) will be set as the default variation. You can easily change the variation through the **Targeting** tab.
 
 <div class="justify-content-center">
     <img src="/assets/img/off-variation.png" alt="Default Variation"/>
 </div> 
 
-The default variation options are on the flag's **Targeting** tab.
+### Default Rule
 
-Changing Default Variation
-
-On updating default variation, it impacts only on the current environment. Other environments have the same standard default variations set at the time of feature flag creation.
-
-## Default Rule
-
-When you create a feature flag, the first variation defined is set as a default rule. A default rule is a variation that is served when your feature flag is enabled and no rule is matched with your flag's rule defined while evaluating.
+When you create a feature flag, the first variation defined is set as a default rule. A default rule is a variation that is served when your feature flag is [enabled]((enable-disable-flags)) and no other targeting rule is matches when evaluating the feature flag.
 
 The default rule can be set as *on*, *off* or some percentage of *on* and some percentage of *off* variation. It is referred to as **Percentage Rollout**
 
@@ -53,13 +38,7 @@ The default rule can be set as *on*, *off* or some percentage of *on* and some p
     <img src="/assets/img/default-rule.png" alt="Default Rule"/>
 </div> 
 
-The default rule options are on the flag's **Targeting** tab.
+Please note that any changes to flag rules or variations after the flag has been created only applies to the current environment (for safety reasons.) You must make changes manually to all other environments.
 
-Changing the Default Rule
-
-Default rule updating will impact only on the current environment. No change reflects on other environments.
- 
-
-`Default variations and Default rule are designated automatically every time you create a feature flag. You can use the default variation and default rule or change them. When you change, it will impact only on the selected environment of your project`.
 
 
