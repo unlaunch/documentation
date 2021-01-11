@@ -7,27 +7,25 @@ description: This page will help you understand what how to use targeting rules 
 
 ## Overview
 
-This page describes how to utilize a flag's **Targeting** tab to control which users see a variation of a feature flag. Configuring user's identity as users ids, email addresses, or anything that can uniquely identify the user.
+This page describes how to utilize **targeting rules** to control [variations](flagvariations) to want to serve to your users. 
 
-Targeting users will override any targeting rules for the user included in the allow-list of any variation of a feature flag. You can add a list of users in a certain variation, this list is referred to as allow-list.  
+It is **important** to note that that targeting rules only apply to [enabled](enable-disable-flags) feature flags. A *disabled* feature flag will allow you to attach targeting rules, but it will always serve the **Default Variation**.   
 
-## Assigning Users To A Variation
+## Targeting Users by Id
 
-Under the "Target users" section of the targeting, the tab permits you to assign individual users to a particular flag variation.
+Using Unlaunch, you can target users by their *IDs*. User Ids are passed as `identity` field in SDKs e.g. see [getVariation() in Java](../sdks/java-sdk#evaluating-feature-flags--getting-variations). To target users, click on **Feature Flags** in the sidebar. Then click on your feature flag. You can specify users IDs you want to target under **Targeting** tab, in the **Target Users** section.
 
-We recommend using only a small number of individual users in targeting the user. Targeting more than 10,000 users individually may cause performance degradation because the SDK takes longer to initialize when the targeting rules payload is large. 
+In the screenshoot below, we have specified that user IDs "123", "345", and "1234" will get the "on" variation. Targeting users by IDs take *precedence* over all other rules and if there's a match, other rules will skipped. If there isn't a match, the evaluation continues until it finds another matching rule.
 
-In the below screenshot, we can see which users are seeing the *on* variation of the feature flag. This means *on* variation is served to users added in the allow-list.
-
-<div class="justify-content-center">
+<div class="justify-content-center border">
     <img src="/assets/img/target-user.png" alt="Target Users"/>
 </div> 
 
-## Removing Targeted Users
+We recommend keeping the target list of users to a *small* number. Such as your team, QA engineers or beta users. Targeting more than a few thousands users may cause performance degradation and your SDKs will take longer to initialize.
 
-Targeting users can be removed from the flag's targeting users that are not included in the user list any longer.
+### Removing Targeted Users
 
-To remove targeted users, click on **Feature Flags**. Once the page loads, click on the **Targeting** tab. Then click the **x** next to their name to remove them.
+You can also remove users from targeting. Follow the steps shown in the image below. 
 
 <div class="justify-content-center">
     <img src="/assets/img/target-user-remove.png" alt="Remove Target Users"/>
@@ -35,18 +33,17 @@ To remove targeted users, click on **Feature Flags**. Once the page loads, click
 
 ## Targeting Rules
 
-Each flag can have targeting rules, that can specify which variation is served to which users. Target a specific group of users based on some attributes.
+Feature flags can have targeting rules, that allows you to control variation served on the basis of certain **[attributes](attributes)** and **conditions**.
 
-For example, "a new message package will only be used by 10% of users or for a specific region". This rule serves the appropriate users and shows them a "new package".
+Targeting Rules consists of three parts:
 
-Targeting Rule consists of three parts:
+- an **attribute**. E.g. type of user, their registration date, whether they are registered or not. Attributes have types such as Boolean, String, and more.
+- an **operator**, which evaluates the value you pass when evaluating feature flag with the value your provide below.
+- a **value** to compare against value you'll pass at the time of evaluation.
 
-- an **attribute**, which defines the scope of the flag's impact, such as only impacting an email address
-- an **operator**, which evaluates the user value with the defined feature flag value.
-- a **user value**, which identifies a user or resource by a value you specify, such as `yahoo.com`.  
+Please see examples below.
 
 ### Attributes
----
 
 **String**
 Unlaunch support String type. The following operators are supported for String:

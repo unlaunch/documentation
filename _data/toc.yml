@@ -6,7 +6,7 @@
     - title: "Managing Flags"
       url: "docs/features"
       children:
-        - title: Console
+        - title: Unlaunch Console
           url: "docs/features/projects-and-environments"
         - title: Projects & Environments
           url: "docs/features/projects-and-environments"
@@ -14,6 +14,8 @@
           url: "docs/features/flagvariations"
         - title: Attributes
           url: "docs/features/attributes"
+        - title: Targeting Rules
+          url: "docs/features/targetingrules"
         - title: Live Tail
           url: "docs/features/livetail"
         - title: Debugger
