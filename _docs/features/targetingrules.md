@@ -43,68 +43,9 @@ Targeting Rules consists of three parts:
 
 Please see examples below.
 
-### Attributes and Associated Operators
+### Attributes and Associated Operators 
 
-#### String
-For the *String* data type, the following operators are supported. 
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-|Starts With, Does not Starts With | Prefix String Match|
-|Ends With, Does not Ends With | Suffix String Match|
-|Contains, Does not Contains | Value match in list|
-
-#### Number
-Number data type represents both integers and floating point numbers. When comparing numbers, the SDK will convert values you pass at the time of evaluation to the largest floating point type (e.g. Double in Java, float64 in Go) before comparison.
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-|Greater Than | Numeric comparison |
-|Greater Than or Equal | Numeric comparison |
-|Less Than | Numeric comparison |
-|Less Than or Equal | Numeric comparison |
-
-#### Boolean 
-For the *Boolean* datatype, the following operators are supported. 
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-
-#### DateTime 
-DateTime data type represents a date and time. The following operators are supported. All date and time comparisons are done in UTC. When you provide a date and time value in the Unlaunch Console, it is assumed to be in UTC.
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-|Greater Than | date comparison |
-|Greater Than or Equal | date comparison |
-|Less Than | date comparison |
-|Less Than or Equal | date comparison |
-
-#### Date
-Date data type represents a date (without time). The following operators are supported. All date comparisons are done in UTC.
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-|Greater Than | date comparison |
-|Greater Than or Equal | date comparison |
-|Less Than | date comparison |
-|Less Than or Equal | date comparison |
-
-
-#### Set
-A *Set* data type is a collection of elements. The following operators are supported. All set operators assume individual elements of the set are strings. For example, [1] == [1] but [1] != [1.0] because `1 != 1.0`
-
-| Operators | Meanings |
-|--|--|
-|Equals, Not Equal | Exact Match|
-|Is Part of, Is not Part of | Subset of a set |
-|Has Any of, Does not Have Any of | Matches any set value|
-|Has All of, Does not Have All of | Matches set |
+Unlaunch supports different attribute type and their associated operators to perform operations on user values. To check out, see [**attribute types and their operators**](attributes-operators)
 
 ### Example 1: Email Ending With yahoo.com
 

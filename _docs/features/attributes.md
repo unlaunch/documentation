@@ -87,7 +87,7 @@ This will print:
 
 ## Attribute Types
 
-Unlaunch supports the following attribute types:
+Unlaunch supports the following attribute types. To read more on [**attributes and associated operators**](attributes-operators)
 
 - Boolean
 - String
