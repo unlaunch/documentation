@@ -14,7 +14,7 @@
           url: "docs/features/flagvariations"
         - title: Attributes
           url: "docs/features/attributes"
- 	- title: Attributes & Associated Operators
+        - title: Attributes & Associated Operators
           url: "docs/features/attributes-operators"
         - title: Targeting Rules
           url: "docs/features/targetingrules"
