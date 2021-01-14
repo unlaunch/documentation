@@ -85,7 +85,7 @@ if (variation.equals("on")) {
 }
 ```
 
-### Evaluating Feature Flags & Getting Variations
+### Evaluating Feature Flags & Getting Vari	ations
 
 The Unlaunch Java SDK provides a few different ways to evaluate feature flags and to get variations. 
 
@@ -162,6 +162,36 @@ logger.debug("{} variation was returned because: {}", feature.getVariation(), re
 ##### `getFeature(flagKey, identity, attributes)`
 
 Just like the method above but uses attributes that are passed in to evaluate targeting rules.
+
+### Attribute syntax
+
+The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules), the attributes are passed as Set or List in *getVariation* method of SDK. 
+
+In the example below, the attributes are provided as a Set in *getVariation* method. These attributes are compared and evaluated against the attributes used in the targeting rule defined on the web to decide whether to show the *on* or *off* variation to a user.
+
+The *getVariation* method supports six types of attributes: string, number, boolean, date, DateTime, and set. The [attributes](https://docs.unlaunch.io/docs/features/attributes) and syntax with [operators](https://docs.unlaunch.io/docs/features/attributes-operators) are defined in SDK as: 
+
+        UnlaunchClient client = UnlaunchClient.create(SDK_KEY);
+
+        Set<String> userSet = new HashSet<>();
+        userSet.add("1");
+        userSet.add("2");
+        
+        String variation = client.getVariation(
+                FEATURE_FLAG_KEY,
+                UUID.randomUUID().toString(),
+                UnlaunchAttribute.newBoolean("registered", true),
+                UnlaunchAttribute.newString("device", "ABCS"),
+                UnlaunchAttribute.newNumber("age", 30),
+                UnlaunchAttribute.newDate("start_date", System.currentTimeMillis()),
+                UnlaunchAttribute.newDateTime("expiry_date", System.currentTimeMillis()),
+                UnlaunchAttribute.newSet("user_ids", userSet));
+
+        // Print variation
+        LOG.info("[DEMO] getVariation() returned {}", variation);
+
+        // shutdown the client to flush any events or metrics
+        client.shutdown();
 
 ### awaitUntilReady
 
