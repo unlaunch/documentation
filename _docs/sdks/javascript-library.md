@@ -77,10 +77,11 @@ let attributes = {
 // client configuration options
 // See 'Client Configuration' section below
 var options = {
-    bootstrap: 'localstorage',
-    evaluationReason: true,
+    localStorage: true,
+    evaluationReason: false,
     offline: false,
-    requestTimeoutInMillis: 1000
+    requestTimeoutInMillis: 1000,
+    logLevel: 'debug'   // Available logLevels are ['error','warn','info','debug','none'].
 }
 
 // initialize the client
@@ -156,8 +157,8 @@ When initializing the client, you can use `options` to configure and customize t
 
 ```javascript
 var options = {
-     bootstrap: 'localstorage',    // Use local storage to store results
-     evaluationReason: true,       // Return evaluation reasons
+     localStorage: true,    // Use local storage to store results
+     evaluationReason: false,
      offline: false,               // Run in offline mode. All calls to variation() will return control
      requestTimeoutInMillis: 1000  // HTTP timeout
 }
@@ -165,7 +166,7 @@ var options = {
 
 Each option is described below.
 
-#### bootstrap 
+#### localStorage 
 When this option is enabled, the library will store evaluated feature flags in Browser's Local Storage after the first evaluation so that the result is immediately available the next time the user visits the page. Here's how Local Storage works:
 
 1. Page is loaded and the Unlaunch client is initialized.
@@ -204,7 +205,7 @@ let ulclient = ULClient.initialize(
 ```
 
 ## Attributes
-You can attributes that are used in Targeting Rules to calculate feature flag variation. You can pass attributes as a simple key-value JSON object when initializing the client.
+You can define attributes that are used in Targeting Rules to calculate feature flag variation. You can pass attributes as a simple key-value JSON object when initializing the client.
 
 ```javascript
 
@@ -224,7 +225,7 @@ let ulclient = ULClient.initialize(
 ```
 
 ## Logging
-To come. 
+By default, unlaunch-js-client-lib sends log output to the browser console. Available logLevels are: 'error','warn','info','debug' and 'none'. Default logLevel is 'error'. To disable logging use 'none'. If empty '' logLevel is provided all logs are printed. Log levels severity are in the order 'error','warn','info','debug'. Error has high severity and debug has lowest. All logs which have high severity level then the level provided in options will be printed. So if logLevel 'info' is provided then 'error', 'warn' and 'info' logs are printed. If logLevel is set to 'debug' in options then only debug logs are printed. 
 
 ## More Questions?
 
