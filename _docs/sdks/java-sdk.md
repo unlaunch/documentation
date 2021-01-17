@@ -15,7 +15,7 @@ The Unlaunch Java SDK supports Java version 8 and above.
 
 If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/index.html).
 
-## Prerequisite
+## Prerequisites
 
 1. You'll need an Unlaunch account. Register for a free account at: [https://app.unlaunch.io/signup](https://app.unlaunch.io/signup)
 2. You have created an Unlaunch feature flag and enabled it. You also know the [Server SDK key](sdk-keys). If you haven't already, please see our [Getting Started](../getting-started) tutorial.
@@ -23,7 +23,7 @@ If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https
 
 ## Import the SDK Library
 
-The first step is to import the Unlaunch SDK as Maven or Gradle dependency in your application. 
+The first step is to import the Unlaunch SDK as Maven or Gradle dependency in your application. For the *latest version* of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
 
 For Maven, 
 ```xml
@@ -39,18 +39,20 @@ For Gradle,
 compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.4'
 ```
 
-For the latest version of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
-
 ## Initializing a New Unlaunch Client Instance
+
+### SDK Architecture
 
 In a nutshell, here is how this SDK works:
 
 1. You initialize the client using one of your project's [SDK keys](sdk-keys). The SDK key uniquely identifies the environment within the project and all feature flags in it.
-2. When you build the client, it starts a *background task* to download all active feature flags and configuration data and store them in an in-memory cache. This process can take some time depending on the size of the data. We'll discuss this process in detail later.
+2. When you build the client, it starts a *background task* to download all active feature flags and configuration data and stores them in memory. This process can take a few seconds depending on the size of the data.
 3. You can wait for the initialization to complete using the [`awaitUntilReady`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. You must pass a timeout value as an argument so it doesn't block your application forever.
 3. After the initialization is complete, you can evaluate feature flags using the public [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method.
 
-So to initialize the client, you'll need an SDK key. SDK Keys are available on the **[Settings](https://app.unlaunch.io/settings)** page under **Projects** tab. Once you have it ready, you can initialize a new client as following:
+### Initialization
+
+To initialize the client, you'll need an SDK key. SDK Keys are available on the **[Settings](https://app.unlaunch.io/settings)** page under the **Projects** tab. There are several different types of [SDK keys](sdk-keys) for each environment. Make sure you copy the *Server Key* for this SDK. Once you have the SDK Key, you can initialize a new client as following:
 
 ```java
 UnlaunchClient ulClient = UnlaunchClient.create("INSERT_YOUR_SDK_KEY");
@@ -62,13 +64,13 @@ ulClient.awaitUntilReady(2, TimeUnit.SECONDS); // Wait until all data is downloa
 
 ##### Why should an Unlaunch Client be a Singleton?
 
-When you build an Unlaunch client, it starts a background task to download data and store it in an in-memory cache. This process might take some time depending on the size of the data that needs to be transferred. It is extremely poor practice to initialize a new client for each client request such as in a web request handler method or in Spring's `@Controller` method. It will add latency to the request and all downloaded data will be discarded once the request is complete. You may also get rate-limited and throttled by our intrusion detection systems.
+When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data strucuture (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
 
-It is important that you create an Unlaunchclient as a singleton and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
+Instead, you should create the Unlaunch Client as a *singleton* and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
 
 ## Using the SDK
 
-After the initialization is complete, you are ready to start evaluating feature flags using the [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. This method will return a variation that you have defined in the Unlaunch Console. You can check using a simple `if-else` block to execute code depending on the variation that's returned.
+After the initialization is complete and the client is created, you are ready to start evaluating feature flags using the [`getVariation`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html) method. This method will return a variation (as `String` )that you have defined in the Unlaunch Console. You can check using a simple `if-else` block to execute code depending on the variation that's returned.
 
 The `getVariation` method requires that you pass in the `flag key`and the `user id` of the user that you are evaluating the feature flag for. If the flag is an Operations flag such as a global kill switch and doesn't require users, you can define a String constant, e.g. `userId=System` and pass it instead.
 
