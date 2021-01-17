@@ -5,7 +5,7 @@ description: This guide provides complete information about the Unlaunch .NET SD
 
 # Unlaunch .NET SDK
 
-This guide provides complete information about the Unlaunch .NET SDK and how to integrate it in your applications to call feature flags.
+This guide provides complete information about the Unlaunch .NET SDK and how to integrate it in your applications to use Unlaunch feature flags.
 
 The Unlaunch .NET SDK provides a .NET API to access Unlaunch. Using the SDK, you can easily build .NET applications that can evaluate feature flags, access configuration, and more. Unlaunch .NET SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/dotnet-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the .NET [example project](https://github.com/unlaunch/hello-csharp/blob/master/hello-csharp/Program.cs).
 
@@ -20,8 +20,11 @@ The Unlaunch .NET SDK supports .NET Framwork 4.5+ and NetStandard 2.0+
 3. (Optional) Understand the difference between [client-side and server-side SDKs](client-vs-server-side-sdks). This SDK is server-side and optimized for applications that run on the cloud such as web servers, backend services, etc.
 
 ## Import the SDK Library
+You can import the SDK using **Nuget**. For more information, [click here](https://www.nuget.org/packages/unlaunch).
 
-If you are looking for Unlaunch .NET SDK **Nuget**, please [click here](https://www.nuget.org/packages/unlaunch).
+```
+Install-Package unlaunch -Version 0.0.4
+```
 
 ## Initializing a New Unlaunch Client Instance
 
@@ -34,7 +37,7 @@ In a nutshell, here is how this SDK works:
 
 So to initialize the client, you'll need an SDK key. SDK Keys are available on the **[Settings](https://app.unlaunch.io/settings)** page under **Projects** tab. Once you have it ready, you can initialize a new client as following:
 
-```C#
+```csharp
 var ulClient = UnlaunchClient.Create("INSERT_YOUR_SDK_KEY");
 
 ulClient.AwaitUntilReady(TimeSpan.FromSeconds(2)); // Wait until all data is downloaded
@@ -54,7 +57,7 @@ After the initialization is complete, you are ready to start evaluating feature 
 
 The `GetVariation` method requires that you pass in the `flag key`and the `user id` of the user that you are evaluating the feature flag for. If the flag is an Operations flag such as a global kill switch and doesn't require users, you can define a string constant, e.g. `userId=System` and pass it instead.
 
-```C#
+```csharp
 string userId = "123";
 string variation = ulClient.GetVariation("log-levels", userId);
 
@@ -81,7 +84,7 @@ This method returns one of the variations according to *targeting or rollout rul
 - There was an exception evaluating the feature flag.
 - The flag was archived.
 
-```C#
+```csharp
 string variation = client.GetVariation("new-login-ui", userId);
 ```
 
@@ -103,7 +106,7 @@ otherwise
 When evaluating this flag, you must pass in `country` and `subscriber` attributes. If the 
 user is from the USA *and* is a subscriber, the "on" variation will be returned. Otherwise, "off". For example, 
 
-```C#
+```csharp
 client.GetVariation(
     "show_bonus_pack", 
     userId, 
@@ -118,7 +121,7 @@ This behaves just like the `GetVariation` method but instead of returning a stri
 
 For example, say you want to change the color of a button for some users. You'd define the colors for each variation in the Unlaunch Console as a key-value pair. Then in your application, you can fetch like this:
 
-```C#
+```csharp
 var feature = client.GetFeature("new_login_ui", userId);
 string colorHexCode = feature.GetVariationConfig().GetString("login_button_color", "#cd5c5c");
 
@@ -132,7 +135,7 @@ RenderButton(colorHexCode);
 ###### Evaluation Reason
 When you evaluate a feature flag, the SDK applies various rules to determine which variation should be returned. If you want to know why a certain variation was returned for debugging purposes, you can use the `GetEvaluationReason()` method of the `UnlaunchFeature` class.
 
-```C#
+```csharp
 var feature = client.GetFeature("new_login_ui", userId);
 string reason = feature.GetEvaluationReason();
 
@@ -153,33 +156,36 @@ In the example below, the attributes are provided as a Set in *getVariation* met
 
 The *getVariation* method supports six types of attributes: string, number, boolean, date, DateTime, and set. The [attributes](https://docs.unlaunch.io/docs/features/attributes) and syntax with [operators](https://docs.unlaunch.io/docs/features/attributes-operators) are defined in SDK as: 
 
-        var client = UnlaunchClient.Create(SDK_KEY);
+```csharp
 
-        var userSet = new HashSet<string>();
-        userSet.Add("1");
-        userSet.Add("2");
-        
-        var variation = client.GetVariation(
-                FEATURE_FLAG_KEY,
-                System.Guid.NewGuid().ToString(),
-                UnlaunchAttribute.NewBoolean("registered", true),
-                UnlaunchAttribute.NewString("device", "ABCS"),
-                UnlaunchAttribute.NewNumber("age", 30),
-                UnlaunchAttribute.NewDate("start_date", DateTime.UtcNow.Date),
-                UnlaunchAttribute.NewDateTime("expiry_date", DateTime.UtcNow.AddMonths(1)),
-                UnlaunchAttribute.NewSet("user_ids", userSet));
+var client = UnlaunchClient.Create(SDK_KEY);
 
-        // Print variation
-        logger.Info("[DEMO] getVariation() returned {variation}", variation);
+var userSet = new HashSet<string>();
+userSet.Add("1");
+userSet.Add("2");
 
-        // shutdown the client to flush any events or metrics
-        client.Shutdown();
+var variation = client.GetVariation(
+        FEATURE_FLAG_KEY,
+        System.Guid.NewGuid().ToString(),
+        UnlaunchAttribute.NewBoolean("registered", true),
+        UnlaunchAttribute.NewString("device", "ABCS"),
+        UnlaunchAttribute.NewNumber("age", 30),
+        UnlaunchAttribute.NewDate("start_date", DateTime.UtcNow.Date),
+        UnlaunchAttribute.NewDateTime("expiry_date", DateTime.UtcNow.AddMonths(1)),
+        UnlaunchAttribute.NewSet("user_ids", userSet));
+
+// Print variation
+logger.Info("[DEMO] getVariation() returned {variation}", variation);
+
+// shutdown the client to flush any events or metrics
+client.Shutdown();
+```
 
 ### AwaitUntilReady
 
 After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `GetVariation` or `GetFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
 
-```C#
+```csharp
 var client = UnlaunchClient.Builder()
                             .SdkKey("your_sdk_key")
                             .Build();
@@ -197,7 +203,7 @@ You can check if the client is ready by calling the [`IsReady`](https://github.c
 
 When your application is shutting down, you can shutdown the Unlaunch client using the `Shutdown` method. Calling shutdown ensures that any pending metrics are sent to Unlaunch servers.
 
-```C#
+```csharp
 client.Shutdown();
 ```
 
@@ -208,7 +214,7 @@ When initializing the client, you have several configuration options to fine-tun
 ##### `PollingInterval()`
 The Unlaunch .NET SDK periodically downloads flags and other data from the servers and stores it in-memory so feature flags can be evaluated with no added latency. The `PollingInterval` controls how often the SDK download flags from the servers if the data has changed. The default value is 60 seconds for production environments and 15 seconds for non-production. For example, to change the polling interval to 5 minutes: 
 
-```C# 
+```csharp
 var client = UnlaunchClient.Builder()
                             .PollingInterval(TimeSpan.FromMinutes(5))
                             .SdkKey("<your environment sdk key>")
@@ -218,7 +224,7 @@ var client = UnlaunchClient.Builder()
 ##### `MetricsFlushInterval()`
 The SDK periodically sends events like metrics and diagnostics data to our servers. This controls how frequently this data will be sent. When you shutdown a client using the [`Shutdown()`](https://github.com/unlaunch/dotnet-sdk/blob/master/client-sdk/UnlaunchClient.cs) method, all pending metrics are automatically sent to the server. The default value is 30 seconds for production and 15 seconds for non-production environments. For example, to change the event flush time to 10 minutes:
 
-```C# 
+```csharp
 var client = UnlaunchClient.Builder()
                             .MetricsFlushInterval(TimeSpan.FromMinutes(2))
                             .SdkKey("your_environment_sdk_key")
