@@ -7,7 +7,7 @@ description: This guide provides complete information about the Unlaunch Go SDK.
 
 This guide provides complete information about the Unlaunch Go SDK and how to integrate it in your applications to use feature flags to safely and confidently release new features to your users. 
 
-The Unlaunch Go SDK provides a Go API to access Unlaunch. Using the SDK, you can easily build Go applications that can evaluate feature flags, access configuration, and more. Unlaunch Go SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/go-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the Java [example project](https://github.com/unlaunch/hello-go).
+The Unlaunch Go SDK provides a Go API to access Unlaunch. Using the SDK, you can easily build Go applications that can evaluate feature flags, access configuration, and more. Unlaunch Go SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/go-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the [example project](https://github.com/unlaunch/hello-go).
 
 ### Language Support
 
@@ -188,9 +188,9 @@ When initializing the client, you have several configuration options to fine-tun
 ```go
 cfg := client.DefaultConfig()
 // Customize default client
-cfg.PollingInterval = 15000 // How often flags are fetched
-cfg.HTTPTimeout = 3000
-cfg.MetricsFlushInterval = 30000 // How often metrics are sent
+cfg.PollingInterval = 15 * time.Second // How often flags are fetched
+cfg.HTTPTimeout = 3 * time.Second
+cfg.MetricsFlushInterval = 30 * time.Second // How often metrics are sent
 cfg.MetricsQueueSize = 500
 
 factory, _ := client.NewUnlaunchClientFactory(apiKey, cfg)
@@ -201,22 +201,22 @@ unlaunchClient := factory.Client()
 These options are:
 
 ##### `PollingInterval`
-The Unlaunch Go SDK periodically downloads flags and other data from the servers and stores it in memory so feature flags can be evaluated with no added latency. The `PollingInterval` controls how often the SDK download flags from the servers if the data has changed. The default value is 60 seconds for production environments and 15 seconds for non-production. It is specified in milliseconds.
+The Unlaunch Go SDK periodically downloads flags and other data from the servers and stores it in memory so feature flags can be evaluated with no added latency. The `PollingInterval` controls how often the SDK download flags from the servers if the data has changed. The default value is 60 seconds for production environments and 15 seconds for non-production. 
 
 
 ##### `MetricsFlushInterval`
-The SDK periodically sends events like metrics and diagnostics data to our servers. This controls how frequently this data will be sent. When you shutdown a client using the [`Shutdown()`](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.Shutdown) method, all pending metrics are automatically sent to the server. The default value is 30 seconds for production and 15 seconds for non-production environments. For example, to change the event flush time to 10 minutes:
+The SDK periodically sends events like metrics and diagnostics data to our servers. This controls how frequently this data will be sent. When you shutdown a client using the [`Shutdown()`](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.Shutdown) method, all pending metrics are automatically sent to the server. The default value is 45 seconds for production and 15 seconds for non-production environments.
 
 ##### `MetricsQueueSize`
-This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
+This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500 for production and 20 for non-production environments.
 
 ##### `OfflineMode`
-Feature flags start their journey on a developer's computer. A developer should be able to build and run their code locally even if they don't have network connectivity. To achieve this, Unlaunch Java SDK can be started in **offline mode**. When running in offline mode, the SDK will not connect to Unlaunch servers nor will it send any data to it. 
+Feature flags start their journey on a developer's computer. A developer should be able to build and run their code locally even if they don't have network connectivity. To achieve this, Unlaunch Go SDK can be started in **offline mode**. When running in offline mode, the SDK will not connect to Unlaunch servers nor will it send any data to it. 
 
 When activating offline mode, you don't need to pass in the SDK key. When you evaluate a feature flag in offline mode, it will return the `control` variation. 
 
 ##### `HTTPTimeout`
-Sets the default connection timeout for the HTTPClient SDK uses to connect to Unlaunch servers. The default value is 3 seconds. The minimum value allowed is 1 second.
+Sets the default connection timeout for the HTTPClient SDK uses to connect to Unlaunch servers. The default value is 10 seconds. The minimum value allowed is 1 second.
 
 ##### `Host`
 Unlaunch server to connect to for downloading feature flags and for submitting events. Only use this if you are running Unlaunch backend service on-premise or are an enterprise customer. The default value is https://api.unlaunch.io
