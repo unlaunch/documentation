@@ -9,7 +9,7 @@ When you are integrating Unlaunch SDKs with your application, you'll need to pro
 
 An SDK key uniquely identifies an Unlaunch [environment](../features/projects-and-environments) within a project in which you have defined your feature flags.
 
-**Each environment** in your project has a unique SDK key. A good practice is to keep the keys seprate from your application configuration and supply them at run-time. You could do this by setting and reading the keys as environment variables, or have them supplied via [Vault](https://www.vaultproject.io/), [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) or whichever solution you use to manager secrets in your organization.
+**Each environment** in your project has a unique SDK key. A good practice is to keep the keys separate from your application configuration and supply them at run-time. You could do this by setting and reading the keys as environment variables, or have them supplied via [Vault](https://www.vaultproject.io/), [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) or whichever solution you use to manager secrets in your organization.
 
 For enhanced security, *each environment* gets **three** different SDK keys belonging to one of the following categories:
 
@@ -19,7 +19,7 @@ For enhanced security, *each environment* gets **three** different SDK keys belo
 
 #### Where to find Unlaunch SDK Keys?
 
-1. Open the Unlanch Console at [https://app.unlaunch.io](https://app.unlaunch.io/)
+1. Open the Unlaunch Console at [https://app.unlaunch.io](https://app.unlaunch.io/)
 2. On the right sidebar, click on **Settings**
 3. In the *Projects* tab, you should see all your projects and SDK keys for each environment.
 

@@ -1,6 +1,6 @@
 ---
 title: Attributes and Associated Operators
-description: This page will help you understand the attributes and their associated opertors
+description: This page will help you understand the attributes and their associated operators
 ---
 
 # Attributes and Associated Operators
@@ -80,7 +80,7 @@ DateTime data type represents a date and time. The following operators are suppo
 
 #### Example 4: Start_Date Is today and End_Date Is After 2 Weeks 
 
-Let's define a rule that serves `on` variation to all users whose start-date greater than or equals `01/12/2021 12:00:AM` and end-date less than or equals `01/26/2021 12:00:AM`. First, we'll create two [new attribute](attributes) of type **datetime** called `start_date` and `end_date`. Then we'll use the `Greater Than or Equals` and `Less Than or Equals` operator, and provide two datetime values. Click **Save Changes** to save the rule.
+Let's define a rule that serves `on` variation to all users whose start-date greater than or equals `01/12/2021 12:00:AM` and end-date less than or equals `01/26/2021 12:00:AM`. First, we'll create two [new attribute](attributes) of type **datetime** called `start_date` and `end_date`. Then we'll use the `Greater Than or Equals` and `Less Than or Equals` operator, and provide two `datetime` values. Click **Save Changes** to save the rule.
 
 <div class="justify-content-center">
     <img src="/assets/img/attribute-datetime.png" alt="Target Rule DateTime Attribute"/>

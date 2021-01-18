@@ -1,6 +1,6 @@
 ---
 title: Metrics - Variation Counts
-description: Overview of vairation countt metrics that are sent by Unlaunch SDKs.
+description: Overview of variation count metrics that are sent by Unlaunch SDKs.
 ---
 
 # Metrics - Variation Counts

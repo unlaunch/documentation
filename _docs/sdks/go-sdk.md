@@ -23,7 +23,7 @@ This supports Go language version 1.13 and above.
 There are several ways to add the Unlaunch Go SDK to your project. It depends on what dependency management system you're using.
 
 - If you are using [Go Modules](https://blog.golang.org/using-go-modules,) you can simply import the Unlaunch SDK in your code and `go build` will automatically download it.
-- If you are using dep, import the SDK packages in your code and run dep ensure.
+- If you are using `dep`, import the SDK packages in your code and run `dep ensure`.
 - Or you can simply use `go get` command to:
 
 ```
@@ -62,7 +62,7 @@ if err = unlaunchClient.AwaitUntilReady(3 * time.Second); err != nil {
 
 ##### Why should an Unlaunch Client be a Singleton?
 
-When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data strucuture (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
+When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data structure (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
 
 Instead, you should create the Unlaunch Client as a *singleton* and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
 
@@ -106,7 +106,7 @@ This method evaluates and returns the variation (variation key) for this feature
 This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never panic* nor will it ever return empty string. Instead, it will return `control` if there are any errors such as:
 
 - The flag was not found.
-- There was an eror evaluating the feature flag.
+- There was an error evaluating the feature flag.
 - The flag was archived.
 
 ```go
@@ -152,7 +152,7 @@ fmt.Printf("The variation for feature is: %s. Evaluation reason is: %s\n",
 
 The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
-The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
+The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
 
 ```go
 // Let's pass some attributes

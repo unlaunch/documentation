@@ -20,13 +20,13 @@ Global permissions apply to everything under an Unlaunch Organization. This incl
 
 - **Organization Owner**: This is the super user. Typically the first account that created the organization. There can be only ONE owner. Ownership can be transferred from one account to another. An Organization Owner cannot be assigned another role such as Organization Admin, Project Admin, etc.
 
-- **Organization Admins**: There can be many Organization Admins. They can essentially do everything that Organization Owner can do except to change Organization settings or delete the Organization. Note: This role is currently not supported through th Unlaunch Console. Please contact us if you need to assign this role.
+- **Organization Admins**: There can be many Organization Admins. They can essentially do everything that Organization Owner can do except to change Organization settings or delete the Organization. Note: This role is currently not supported through the Unlaunch Console. Please contact us if you need to assign this role.
 
 - **Organization Members**: All new members who join the organization and aren't assigned 'Organization Owner' or 'Organization Admins' roles, will get assigned as 'Organization Member'.
 
 ### Project Permissions
 
-Projct permissions apply to everything under a Project (All Feature Flags, Attributes, etc.) Typically, these permissions are assigned to individual teams who own the project and team leads manage and control their projects.
+Project permissions apply to everything under a Project (All Feature Flags, Attributes, etc.) Typically, these permissions are assigned to individual teams who own the project and team leads manage and control their projects.
 
 The following roles are supported for projects:
 

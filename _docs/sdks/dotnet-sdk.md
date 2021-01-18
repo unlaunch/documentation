@@ -11,7 +11,7 @@ The Unlaunch .NET SDK provides a .NET API to access Unlaunch. Using the SDK, you
 
 ### Language Support
 
-The Unlaunch .NET SDK supports .NET Framwork 4.5+ and NetStandard 2.0+
+The Unlaunch .NET SDK supports .NET Framework 4.5+ and NetStandard 2.0+
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ ulClient.AwaitUntilReady(TimeSpan.FromSeconds(2)); // Wait until all data is dow
 
 ##### Why should an Unlaunch Client be a Singleton?
 
-When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data strucuture (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
+When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data structure (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
 
 Instead, you should create the Unlaunch Client as a *singleton* and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
 
@@ -172,7 +172,7 @@ Just like the method above but uses attributes that are passed in to evaluate ta
 
 The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
-The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
+The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
 
 ```csharp
 

@@ -64,7 +64,7 @@ ulClient.awaitUntilReady(2, TimeUnit.SECONDS); // Wait until all data is downloa
 
 ##### Why should an Unlaunch Client be a Singleton?
 
-When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data strucuture (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
+When you build an Unlaunch client, it starts a background task to download data and store it in an in memory data structure (e.g. Map). This process might take some time depending on the size of the data that needs to be transferred. For performance reasons, it is extremely poor practice to initialize a **new** client *per* incoming request. It will increase response times and hurt system performance. You may also get rate-limited and throttled by Unlaunch servers. 
 
 Instead, you should create the Unlaunch Client as a *singleton* and re-use it throughout your application. If you create more than one instance, we'll print warnings in the logs.
 

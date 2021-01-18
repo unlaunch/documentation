@@ -6,13 +6,14 @@ permalink: /
 
 # Welcome to Unlaunch Documentation
 
-Learn how you and your team can use Unlaunch to release new features to your users safely and confidently. Unlaunch is a feature flag and configuration management solution designed for both small teams and large enterprises. In thos section, you'll fine developer guides, API references, tutorials, and more. If you don't already have an *Unlaunch account*, please [create one for free](https://app.unlaunch.io).
+Learn how you and your team can use Unlaunch to release new features to your users safely and confidently. Unlaunch is a feature flag and configuration management solution designed for both small teams and large enterprises. Here you'll fine developer guides, API references, tutorials, and more. If you don't already have an *Unlaunch account*, please [create one for free](https://app.unlaunch.io).
 
 ## New to Feature Flags?
 
 - [Blog: What are feature flags?](https://blog.unlaunch.io/2020-08-01-feature-flags/)
 - [Getting Started](docs/getting-started)
-
+- [Managing Users](docs/users/team)
+- [Integrations](docs/integrations)
 
 ## SDKs
 

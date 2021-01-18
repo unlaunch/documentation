@@ -5,7 +5,7 @@ description: Getting started with Unlaunch
 
 # Getting Started
 
-In this tutorial, you'll learn how to create and use Unlaunch feature flags.
+In this tutorial, you'll learn how to create and use Unlaunch feature flags. 
 
 Let's get started.
 
@@ -33,9 +33,9 @@ if (newLoginVariation === 'on') {
 }
 ```
 
-Variations are for deciding which branch (if or else) to execute in your code. They are always of type `string`. Unlanuch feature flags have two variations by default but you can add more than 2 variations (multivariate flags.) 
+Variations are for deciding which branch (if or else) to execute in your code. They are always of type `string`. Unlaunch feature flags have two variations by default but you can add more than 2 variations (multivariate flags.) 
 
-You can also *attach* **dynamic configurations** to variations to change configuration on the fly such as UI button color, banner text, sepcial offers, algorithm weights, and anything else. Dynamic configuration is not covered in this tutorial.
+You can also *attach* **dynamic configurations** to variations to change configuration on the fly such as UI button color, banner text, special offers, algorithm weights, and anything else. Dynamic configuration is not covered in this tutorial.
 
 For more information on feature flags, please see this [blog post](https://blog.unlaunch.io/2020-08-01-feature-flags/).
 
@@ -47,7 +47,7 @@ In this step, you'll create your first feature flag. A feature flag can have man
 
 **To create a feature flag:**
 
-1. Open the Unlanch Console at [https://app.unlaunch.io](https://app.unlaunch.io/)
+1. Open the Unlaunch Console at [https://app.unlaunch.io](https://app.unlaunch.io/)
 2. Switch to *Production* environment using the dropdown on the top-left corner. 
 3. From the *Feature Flags* page, click on **Create Feature Flag**.
 4. The **New Feature Flag** screen asks you to input values to create a new flag. In the **Name** field, type in the name that you'd like to call this flag e.g. `2fa-rollout`. Leave the rest of the fields to their default values and click on **Save.**
@@ -79,13 +79,20 @@ For this tutorial, we'll use the *Production* environment. Follow the steps in t
 
 ## Step 3: Integrate Unlaunch SDK in Your Application
 
-This step will depend on the type of SDK that you choose depending on the programming language you're using. The first step is deciding whether  you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. 
+This step will depend on the type of SDK that you choose depending on the programming language you're using. In a nutshell, these are the steps you need to follow to start using feature flags in your applications.
+
+1. Integrate the Unlaunch SDK in your project. This is usually done using a dependency manager like Maven, NPM, or Nuget.
+2. Import the Unlaunch libraries in your project to initialize the client. The client is the primary way your project uses the Unlaunch SDK and communicates with Unlaunch servers. 
+3. To initialize the client, you must provide it with an appropriate SDK/API key. The SDK key can be of three types: Server key, Mobile/App key or Browser/Public key. It uniquely identifies your project and environment and authorizes your project to use your feature flags.
+4. Evaluate feature flags using the client to control which variations your users will see. Feature flags are unique identified by keys. You can also control targeting by providing user IDs and attributes and defining targeting rules based on user attributes. For example, show features only to registered users.
+
+The first step is deciding whether you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. 
 
 Follow SDK integration guides to integrate SDK in your application:
 
 **Server-side SDKs:**
 
-- [Java](sdks/java-sdk) (Also see below)
+- [Java](sdks/java-sdk) (Also explained below)
 - [Node.js](sdks/nodejs-sdk)
 - [.NET](sdks/dotnet-sdk)
 - [Go](sdks/go-sdk)

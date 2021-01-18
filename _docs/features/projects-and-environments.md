@@ -39,7 +39,7 @@ You can switch environments using the environments **dropdown** in the sidebar o
 </div>
 
 #### Production vs Non-Production environments
-The Production environment is **special**. Unlike other environments, it cannot be deleted. In other words, all projects must have at least the _Production_ environment. Unlaunch SDKs will try and use sensisble defaults for production versus non-production environments. We refer to all environments besides production as **non-production** environments. 
+The Production environment is **special**. Unlike other environments, it cannot be deleted. In other words, all projects must have at least the _Production_ environment. Unlaunch SDKs will try and use sensible defaults for production versus non-production environments. We refer to all environments besides production as **non-production** environments. 
 
 ### Create, Edit & Delete Environments
 

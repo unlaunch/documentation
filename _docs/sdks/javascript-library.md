@@ -131,7 +131,7 @@ It will return a JSON object containing your configuration as key-value pairs. I
 
 
 ### Evaluation Reason
-Evaluation reason is used for debugging purposes. It will tell you why a certain variation for a feature flag was returned. For example, it might tell you that "off" variation was returned because the flag was diabled or that "on" was returned because userId matched targeting rules. To get evaluation reason and status use `variationDetail(flag)` method. This will return a JSON object.
+Evaluation reason is used for debugging purposes. It will tell you why a certain variation for a feature flag was returned. For example, it might tell you that "off" variation was returned because the flag was disabled or that "on" was returned because userId matched targeting rules. To get evaluation reason and status use `variationDetail(flag)` method. This will return a JSON object.
 
 ```javascript
 {
@@ -241,7 +241,7 @@ let ulclient = ULClient.initialize(
 ```
 
 ## Logging
-By default, unlaunch-js-client-lib sends log output to the browser console. Available logLevels are: 'error','warn','info','debug' and 'none'. Default logLevel is 'error'. To disable logging use 'none'. If empty '' logLevel is provided all logs are printed. Log levels severity are in the order 'error','warn','info','debug'. Error has high severity and debug has lowest. All logs which have high severity level then the level provided in options will be printed. So if logLevel 'info' is provided then 'error', 'warn' and 'info' logs are printed. If logLevel is set to 'debug' in options then only debug logs are printed. 
+By default, `unlaunch-js-client-lib` sends log output to the browser console. Available logLevels are: 'error','warn','info','debug' and 'none'. Default logLevel is 'error'. To disable logging use 'none'. If empty '' logLevel is provided all logs are printed. Log levels severity are in the order 'error','warn','info','debug'. Error has high severity and debug has lowest. All logs which have high severity level then the level provided in options will be printed. So if logLevel 'info' is provided then 'error', 'warn' and 'info' logs are printed. If logLevel is set to 'debug' in options then only debug logs are printed. 
 
 ## More Questions?
 

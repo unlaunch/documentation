@@ -9,7 +9,7 @@ This page will help you understand how to add and remove members to your Unlaunc
 
 To add, remove and change members, you **must** have admin privileges.
 
-To invite a new user, click on **'Settings'** in the right sidebar. Once the page loads, cick on the **'Teams'** tab.
+To invite a new user, click on **'Settings'** in the right sidebar. Once the page loads, click on the **'Teams'** tab.
 
 <div class="justify-content-center">
     <img src="/assets/img/add-member-1.png" class="border" alt="add member button"/>

@@ -12,7 +12,7 @@ This tutorial explains how to connect Unlaunch to your Slack account to get real
 - Create a new feature flag.
 - Archive a feature flag.
 
-Please follow these steps to connect Unaunch to your Slack account.
+Please follow these steps to connect Unlaunch to your Slack account.
 
 ### Step 1: Add 'Incoming WebHooks' App to Slack
 
