@@ -209,10 +209,26 @@ You can define attributes that are used in Targeting Rules to calculate feature 
 
 ```javascript
 
-// Set user's country to US so it can be used as a condition
-// in Targeting Rules
 let attributes = {
-  "country": "US"
+
+  // String attribute country
+  country: "US",
+
+  // Number attribute age
+  age: 25,
+
+  // Boolean attribute can be pass with either true or false value`
+  premiumCustomer: true,
+
+  // DateTime attribute must be pass in the format 'YYYY-MM-DDTHH:mm:ss.sssZ'
+  startDateTime: new Date("2021-01-15T15:00:00.001Z"),
+   
+  // Date attribute must be pass in the format 'YYYY-MM-DDTHH:mm:ss.sssZ'`
+  campaignDate: new Date("2021-01-15"),
+
+  // Set type attribute is passed as array 
+  tags: ['daily', 'weekly', 'monthly', 'yearly']
+
 };
 
 let ulclient = ULClient.initialize(
