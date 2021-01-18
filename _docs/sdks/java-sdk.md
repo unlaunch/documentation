@@ -87,7 +87,23 @@ if (variation.equals("on")) {
 }
 ```
 
-### Evaluating Feature Flags & Getting Vari	ations
+### awaitUntilReady
+
+After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `getVariation` or `getFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+
+```java
+UnlaunchClient client = UnlaunchClient.builder()
+                            .sdkKey("your_sdk_key")
+                            .build();
+
+try {
+    client.awaitUntilReady(2, TimeUnit.SECONDS);
+} catch (InterruptedException | TimeoutException e) {
+    System.out.println("client wasn't ready " + e.getMessage());
+}
+```
+
+### Evaluating Feature Flags & Getting Variations
 
 The Unlaunch Java SDK provides a few different ways to evaluate feature flags and to get variations. 
 
@@ -165,50 +181,34 @@ logger.debug("{} variation was returned because: {}", feature.getVariation(), re
 
 Just like the method above but uses attributes that are passed in to evaluate targeting rules.
 
-### Attribute syntax
+### Passing Attributes 
 
-The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules), the attributes are passed as Set or List in *getVariation* method of SDK. 
+The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
-In the example below, the attributes are provided as a Set in *getVariation* method. These attributes are compared and evaluated against the attributes used in the targeting rule defined on the web to decide whether to show the *on* or *off* variation to a user.
-
-The *getVariation* method supports six types of attributes: string, number, boolean, date, DateTime, and set. The [attributes](https://docs.unlaunch.io/docs/features/attributes) and syntax with [operators](https://docs.unlaunch.io/docs/features/attributes-operators) are defined in SDK as: 
-
-        UnlaunchClient client = UnlaunchClient.create(SDK_KEY);
-
-        Set<String> userSet = new HashSet<>();
-        userSet.add("1");
-        userSet.add("2");
-        
-        String variation = client.getVariation(
-                FEATURE_FLAG_KEY,
-                UUID.randomUUID().toString(),
-                UnlaunchAttribute.newBoolean("registered", true),
-                UnlaunchAttribute.newString("device", "ABCS"),
-                UnlaunchAttribute.newNumber("age", 30),
-                UnlaunchAttribute.newDate("start_date", System.currentTimeMillis()),
-                UnlaunchAttribute.newDateTime("expiry_date", System.currentTimeMillis()),
-                UnlaunchAttribute.newSet("user_ids", userSet));
-
-        // Print variation
-        LOG.info("[DEMO] getVariation() returned {}", variation);
-
-        // shutdown the client to flush any events or metrics
-        client.shutdown();
-
-### awaitUntilReady
-
-After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `getVariation` or `getFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `getVariation()` method.
 
 ```java
-UnlaunchClient client = UnlaunchClient.builder()
-                            .sdkKey("your_sdk_key")
-                            .build();
+UnlaunchClient client = UnlaunchClient.create(SDK_KEY);
 
-try {
-    client.awaitUntilReady(2, TimeUnit.SECONDS);
-} catch (InterruptedException | TimeoutException e) {
-    System.out.println("client wasn't ready " + e.getMessage());
-}
+Set<String> userSet = new HashSet<>();
+userSet.add("1");
+userSet.add("2");
+
+String variation = client.getVariation(
+        FEATURE_FLAG_KEY,
+        UUID.randomUUID().toString(),
+        UnlaunchAttribute.newBoolean("registered", true),
+        UnlaunchAttribute.newString("device", "ABCS"),
+        UnlaunchAttribute.newNumber("age", 30),
+        UnlaunchAttribute.newDate("start_date", System.currentTimeMillis()),
+        UnlaunchAttribute.newDateTime("expiry_date", System.currentTimeMillis()),
+        UnlaunchAttribute.newSet("user_ids", userSet));
+
+// Print variation
+LOG.info("[DEMO] getVariation() returned {}", variation);
+
+// shutdown the client to flush any events or metrics
+client.shutdown();
 ```
 
 You can check if the client is ready by calling the [`isReady`](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchClient.html#isReady()) method.

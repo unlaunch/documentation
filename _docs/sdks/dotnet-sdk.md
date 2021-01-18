@@ -72,6 +72,24 @@ if (variation == "on") {
 }
 ```
 
+### AwaitUntilReady
+
+After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `GetVariation` or `GetFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+
+```csharp
+var client = UnlaunchClient.Builder()
+                            .SdkKey("your_sdk_key")
+                            .Build();
+
+try {
+    client.AwaitUntilReady(TimeSpan.FromSeconds(2));
+} catch (TimeoutException e) {
+    Console.WriteLine($"Client wasn't ready, error: {e.Message}");
+}
+```
+
+You can check if the client is ready by calling the [`IsReady`](https://github.com/unlaunch/dotnet-sdk/blob/master/client-sdk/UnlaunchClient.cs) method.
+
 ### Evaluating Feature Flags & Getting Variations
 
 The Unlaunch .NET SDK provides a few different ways to evaluate feature flags and to get variations. 
@@ -150,13 +168,11 @@ logger.Debug("{variation} variation was returned because: {reason}", feature.Get
 
 Just like the method above but uses attributes that are passed in to evaluate targeting rules.
 
-### Attribute syntax
+### Passing Attributes 
 
-The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules), the attributes are passed as Set or List in *getVariation* method of SDK. 
+The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
-In the example below, the attributes are provided as a Set in *getVariation* method. These attributes are compared and evaluated against the attributes used in the targeting rule defined on the web to decide whether to show the *on* or *off* variation to a user.
-
-The *getVariation* method supports six types of attributes: string, number, boolean, date, DateTime, and set. The [attributes](https://docs.unlaunch.io/docs/features/attributes) and syntax with [operators](https://docs.unlaunch.io/docs/features/attributes-operators) are defined in SDK as: 
+The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
 
 ```csharp
 
@@ -182,24 +198,6 @@ logger.Info("[DEMO] getVariation() returned {variation}", variation);
 // shutdown the client to flush any events or metrics
 client.Shutdown();
 ```
-
-### AwaitUntilReady
-
-After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `GetVariation` or `GetFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
-
-```csharp
-var client = UnlaunchClient.Builder()
-                            .SdkKey("your_sdk_key")
-                            .Build();
-
-try {
-    client.AwaitUntilReady(TimeSpan.FromSeconds(2));
-} catch (TimeoutException e) {
-    Console.WriteLine($"Client wasn't ready, error: {e.Message}");
-}
-```
-
-You can check if the client is ready by calling the [`IsReady`](https://github.com/unlaunch/dotnet-sdk/blob/master/client-sdk/UnlaunchClient.cs) method.
 
 ### Shutdown 
 
@@ -255,8 +253,8 @@ Unlaunch server to connect to for downloading feature flags and for submitting e
 
 ### Concepts
 
-#### 1. In-memory data store
-Unlaunch .NET SDK (all server-side SDKs) connect to Unlaunch servers upon initialization to download all feature flags, variations and dynamic configurations, and store these in an in-memory data store. All subsequent flag evaluations are done using the in-memory data store and results are available instantly.
+#### 1. In memory data store
+Unlaunch .NET SDK (all server-side SDKs) connect to Unlaunch servers upon initialization to download all feature flags, variations and dynamic configurations, and store these in an in-memory data store (e.g. Map). All subsequent flag evaluations are done using the in memory data store and results are available instantly.
 
 #### 2. Events and Metrics Tracking
 

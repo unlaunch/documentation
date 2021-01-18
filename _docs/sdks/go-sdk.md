@@ -81,6 +81,19 @@ if variation == "on" {
     // default code when feature isn't found or evaluated
 }
 ```
+### AwaitUntilReady
+
+After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `Variation` or `Feature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+
+```go
+factory, _ := client.NewUnlaunchClientFactory(apiKey, nil)
+	
+unlaunchClient := factory.Client()
+
+if err := unlaunchClient.BlockUntilReady(5 * time.Second); err != nil {
+    fmt.Printf("Unlaunch Client isn't ready %s\n", err)
+}
+```
 
 ### Evaluating Feature Flags & Getting Variations
 
@@ -106,7 +119,7 @@ Here, we pass `nil` for the last argument, which represents `attributes`. When y
 
 ##### `Feature(flagKey, identity, attributes)`
 
-This method is similar `Variation()` in the sense that it evaluates feature flag and returns its result. However, instead of returning the variation as a `string`, it returns a `struct` that contains more information, such as:
+The [Feature()](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.Feature) method is similar `Variation()` in the sense that it evaluates feature flag and returns its result. However, instead of only returning the variation as a `string`, it returns a `struct` that contains more information, such as:
 
 - Configuration attached to variation
 - Evaluation reason
@@ -115,8 +128,8 @@ This is mostly used for fetching *dynamic configuration* associated with the fea
 
 For example, say you want to change the color of a button for some users. You'd define the colors for each variation in the Unlaunch Console as a key-value pair. Then in your application, you can fetch the configuration using this method as shown below. The configuration is returned as `map[string]string`.
 
-```csharp
-feature = unlaunchClient.Feature("new_login_ui", "user123@gmail.com", nil);
+```go
+feature := unlaunchClient.Feature("new_login_ui", "user123@gmail.com", nil);
 fmt.Println(fmt.Sprintf("%v", feature.VariationConfiguration)) // print configuration
 ```
 
@@ -124,5 +137,128 @@ fmt.Println(fmt.Sprintf("%v", feature.VariationConfiguration)) // print configur
     <img src="/assets/img/feature_flag_config.png" alt="Dynamic Configuration in Unlaunch"/>
 </div>
 
+###### Evaluation Reason
+When you evaluate a feature flag, the SDK applies various rules to determine which variation should be returned. If you want to know why a certain variation was returned for debugging purposes, you can use the `EvaluationReason` field of the [UnlaunchFeature](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/dtos#UnlaunchFeature) struct.
+
+```go
+feature := unlaunchClient.Feature(flagKey, "user123", attr)
+fmt.Printf("The variation for feature is: %s. Evaluation reason is: %s\n",
+		feature.Variation, feature.EvaluationReason)
+// prints
+// The variation for feature is: on. evaluation reason is: Targeting Rule Match
+```
+
+### Passing Attributes 
+
+The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
+
+The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
+
+```go
+// Let's pass some attributes
+attr := make(map[string]interface{}) // map to store all attributes
+
+attr["registered"] = true
+attr["device"] = "iphone"
+attr["age"] = 30
+attr["startDate"] = time.Now().UTC().Unix()
+
+// let's make a "Set" to store some user Id
+// We use map because "Go" doesn't have a set type. Only keys are used. The value could be anything and is ignored
+userIDs := make(map[string]bool)
+userIDs["user123@gmail.com"] = true
+userIDs["userabc@gmail.com"] = true
+
+feature := unlaunchClient.Feature(flagKey, "user123", attr)
+fmt.Printf("The variation for feature is: %s\n", feature.Variation)
+```
+
+### Shutdown 
+
+When your application is shutting down, you can shutdown the Unlaunch client using the `Shutdown()` method. Calling shutdown ensures that any pending metrics are sent to Unlaunch servers.
+
+```go
+unlaunchClient.Shutdown()
+```
+
+### Configuration
+
+When initializing the client, you have several configuration options to fine-tune the performance and adjust to your needs. The [config](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClientConfig) struct is passed to the factory.
+
+```go
+cfg := client.DefaultConfig()
+// Customize default client
+cfg.PollingInterval = 15000 // How often flags are fetched
+cfg.HTTPTimeout = 3000
+cfg.MetricsFlushInterval = 30000 // How often metrics are sent
+cfg.MetricsQueueSize = 500
+
+factory, _ := client.NewUnlaunchClientFactory(apiKey, cfg)
+
+unlaunchClient := factory.Client()
+```
+
+These options are:
+
+##### `PollingInterval`
+The Unlaunch Go SDK periodically downloads flags and other data from the servers and stores it in memory so feature flags can be evaluated with no added latency. The `PollingInterval` controls how often the SDK download flags from the servers if the data has changed. The default value is 60 seconds for production environments and 15 seconds for non-production. It is specified in milliseconds.
+
+
+##### `MetricsFlushInterval`
+The SDK periodically sends events like metrics and diagnostics data to our servers. This controls how frequently this data will be sent. When you shutdown a client using the [`Shutdown()`](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.Shutdown) method, all pending metrics are automatically sent to the server. The default value is 30 seconds for production and 15 seconds for non-production environments. For example, to change the event flush time to 10 minutes:
+
+##### `MetricsQueueSize`
+This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
+
+##### `OfflineMode`
+Feature flags start their journey on a developer's computer. A developer should be able to build and run their code locally even if they don't have network connectivity. To achieve this, Unlaunch Java SDK can be started in **offline mode**. When running in offline mode, the SDK will not connect to Unlaunch servers nor will it send any data to it. 
+
+When activating offline mode, you don't need to pass in the SDK key. When you evaluate a feature flag in offline mode, it will return the `control` variation. 
+
+##### `HTTPTimeout`
+Sets the default connection timeout for the HTTPClient SDK uses to connect to Unlaunch servers. The default value is 3 seconds. The minimum value allowed is 1 second.
+
+##### `Host`
+Unlaunch server to connect to for downloading feature flags and for submitting events. Only use this if you are running Unlaunch backend service on-premise or are an enterprise customer. The default value is https://api.unlaunch.io
+
+## Advanced Usage
+
+### Concepts
+
+#### 1. In memory data store
+Unlaunch Go SDK (like all server-side SDKs) connect to Unlaunch servers upon initialization to download all feature flags, variations and dynamic configurations, and store these in an in-memory data store (e.g. Map). All subsequent flag evaluations are done using the in memory data store and results are available instantly.
+
+#### 2. Events and Metrics Tracking
+
+Unlaunch Go SDK periodically sends events to Unlaunch servers. These events are used for showing metrics and to generate data for the Insights Graph.
+
+### Logging
+
+The Unlaunch Go SDK uses custom logging and allows you to supply your own logger (by implementing the [logger interface](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/util/logger#Interface).) By default, the logger logs ERROR logs only and the output is sent to `os.Stdout`.
+
+```go
+type Interface interface {
+	Trace(msg ...interface{})
+	Debug(msg ...interface{})
+	Info(msg ...interface{})
+	Warn(msg ...interface{})
+	Error(msg ...interface{})
+}
+```
+
+### How to Change Log Level
+
+```go
+cfg := client.DefaultConfig()
+cfg.LoggerConfig = &logger.LogOptions{
+    Level:    "INFO",
+    Colorful: true,
+}
+factory, err := client.NewUnlaunchClientFactory(apiKey, cfg)
+```
+
+## More Questions?
+
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **unlaunch@gmail.com**.
 
 
