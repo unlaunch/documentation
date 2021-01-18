@@ -38,7 +38,7 @@ Before we dive into the details, let's us understand at a high-level how the Unl
 
 1. You initialize the client using one of your project's [SDK keys](sdk-keys). The *SDK key* uniquely identifies the environment within the project and all feature flags in it.
 2. When you build the client, it starts a *background task* to download all active feature flags and configuration data and stores them in memory. This process can take a few seconds depending on the size of the data. We'll discuss this process in detail later.
-3. You can wait for the initialization to complete using the [`AwaitUntilReady`](TODO) method. You must pass a timeout value as an argument so it doesn't block your application forever.
+3. You can wait for the initialization to complete using the [`AwaitUntilReady`](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.AwaitUntilReady) method. You must pass a timeout value as an argument so it doesn't block your application forever.
 3. After the initialization is complete, you can evaluate feature flags using the [`Variation`](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/client#UnlaunchClient.Variation) method.
 
 ### Initialization
@@ -53,7 +53,7 @@ unlaunchClient := factory.Client() // create a new Unlaunch Client
 
 // Wait until all data is downloaded
 
-if err = unlaunchClient.BlockUntilReady(3 * time.Second); err != nil {
+if err = unlaunchClient.AwaitUntilReady(3 * time.Second); err != nil {
     fmt.Printf("Unlaunch Client wasn't ready %s\n", err)
 }
 ```
@@ -90,7 +90,7 @@ factory, _ := client.NewUnlaunchClientFactory(apiKey, nil)
 	
 unlaunchClient := factory.Client()
 
-if err := unlaunchClient.BlockUntilReady(5 * time.Second); err != nil {
+if err := unlaunchClient.AwaitUntilReady(5 * time.Second); err != nil {
     fmt.Printf("Unlaunch Client isn't ready %s\n", err)
 }
 ```
