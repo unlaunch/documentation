@@ -12,19 +12,19 @@ We have provided several SDKs in several different languages to help you access 
 
 This page will help you understand the difference between Unlaunch's client-side and server-side SDKs.
 
-### Client-side SDKs
+#### Client-side SDKs
 
 Client-side SDKs are designed to be used in applications that your users run directly on their own devices, such as mobile, desktop and web applications.
 
-Client-side SDKs are optimized to be used by a single user and low-bandwidth consumption.
+Client-side SDKs are optimized to be used by a single user and low-bandwidth consumption. Examples: JavaScript Library, Angular, and React SDKs.
 
-### Server-side SDKs
+#### Server-side SDKs
 
 Server-side SDKs are designed to be used in server-side applications such as web servers and backend services that you run on your own servers.
 
-Server-side SDKs are optimized to be used in multi-user and secure environments.
+Server-side SDKs are optimized to be used in multi-user and secure environments. Examples, Java, .NET, Go and Node.js SDKs.
 
-## Differences between Client-side and Server-side SDKs
+## Differences
 
 While there are many similarities between SDKs for the same programming language, there are some key functional differences between client-side and server-side SDKs for security and performance considerations.
 
@@ -54,7 +54,7 @@ To improve performance, client-side SDKs download only as much data as is needed
 
 **Server-side**
 
-To improve performance in multi-user environments, server-side SDKs download **all** feature flags you have defined for a project upon initialization. When a new request comes in from your users, the flag evaluation happens very quickly because the SDK already has all the information available in memory. Flags are periodically refreshed in an in-memory datastore and you can configure this interval upon initialization.
+To improve performance in multi-user environments, server-side SDKs download **all** feature flags you have defined for a project upon initialization. The initial sync will take some time to complete if you have many feature flags and dynamic configuration. Once the initial sync is complete, the flags are stored in memory. When a new request comes in from your users, the flag evaluation happens very quickly because the SDK already has all the information available in memory. Flags are periodically refreshed asynchronously and will only fetch changes. You can configure the polling interval when initializing the SDK.
 
 # Summary
 

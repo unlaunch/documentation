@@ -2,7 +2,7 @@
 
 This the the repository for Unlaunch Documentation site. It uses Jekyll and [Docsy Jekyll theme](https://github.com/vsoch/docsy-jekyll).
 
-The Unlaunch Documention site is available at: [https://docs.unlaunch.io/](https://docs.unlaunch.io/).
+The Unlaunch Documentation site is available at: [https://docs.unlaunch.io/](https://docs.unlaunch.io/).
 
 
 # Contribution Guide

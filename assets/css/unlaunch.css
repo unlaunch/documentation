@@ -10,3 +10,12 @@
     text-transform: none;
     font-weight: 500;
 }
+
+
+.gray {
+    color: #303030;
+}
+
+.icon-size {
+    font-size: 1.3rem;
+}
