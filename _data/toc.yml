@@ -56,8 +56,6 @@
           url: "docs/users/team"
         - title: Access Control
           url: "docs/users/access-control"
-        - title: Audit Log
-          url: "docs/users/audit-log"
       
     - title: "Integrations"
       url: "docs/integrations"
