@@ -7,7 +7,7 @@ description: This page will help you understand what how to use targeting rules 
 
 ## Overview
 
-This page describes how to utilize **targeting rules** to control [variations](flagvariations) you want to serve to your users. 
+This page describes how to use **targeting rules** to control [variations](flagvariations) you want to serve to your users. You can target users based on their IDs, attributes or behavior.
 
 It is **important** to note that that targeting rules only apply to [enabled](enable-disable-flags) feature flags. A *disabled* feature flag will allow you to attach targeting rules, but it will always serve the **Default Variation**.   
 

@@ -8,7 +8,7 @@ description: Managing Features using the Unlaunch Console.
 Feature Flags allow developers to release features safely and confidently. This section contains documentation on how to create feature flags, use projects and environments, define targeting rules, and more using [Unlaunch Console](https://app.unlaunch.io/). 
 
 ### General Topics 
-- Unlaunch Console Walkthrough
+- [Tour of Unlaunch Console](tour)
 - [Manage Projects and Environments](projects-and-environments)
 - [Find SDK Keys to use in Unlaunch SDKs](../sdks/sdk-keys)
 - [Live Tail](livetail)

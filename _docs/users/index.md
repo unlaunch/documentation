@@ -10,7 +10,6 @@ This section has documentation on how to invite your team to join Unlaunch proje
 ### General Topics 
 - [Adding &amp; Managing Users](team)
 - [Access Control](access-control)
-- [Audit Log](audit-log)
 
 Would you like to see another question type, or another kind of extra? Please
 [open an issue]({{ site.repo }}/issues/new).
