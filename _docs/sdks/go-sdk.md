@@ -232,6 +232,20 @@ Unlaunch Go SDK (like all server-side SDKs) connect to Unlaunch servers upon ini
 
 Unlaunch Go SDK periodically sends events to Unlaunch servers. These events are used for showing metrics and to generate data for the Insights Graph.
 
+### Offline Mode
+
+Unlaunch Go SDK can be started in **offline mode**. In offline mode, SDK will not connect to Unlaunch Server and will not send data to it. 
+
+When you evaluate a feature flag in offline mode, it will return the `control` variation.
+
+To set offline mode, set `Offline` to `true` in configs. By default, it is `false`.
+```
+    config := client.DefaultConfig()
+    config.OfflineMode = true
+    
+    factory, err := client.NewUnlaunchClientFactory("YOUR_SERVER_KEY", config)
+```
+
 ### Logging
 
 The Unlaunch Go SDK uses custom logging and allows you to supply your own logger (by implementing the [logger interface](https://pkg.go.dev/github.com/unlaunch/go-sdk/unlaunchio/util/logger#Interface).) By default, the logger logs ERROR logs only and the output is sent to `os.Stdout`.
