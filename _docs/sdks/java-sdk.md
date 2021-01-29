@@ -13,7 +13,7 @@ The Unlaunch Java SDK provides a Java API to access Unlaunch. Using the SDK, you
 
 The Unlaunch Java SDK supports Java version 8 and above.
 
-If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/index.html).
+If you are looking for **Javadocs**, please [click here](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/index.html).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ If you are looking for Unlaunch Java SDK **Javadocs**, please [click here](https
 2. You have created an Unlaunch feature flag and enabled it. You also know the [Server SDK key](sdk-keys). If you haven't already, please see our [Getting Started](../getting-started) tutorial.
 3. (Optional) Understand the difference between [client-side and server-side SDKs](client-vs-server-side-sdks). This SDK is server-side and optimized for applications that run on the cloud such as web servers, backend services, etc.
 
-## Import the SDK Library
+## Import the SDK
 
 The first step is to import the Unlaunch SDK as Maven or Gradle dependency in your application. For the *latest version* of the SDK, please refer to the [Maven Repository](https://mvnrepository.com/artifact/io.unlaunch.sdk/unlaunch-java-sdk).
 
@@ -30,13 +30,13 @@ For Maven,
 <dependency>
     <groupId>io.unlaunch.sdk</groupId>
     <artifactId>unlaunch-java-sdk</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 </dependency>
 ```
 
 For Gradle,
 ```
-compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.5'
+compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.0.6'
 ```
 
 ## Initializing a New Unlaunch Client Instance
@@ -185,7 +185,7 @@ Just like the method above but uses attributes that are passed in to evaluate ta
 
 The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
-The SDK method supports six types of attributes: String, Number, Soolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `getVariation()` method.
+The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `getVariation()` method.
 
 ```java
 UnlaunchClient client = UnlaunchClient.create(SDK_KEY);
@@ -246,12 +246,6 @@ UnlaunchClient client = UnlaunchClient.builder()
 ```
 
 ##### `metricsQueueSize()`
-This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
-
-##### `eventsFlushInterval()`
-This controls how frequently tracking events are sent to the server. The default value is 60 seconds for production and 15 seconds for non-production environments.
-
-##### `eventsQueueSize()`
 This controls the maximum number of events to keep in memory. Events are sent to the server when either the queue size OR events flush interval is reached, whichever comes first. The default value is 500.
 
 ##### `offlineMode()`
