@@ -176,24 +176,26 @@ The SDK method supports six types of attributes: String, Number, Boolean, Date, 
 
 ```csharp
 
-var client = UnlaunchClient.Create(SDK_KEY);
-
-var userSet = new HashSet<string>();
-userSet.Add("1");
-userSet.Add("2");
+var client = UnlaunchClient.Create("SDK_KEY");
+ 
+var userSet = new HashSet<string>(new [] {"value1", "value2"});
 
 var variation = client.GetVariation(
-        FEATURE_FLAG_KEY,
-        System.Guid.NewGuid().ToString(),
+    "FEATURE_FLAG_KEY",
+    System.Guid.NewGuid().ToString(),
+    new[]
+    {
         UnlaunchAttribute.NewBoolean("registered", true),
         UnlaunchAttribute.NewString("device", "ABCS"),
         UnlaunchAttribute.NewNumber("age", 30),
         UnlaunchAttribute.NewDate("start_date", DateTime.UtcNow.Date),
         UnlaunchAttribute.NewDateTime("expiry_date", DateTime.UtcNow.AddMonths(1)),
-        UnlaunchAttribute.NewSet("user_ids", userSet));
+        UnlaunchAttribute.NewSet("user_ids", userSet)
+    }
+);
 
 // Print variation
-logger.Info("[DEMO] getVariation() returned {variation}", variation);
+_logger.Info("[DEMO] getVariation() returned {variation}", variation);
 
 // shutdown the client to flush any events or metrics
 client.Shutdown();
