@@ -221,10 +221,10 @@ let attributes = {
   premiumCustomer: true,
 
   // DateTime attribute must be pass in the format 'YYYY-MM-DDTHH:mm:ss.sssZ'
-  startDateTime: new Date("2021-01-15T15:00:00.001Z"),
+  startDateTime: "2021-01-15T15:00:00.001Z"
    
   // Date attribute must be pass in the format 'YYYY-MM-DDTHH:mm:ss.sssZ'`
-  campaignDate: new Date("2021-01-15T00:00:00.000Z"),
+  campaignDate: "2021-01-15T00:00:00.000Z",
 
   // Set type attribute is passed as array 
   tags: ['daily', 'weekly', 'monthly', 'yearly']
