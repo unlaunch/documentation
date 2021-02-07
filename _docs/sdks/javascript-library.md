@@ -37,7 +37,7 @@ Depending on whether you want to integrate the JavaScript library in your HTML p
 ### Embed directly in your HTML
 To load the JavaScript Library, include the following in the `<head>` or `<body>` tag of your webpage.
 
-```javascript
+```html
 <script crossorigin="anonymous" src="https://unpkg.com/unlaunch-js-client-lib/dist/ulclient.min.js">
 </script>
 ```
