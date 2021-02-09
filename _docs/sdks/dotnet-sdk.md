@@ -89,7 +89,8 @@ var client = UnlaunchClient.Builder()
 try 
 {
     client.AwaitUntilReady(TimeSpan.FromSeconds(2));
-} catch (TimeoutException e) {
+} catch (TimeoutException e) 
+{
     Console.WriteLine($"Client wasn't ready, error: {e.Message}");
 }
 ```
