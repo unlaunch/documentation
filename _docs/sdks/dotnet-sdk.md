@@ -1,17 +1,17 @@
 ---
-title: Unlaunch .NET Client SDK - Official Guide
-description: This guide provides complete information about the Unlaunch .NET Client SDK.
+title: Unlaunch .NET SDK - Official Guide
+description: This guide provides complete information about the Unlaunch .NET SDK.
 ---
 
-# Unlaunch .NET Client SDK
+# Unlaunch .NET SDK
 
-This guide provides complete information about the Unlaunch .NET Client SDK and how to integrate it in your applications to use Unlaunch feature flags.
+This guide provides complete information about the Unlaunch .NET SDK and how to integrate it in your applications to use Unlaunch feature flags.
 
-The Unlaunch .NET Client SDK provides a .NET API to access Unlaunch. Using the SDK, you can easily build .NET applications that can evaluate feature flags, access configuration, and more. Unlaunch .NET SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/dotnet-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the .NET [example project](https://github.com/unlaunch/hello-csharp/blob/master/hello-csharp/Program.cs).
+The Unlaunch .NET SDK provides a .NET API to access Unlaunch. Using the SDK, you can easily build .NET applications that can evaluate feature flags, access configuration, and more. Unlaunch .NET SDK is *open source*. SDK source code is available on <a href="https://github.com/unlaunch/dotnet-sdk" rel="nofollow">GitHub <i class="fab fa-github fa-fw"></i></a> You can also checkout the .NET [example project](https://github.com/unlaunch/hello-csharp/blob/master/hello-csharp/Program.cs).
 
 ### Language Support
 
-The Unlaunch .NET Client SDK supports .NET Framework 4.5+ and NetStandard 2.0+
+The Unlaunch .NET SDK supports .NET Framework 4.5+ and NetStandard 2.0+
 
 ## Prerequisites
 
@@ -89,7 +89,8 @@ var client = UnlaunchClient.Builder()
 try 
 {
     client.AwaitUntilReady(TimeSpan.FromSeconds(2));
-} catch (TimeoutException e) 
+} 
+catch (TimeoutException e) 
 {
     Console.WriteLine($"Client wasn't ready, error: {e.Message}");
 }
