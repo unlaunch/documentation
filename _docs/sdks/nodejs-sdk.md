@@ -28,7 +28,25 @@ npm install --save unlaunch-node-sdk
 So to initialize the client, you'll need an SDK key. SDK Keys are available on the **[Settings](https://app.unlaunch.io/settings)** page under **Projects** tab. Once you have it ready, you can initialize a new client.
 
 ```javascript
-const ulClient = UnlaunchClient.create("INSERT_YOUR_SDK_KEY");
+var factory = UnlaunchFactory({
+    core: {
+        sdkKey: YOUR_SDK_KEY
+    },
+    intervals: {
+        // fetch feature updates each 30 sec
+        pollingInterval: 30,
+        // publish metrics each 120 sec
+        metricsFlushInterval: 120,
+        // flush events every 60 seconds after the first flush
+        eventsFlushInterval: 60,
+        // http connection timeout 
+        httpConnectionTimeout: 10
+    },
+    mode: {
+        offlineMode: false
+    }
+});
+const ulClient = factory.client();
 
 ```
 
@@ -74,7 +92,7 @@ This method returns one of the variations according to *targeting or rollout rul
 - The flag was archived.
 
 ```javascript
-const variation = client.variation("new-login-ui", userId);
+const variation = ulClient.variation("new-login-ui", userId);
 ```
 
 This method is to be used when feature flag targeting rules don't depend on user attributes such as `userRegistrationDate` etc. Use the overloaded method below for passing in attributes.
@@ -98,9 +116,9 @@ user is from the USA *and* is a subscriber, the "on" variation will be returned.
 ```javascript
 var attributes={
       country: "USA",
-      "subscriber":true
+      "subscribe": true
     } 
-client.variation(
+ulClient.variation(
     "show_bonus_pack", 
     userId, 
     attributes
@@ -120,8 +138,8 @@ if (variation == "on")) {
 This behaves just like the `variation` method but instead of returning a variation, it returns a `Feature Object` instead. Use this method when you want to get more than just the variation. This is mostly used for fetching *dynamic configuration* associated with the feature flag. 
 
 ```javascript
-const feature = client.feature("new_login_ui", userId);
-const colorHexCode = feature.config.login_button_color;
+const feature = ulClient.feature("new_login_ui", userId);
+const colorHexCode = feature.variationConfiguration()['login_button_color'];
 
 renderButton(colorHexCode);
 ```
@@ -134,7 +152,7 @@ renderButton(colorHexCode);
 When you evaluate a feature flag, the SDK applies various rules to determine which variation should be returned. If you want to know why a certain variation was returned for debugging purposes, you can use the `evaluationReason` property of the `Feature Object` .
 
 ```javascript
-const feature = client.getFeature("new_login_ui", userId);
+const feature = ulClient.getFeature("new_login_ui", userId);
 const reason = feature.evaluationReason;
 
 console.log("{} variation was returned because: {}", feature.variation, reason);
@@ -151,7 +169,7 @@ Just like the method above but uses attributes that are passed in to evaluate ta
 After you initialize new client, it will download all flags and this process will take some time depending on data. Once it's complete downloading flags, it will emit ready event. Only after that evaluation of flag would be possible.
 
 ```javascript
-const client = UnlaunchClient.create('SDK_KEY')
+const ulClient = factory.client();
 client.on('READY',() => {
   const userId = "123";
   const variation = ulClient.variation("log-levels", userId);
@@ -168,10 +186,10 @@ client.on('READY',() => {
 
 ### Shutdown
 
-Call `ulClient.destroy()` method in the end as this method gracefully shutdown the process by closing opened connections, clearing cache and flushing remaining unpublished impression. Once client is destroyed any invocation to variation method will result in returning `control`. 
+Call `ulClient.shutdown()` method in the end as this method gracefully shutdown the process by closing opened connections, clearing cache and flushing remaining unpublished impression. Once client is destroyed any invocation to variation method will result in returning `control`. 
 
 ```javascript
-ulClient.destroy();
+ulClient.shutdown();
 ```
 
 ### Configuration
