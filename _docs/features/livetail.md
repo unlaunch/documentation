@@ -42,7 +42,7 @@ Using Live Tail doesn't force your SDKs to send extra traffic. It uses [Impressi
 
 ## Data Privacy
 
-[Impression](../sdks/metrics-impressions) events are kept in our AWS RDS database and logs for up to 30 days before being permanently deleted. If you are interested in custom data retention policies, please contact us at unlaunch@gmail.com. 
+[Impression](../sdks/metrics-impressions) events are kept in our AWS RDS database and logs for up to 30 days before being permanently deleted. If you are interested in custom data retention policies, please contact us at help@unlaunch.io. 
 
 For privacy reasons, our client-side SDKs do not send **Machine Name** with the events. This option is only enabled on server-side SDKs that run on your cloud. You can disable this when initializing the SDK. Please refer to your SDK's official guide for more information on how to do this.
 

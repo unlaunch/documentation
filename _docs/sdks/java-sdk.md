@@ -323,5 +323,5 @@ This means you need to provide a concrete implementation. [Apache Log4j 2](https
 
 ## More Questions?
 
-At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **unlaunch@gmail.com**.
+At Unlaunch, we are obsessed about making it easier for developers all over the world to release features safely and with confidence. If you have *any* questions or something isn't working as expected, please email **help@unlaunch.io**.
 

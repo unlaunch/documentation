@@ -67,4 +67,4 @@ This is the final step. First click on the "Enable" checkbox. In the text field,
     </figure>
 </div>
 
-If you face any issues or have trouble connecting your Unlaunch account to Slack, please contact us at unlaunch@gmail.com.
+If you face any issues or have trouble connecting your Unlaunch account to Slack, please contact us at help@unlaunch.io.
