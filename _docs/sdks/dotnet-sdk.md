@@ -23,7 +23,7 @@ The Unlaunch .NET SDK supports .NET Framework 4.5+ and NetStandard 2.0+
 You can import the SDK using **Nuget**. For more information, [click here](https://www.nuget.org/packages/unlaunch).
 
 ```
-Install-Package unlaunch -Version 0.0.4
+Install-Package unlaunch -Version 0.0.7
 ```
 
 ## Initializing a New Unlaunch Client Instance
@@ -63,32 +63,42 @@ The `GetVariation` method requires that you pass in the `flag key`and the `user 
 string userId = "123";
 string variation = ulClient.GetVariation("log-levels", userId);
 
-if (variation == "on") {
+if (variation == "on") 
+{
     // code to show the feature
-} else if (variation == "off") {
+} 
+else if (variation == "off") 
+{
     // code to hide the feature
-} else {
+} 
+else 
+{
     // default code when feature isn't found or evaluated
 }
 ```
 
 ### AwaitUntilReady
 
-After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `GetVariation` or `GetFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready.
+After you build a new client, it performs an *initial sync* to download feature flags and store in an in-memory store. Until this initial sync is complete, you shouldn't use the client: if you call `GetVariation` or `GetFeature` methods, they will return `control` variation since the client is not in a ready state. It is a good practice to wait until the client is ready. 
 
 ```csharp
 var client = UnlaunchClient.Builder()
                             .SdkKey("your_sdk_key")
                             .Build();
 
-try {
+try 
+{
     client.AwaitUntilReady(TimeSpan.FromSeconds(2));
-} catch (TimeoutException e) {
+} 
+catch (TimeoutException e) 
+{
     Console.WriteLine($"Client wasn't ready, error: {e.Message}");
 }
 ```
 
 You can check if the client is ready by calling the [`IsReady`](https://github.com/unlaunch/dotnet-sdk/blob/master/client-sdk/UnlaunchClient.cs) method.
+#### Note
+If client is not ready, sdk will try to pull feature flags again on next polling interval.
 
 ### Evaluating Feature Flags & Getting Variations
 
