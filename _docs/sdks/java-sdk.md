@@ -30,7 +30,7 @@ For Maven,
 <dependency>
     <groupId>io.unlaunch.sdk</groupId>
     <artifactId>unlaunch-java-sdk</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 </dependency>
 ```
 
@@ -105,9 +105,13 @@ try {
 
 ### Evaluating Feature Flags & Getting Variations
 
-The Unlaunch Java SDK provides a few different ways to evaluate feature flags and to get variations. 
+Unlaunch SDKs provide a few different methods for evaluating feature flags in your code. Features flags are mainly evaluated to get **variations** (variation key), but they can return other things as well, such as **dynamic configuration** attached to variations and **evaluation reason** which tells you why a certain variation was evaluated. 
 
-##### `getVariation(flagKey, Identity)`
+To evaluate a feature flag, you must pass the *flag key*, the *user Id*, and optionally any *attributes* if you have defined targeting rules. 
+
+To elaborate further on what it means to evaluate a feature flag, suppose you have defined percentage rollout to show 'on' variation to 25% of your users. The evaluate method will use the *user Id* (or request Id or some other identity) to determine which bucket to assign. If the *Id* falls in the 25% bucket, the evaluate method will return 'on' variation.   
+
+##### Get Variation Key: `getVariation(flagKey, identity)`
 
 This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](app.unlaunch.io).
 
@@ -125,7 +129,7 @@ This method is to be used when feature flag targeting rules don't depend on user
 
 {% include alert-note.html type="info" content="The getVariation method will never throw an exception." %}
 
-##### `getVariation(flagKey, Identity, attributes)`
+###### Get Variation Key Using Attributes: `getVariation(flagKey, identity, attributes)`
 
 An overloaded method that requires that you pass in user attributes that can be used to evaluate targeting rules. For example, suppose you have defined targeting rules for a feature flag as such:
 
@@ -148,9 +152,17 @@ client.getVariation(
 );
 ```
 
-##### `getFeature(String flagKey, String identity)`
+##### Get Variation, Dynamic Configuration and Evaluation Reason: `getFeature(flagKey, identity)`
 
-This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. Use this method when you want to get more than just the variation. This is mostly used for fetching *dynamic configuration* associated with the feature flag or for getting the *evaluation reason*. 
+This behaves just like the `getVariation` method but instead of returning a string, it returns an [UnlaunchFeature](https://javadoc.io/doc/io.unlaunch.sdk/unlaunch-java-sdk/latest/io/unlaunch/UnlaunchFeature.html) object instead. The object that's returned contains:
+
+1. Variation key
+2. Dynamic Configuration (if you have defined any)
+3. Evaluation reason
+
+This is mostly used for fetching **dynamic configuration** associated with the feature flag or the **evaluation reason**. 
+
+###### Dynamic Configuration
 
 For example, say you want to change the color of a button for some users. You'd define the colors for each variation in the Unlaunch Console as a key-value pair. Then in your application, you can fetch like this:
 
@@ -177,9 +189,11 @@ logger.debug("{} variation was returned because: {}", feature.getVariation(), re
 // on variation was returned because: Default Rule match
 ```
 
-##### `getFeature(flagKey, identity, attributes)`
+###### Get Feature Using Attributes: `getFeature(flagKey, identity, attributes)`
 
-Just like the method above but uses attributes that are passed in to evaluate targeting rules.
+If you want to pass attributes to `getFeature()` method to be used in targeting rules, then use this method to pass in attributes.
+
+
 
 ### Passing Attributes 
 
