@@ -21,7 +21,7 @@ To create a new account, you'll need a valid email address. To complete registra
 
 Let's review a few important **concepts** quickly that will help you understand Unlaunch and this guide better.
 
-Feature flags are akin to having `if/else` blocks in your code that your code where you can change the condition on the fly without changing or deploying your code. The conditions are known as **variations**. A typical use of variation is to indicate whether the feature is **on** or **off**:
+Feature flags are akin to having `if/else` blocks in your code where you can change the condition on the fly without changing or deploying your code. The conditions are known as **variations**. A typical use of variation is to indicate whether the feature is **on** or **off**:
 
 ```javascript
 let newLoginVariation = // fetch feature flag
