@@ -11,8 +11,8 @@ We'll update this page as we add more integrations. If you don't see any integra
 
 ### Supported Integrations
  - [Slack](slack)
+ - [SumoLogic](sumologic)
 
 
 ### Upcoming Integrations
- - JIRA
  - SumoLogic
