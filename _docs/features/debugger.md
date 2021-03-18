@@ -7,7 +7,7 @@ description: The Debugger is useful in troubleshooting. It allows you to evaluat
 
 ## Overview
 
-This page explains how to use the ***Debugger*** feature in the Unlaunch app. The Debugger is useful in troubleshooting. It allows you to evaluate feature flags from Unlaunch Console and see the evaluation reason so you can understand why certain variation is served.
+This page explains how to use the ***Debugger*** feature in the Unlaunch Console. The Debugger is useful in troubleshooting. It allows you to evaluate feature flags from Unlaunch Console and see the evaluation reason so you can understand why certain variation is served.
 
 Feature Flags are evaluated using server-side and client-side [SDKs](https://docs.unlaunch.io/docs/sdks/). Unlaunch provides **Debugger** an easy way to troubleshoot your flag without using any code.
 
