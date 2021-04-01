@@ -19,7 +19,7 @@ For Npm,
 ```xml
 npm install --save unlaunch-react-sdk
 ```
-## Initializing client
+## Initializing Unlaunch Client
 
 After you install the dependency, initialize the React SDK. For this, you need your project's client-side ID, which is available in Unlaunch's Settings page. Client-side IDs are public so it can be exposed in your client-side code with no risk.
 
@@ -31,9 +31,9 @@ These two methods rely on React's Context API so it would be easy to access flag
 
 ##### asyncWithUnlaunchProvider
 
-The asyncWithUnlaunchProvider (HoC) is an async function which is used to initialize React SDK and return a component in response. This function will initialize React SDK in the start of React lifecycle. When initialization is completed, it will save flag results and Unlaunch client object in Context api. This secures the results and make it available to any level of component tree.  
+The asyncWithUnlaunchProvider (HoC) is an async function which is used to initialize React SDK and return a component in response. This function will initialize React SDK in the start of React lifecycle. When initialization is completed, it will save flag results and Unlaunch client object in `Context api`. This secures the results and make it available to any level of component tree.  
 
-Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around 200 milliseconds, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
+Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around `200 milliseconds`, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
 
 ```javascript
 import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
@@ -56,5 +56,20 @@ import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
       document.getElementById('reactDiv'),
     );
 })();
+
+```
+##### withUnlaunchProvider
+
+The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your root component in a Context.Provider. Flags will be initially undefined and in `componentDidMount` lifecycle it initialize React SDK and saves the Unlaunch client and flags results in Context API. As a result application will flicker initially because of state change when component has been mounted.
+
+```javascript
+import { withUnlaunchProvider } from 'unlaunch-react-sdk';
+
+export default withLDProvider({
+  flag : ['flag-1','flag-1'] // Flag key set
+  apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
+  identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
+  options: { /* ... */ }
+})(YourApp);
 
 ```
