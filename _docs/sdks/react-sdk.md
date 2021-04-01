@@ -29,5 +29,32 @@ React SDK can be initializes in two ways:
 
 These two methods rely on React's Context API so it would be easy to access flags from any level of component without passing flags as props. Both functions accept a ProviderConfig object used to configure the React SDK.
 
+##### asyncWithUnlaunchProvider
 
+The asyncWithUnlaunchProvider (HoC) is an async function which is used to initialize React SDK and return a component in response. This function will initialize React SDK in the start of React lifecycle. When initialization is completed, it will save flag results and Unlaunch client object in Context api. This secures the results and make it available to any level of component tree.  
 
+Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around 200 milliseconds, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
+
+```javascript
+import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
+
+(async () => {
+  const LDProvider = await asyncWithLDProvider({
+    flag : ['flag-1','flag-1'] // Flag key set
+    apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
+    identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
+    options = {
+       offline: false,         
+       requestTimeoutInMillis: 1000,
+       logLevel: 'debug'  
+    });
+
+    render(
+      <UnlaunchProvider>
+        <YourApp />
+      </UnlaunchProvider>,
+      document.getElementById('reactDiv'),
+    );
+})();
+
+```
