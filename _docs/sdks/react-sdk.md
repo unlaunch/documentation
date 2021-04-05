@@ -1,14 +1,14 @@
 ---
 title: Unlaunch React.js SDK - Official Guide
-description: This guide provides complete information about the Unlaunch React.js SDK
+description: This guide provides complete information about the Unlaunch React SDK
 ---
 # Unlaunch React.js SDK
 
 This guide provides complete information about the Unlaunch React.js SDK and documents all of the methods available in our client-side React SDK. This guide help to understand how to use its functions and how to integrate it in your application to call feature flags.
 
-{% include alert-note.html type="info" content="The Unlaunch React.js SDK uses Javascript client side SDK under the hood." %}
+{% include alert-note.html type="info" content="The Unlaunch React SDK uses Javascript client side SDK under the hood." %}
 
-{% include alert-note.html type="warning" content="The Unlaunch React.js SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later." %}
+{% include alert-note.html type="warning" content="The Unlaunch React SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later." %}
 
 ## Import the SDK Library
 
@@ -59,7 +59,7 @@ import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 ```
 #### withUnlaunchProvider
 
-The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your root component in a Context.Provider. Flags will be initially undefined and in `componentDidMount` lifecycle it initialize React SDK and saves the Unlaunch client and flags results in Context API. As a result application will flicker initially because of state change when component has been mounted.
+The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your root component in a Context.Provider. Flags will be initially undefined and in `componentDidMount` lifecycle it initialize React SDK and saves the Unlaunch client and flags results in Context API. As a result application will re render initially because of state change when component has been mounted.
 
 ```javascript
 import { withUnlaunchProvider } from 'unlaunch-react-sdk';
