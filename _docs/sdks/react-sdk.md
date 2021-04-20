@@ -44,6 +44,14 @@ The asyncWithUnlaunchProvider (HoC) is an async function which is used to initia
 
 Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around `200 milliseconds`, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
 
+<CodeTabs
+  defaultValue="js"
+  values={[
+    { label: 'JavaScript', value: 'js', },
+  ]
+}>
+<CodeTabItem value="js">
+
 ```javascript
 import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 
@@ -67,6 +75,9 @@ import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 })();
 
 ```
+</CodeTabItem>
+</CodeTabs>
+
 #### withUnlaunchProvider
 
 The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your root component in a Context.Provider. Flags will be initially undefined and in `componentDidMount` lifecycle it initialize React SDK and saves the Unlaunch client and flags results in `Context API`. As a result application will re render initially because of state change when component has been mounted.
