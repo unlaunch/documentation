@@ -41,6 +41,8 @@
           url: "docs/sdks/javascript-library"
         - title: Node.js SDK
           url: "docs/sdks/nodejs-sdk"
+        - title: React SDK
+          url: "docs/sdks/react-sdk"
         - title: Go SDK
           url: "docs/sdks/go-sdk"
         - title: .NET SDK
