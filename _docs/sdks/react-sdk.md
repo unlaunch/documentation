@@ -6,19 +6,7 @@ description: This guide provides complete information about the Unlaunch React S
 
 This guide provides complete information about the Unlaunch React.js SDK and documents all of the methods available in our client-side React SDK. This guide help to understand how to use its functions and how to integrate it in your application to call feature flags.
 
-<Callout intent="info">
-  <CalloutTitle>The React SDK uses JavaScript SDK under the hood.</CalloutTitle>
-  <CalloutDescription>
-   The React SDK builds on top of Unlaunch's JavaScript client SDK to provide easy integration in React applications. Most of the JavaScript client SDK functionality is also available to be used in React SDK. 
-   </CalloutDescription>
- </Callout>
-
-<Callout intent="alert">
-  <CalloutTitle>This SDK requires React 16.3.0 or later</CalloutTitle>
-  <CalloutDescription>
-    The Unlaunch React SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later.
-  </CalloutDescription>
-</Callout>
+{% include alert-note.html type="info" content="The React SDK builds on top of Unlaunch's JavaScript client SDK to provide easy integration in React applications. Most of the JavaScript client SDK functionality is also available to be used in React SDK. The Unlaunch React SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later." %}
 
 ## Import the SDK Library
 
@@ -44,14 +32,6 @@ The asyncWithUnlaunchProvider (HoC) is an async function which is used to initia
 
 Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around `200 milliseconds`, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
 
-<CodeTabs
-  defaultValue="js"
-  values={[
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<CodeTabItem value="js">
-
 ```javascript
 import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 
@@ -75,8 +55,6 @@ import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 })();
 
 ```
-</CodeTabItem>
-</CodeTabs>
 
 #### withUnlaunchProvider
 
