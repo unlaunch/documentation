@@ -71,3 +71,19 @@ export default withUnlaunchProvider({
 })(YourApp);
 
 ```
+#### withUnlaunchConsumer
+
+The return value of withUnlaunchConsumer is a wrapper function that takes your component and returns a React component injected with flags & unlaunchClient as props.
+
+```js
+import { withUnlaunchConsumer } from 'unlaunch-react-sdk';
+
+const Home = ({ flags, unlaunchClient /*, ...otherProps */ }) => {
+  // You can call any of the methods from the JavaScript SDK
+
+  return flags.testFlag ? <div>Flag on</div> : <div>Flag off</div>;
+};
+
+export default withUnlaunchConsumer()(Home);
+
+```
