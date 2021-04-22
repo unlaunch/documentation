@@ -6,7 +6,7 @@ description: This guide provides complete information about the Unlaunch React S
 
 This guide provides complete information about the Unlaunch React.js SDK and documents all of the methods available in our client-side React SDK. This guide help to understand how to use its functions and how to integrate it in your application to call feature flags.
 
-{% include alert-note.html type="info" content="The React SDK builds on top of Unlaunch's JavaScript client SDK to provide easy integration in React applications. Most of the JavaScript client SDK functionality is also available to be used in React SDK. The Unlaunch React SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later." %}
+The React SDK builds on top of Unlaunch's JavaScript client SDK to provide easy integration in React applications. Most of the JavaScript client SDK functionality is also available to be used in React SDK. The Unlaunch React SDK requires React 16.3.0 or later. This SDK uses the Context API, which requires React version 16.3.0 or later.
 
 ## Import the SDK Library
 
@@ -30,7 +30,7 @@ These two methods rely on React's Context API so it would be easy to access flag
 
 The asyncWithUnlaunchProvider (HoC) is an async function which is used to initialize React SDK and return a component in response. This function will initialize React SDK in the start of React lifecycle. When initialization is completed, it will save flag results and Unlaunch client object in `Context API`. This secures the results and make it available to any level of component tree.  
 
-Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This will take up some time initially which will be around `200 milliseconds`, but mostly completed earlier. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
+Due to the asynchronous nature of function, the rendering of your React app is delayed until initialization is completed. This process will take up some time initially. If you prefer to render your app first and process flag updates after rendering then `withUnlaunchProvider` should be used instead of asyncWithUnlaunchProvider.
 
 ```javascript
 import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
