@@ -3,54 +3,82 @@
   links:
     - title: "Getting Started"
       url: "docs/getting-started"
-    - title: "Managing Flags"
-      url: "docs/features"
       children:
-        - title: Unlaunch Console
-          url: "docs/features/projects-and-environments"
-        - title: Projects & Environments
-          url: "docs/features/projects-and-environments"
-        - title: Flag Variations
-          url: "docs/features/flagvariations"
-        - title: Attributes
-          url: "docs/features/attributes"
-        - title: Attributes & Associated Operators
-          url: "docs/features/attributes-operators"
-        - title: Targeting Rules
-          url: "docs/features/targetingrules"
-        - title: Live Tail
-          url: "docs/features/livetail"
-        - title: Debugger
-          url: "docs/features/debugger"
-        - title: Enable/Disable Flags 
-          url: "docs/features/enable-disable-flags"
-        - title: Archive/Delete Flags 
-          url: "docs/features/archive-delete-flags"
-        - title: Activity 
-          url: "docs/features/audit-log"
-    - title: "SDKs"
+        - title: Create first feature flag
+          url: "docs/getting-started/first-feature-flag"
+        - title: Create attributes and define rules
+          url: "docs/getting-started/attributes-and-rules"
+        - title: Installing the SDK
+          url: "docs/getting-started/sdk"
+        - title: Analyzing impact
+          url: "docs/getting-started/analyze-impact"
+   
+    - title: "Installing SDK"
       url: "docs/sdks"
       children:
-        - title: Client vs Server-side
+        - title: SDK Overview
           url: "docs/sdks/client-vs-server-side-sdks"
-        - title: SDK Keys
-          url: "docs/sdks/sdk-keys"
-        - title: Java SDK
-          url: "docs/sdks/java-sdk"
-        - title: JavaScript Library
-          url: "docs/sdks/javascript-library"
-        - title: Node.js SDK
-          url: "docs/sdks/nodejs-sdk"
-        - title: React SDK
-          url: "docs/sdks/react-sdk"
-        - title: Go SDK
-          url: "docs/sdks/go-sdk"
-        - title: .NET SDK
-          url: "docs/sdks/dotnet-sdk"
-        - title: Metrics - Impressions
-          url: "docs/sdks/metrics-impressions"
-        - title: Metrics - Insights
-          url: "docs/sdks/metrics-variationcounts"
+        - title: Versioning policy
+          url: "docs/sdks/versioning-policy"
+         - title: "Client Side SDK"
+           url: "docs/sdks/client-side-sdk"
+           children:
+             - title: JavaScript Library
+               url: "docs/sdks/javascript-library"
+             - title: React SDK
+               url: "docs/sdks/react-sdk"
+             - title: Android SDK
+               url: "docs/sdks/android-sdk"
+          - title: "Server Side SDK"
+            url: "docs/sdks/server-side-sdk"
+            children:
+              - title: Java SDK
+                url: "docs/sdks/java-sdk"
+              - title: Node.js SDK
+                url: "docs/sdks/nodejs-sdk"
+              - title: Go SDK
+                url: "docs/sdks/go-sdk"
+              - title: .NET SDK
+                url: "docs/sdks/dotnet-sdk"
+                
+     - title: "Feature Flags"
+      url: "docs/features"
+      children:
+        - title: Target user
+          url: "docs/features/target-users"
+        - title: Target user using rules
+          url: "docs/features/projects-and-environments"
+        - title: Creating flag variation
+          url: "docs/features/flagvariations"
+        - title: Enabling/Disabling flag
+          url: "docs/features/enable-disable-flags"
+        - title: Default rule
+          url: "docs/features/default-rule"
+        - title: Targeting rules
+          url: "docs/features/targetingrules"
+        - title: Copy rules and configuration
+          url: "docs/features/copy-rule"
+        - title: Defining configuration for variation
+          url: "docs/features/variation-configuration"
+        - title: Analyze impact using Insights graph
+          url: "docs/features/insights-graph"
+        - title: Archive/Delete flags 
+          url: "docs/features/archive-delete-flags"
+        - title: Flag settings
+          url: "docs/features/flag-settings"
+        - title: Activity 
+          url: "docs/features/audit-log"
+    
+      - title: "Attributes"
+        url: "docs/attributes"
+        children:
+          - title: Defining attributes based on types
+            url: "docs/features/attributes"
+          - title: Operators based on attribute type
+            url: "docs/features/attributes-operators"
+          - title: Defining attributes in rules
+            url: "docs/features/attributes-in-rules"
+            
     - title: "Managing Users"
       url: "docs/users"
       children:
