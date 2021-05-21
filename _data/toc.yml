@@ -16,7 +16,7 @@
     - title: "Installing SDK"
       url: "docs/sdks"
       children:
-        - title: Sdk Overview
+        - title: SDK Overview
           url: "docs/sdks/client-vs-server-side-sdks"
         - title: Versioning policy
           url: "docs/sdks/versioning-policy"
