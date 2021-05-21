@@ -16,32 +16,32 @@
     - title: "Installing SDK"
       url: "docs/sdks"
       children:
-        - title: SDK Overview
+        - title: Sdk Overview
           url: "docs/sdks/client-vs-server-side-sdks"
         - title: Versioning policy
           url: "docs/sdks/versioning-policy"
-         - title: "Client Side SDK"
-           url: "docs/sdks/client-side-sdk"
-           children:
-             - title: JavaScript Library
-               url: "docs/sdks/javascript-library"
-             - title: React SDK
-               url: "docs/sdks/react-sdk"
-             - title: Android SDK
-               url: "docs/sdks/android-sdk"
-          - title: "Server Side SDK"
-            url: "docs/sdks/server-side-sdk"
-            children:
-              - title: Java SDK
-                url: "docs/sdks/java-sdk"
-              - title: Node.js SDK
-                url: "docs/sdks/nodejs-sdk"
-              - title: Go SDK
-                url: "docs/sdks/go-sdk"
-              - title: .NET SDK
-                url: "docs/sdks/dotnet-sdk"
+        - title: "Client Side SDK"
+          url: "docs/sdks/client-side-sdk"
+          children:
+            - title: JavaScript Library
+              url: "docs/sdks/javascript-library"
+            - title: React SDK
+              url: "docs/sdks/react-sdk"
+            - title: Android SDK
+              url: "docs/sdks/android-sdk"
+        - title: "Server Side SDK"
+          url: "docs/sdks/server-side-sdk"
+          children:
+            - title: Java SDK
+              url: "docs/sdks/java-sdk"
+            - title: Node.js SDK
+              url: "docs/sdks/nodejs-sdk"
+            - title: Go SDK
+              url: "docs/sdks/go-sdk"
+            - title: .NET SDK
+              url: "docs/sdks/dotnet-sdk"
                 
-     - title: "Feature Flags"
+    - title: "Feature Flags"
       url: "docs/features"
       children:
         - title: Target user
@@ -69,15 +69,15 @@
         - title: Activity 
           url: "docs/features/audit-log"
     
-      - title: "Attributes"
-        url: "docs/attributes"
-        children:
-          - title: Defining attributes based on types
-            url: "docs/features/attributes"
-          - title: Operators based on attribute type
-            url: "docs/features/attributes-operators"
-          - title: Defining attributes in rules
-            url: "docs/features/attributes-in-rules"
+    - title: "Attributes"
+      url: "docs/attributes"
+      children:
+        - title: Defining attributes based on types
+          url: "docs/features/attributes"
+        - title: Operators based on attribute type
+          url: "docs/features/attributes-operators"
+        - title: Defining attributes in rules
+          url: "docs/features/attributes-in-rules"
             
     - title: "Projects and Environment"
       url: "docs/projects"
@@ -100,7 +100,7 @@
           url: "docs/integrations/slack"
         - title: Jira
           url: "docs/integrations/jira"
-        - title: Sumologic
+        - title: Sumo Logic
           url: "docs/integrations/sumologic"
   
     - title: "Activity"
