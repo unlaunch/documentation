@@ -66,6 +66,8 @@
           url: "docs/features/archive-delete-flags"
         - title: Flag settings
           url: "docs/features/flag-settings"
+        - title: Debugger
+          url: "docs/features/debugger"
         - title: Activity 
           url: "docs/features/audit-log"
     
