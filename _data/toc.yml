@@ -21,25 +21,25 @@
         - title: Versioning policy
           url: "docs/sdks/versioning-policy"
         - title: "Client Side SDK"
-          url: "docs/sdks/client-side-sdk"
+          url: "docs/sdks/client-side-sdks"
           children:
             - title: JavaScript Library
-              url: "docs/sdks/javascript-library"
+              url: "docs/sdks/client-side-sdks/javascript-library"
             - title: React SDK
-              url: "docs/sdks/react-sdk"
+              url: "docs/sdks/client-side-sdks/react-sdk"
             - title: Android SDK
-              url: "docs/sdks/android-sdk"
+              url: "docs/sdks/client-side-sdks/android-sdk"
         - title: "Server Side SDK"
-          url: "docs/sdks/server-side-sdk"
+          url: "docs/sdks/server-side-sdks"
           children:
             - title: Java SDK
-              url: "docs/sdks/java-sdk"
+              url: "docs/sdks/server-side-sdks/java-sdk"
             - title: Node.js SDK
-              url: "docs/sdks/nodejs-sdk"
+              url: "docs/sdks/server-side-sdks/nodejs-sdk"
             - title: Go SDK
-              url: "docs/sdks/go-sdk"
+              url: "docs/sdks/server-side-sdks/go-sdk"
             - title: .NET SDK
-              url: "docs/sdks/dotnet-sdk"
+              url: "docs/sdks/server-side-sdks/dotnet-sdk"
                 
     - title: "Feature Flags"
       url: "docs/features"
@@ -57,7 +57,7 @@
         - title: Targeting rules
           url: "docs/features/targetingrules"
         - title: Copy rules and configuration
-          url: "docs/features/copy-rule"
+          url: "docs/features/copy-rules"
         - title: Defining configuration for variation
           url: "docs/features/variation-configuration"
         - title: Analyze impact using Insights graph
@@ -73,19 +73,19 @@
       url: "docs/attributes"
       children:
         - title: Defining attributes based on types
-          url: "docs/features/attributes"
+          url: "docs/attributes/attributes"
         - title: Operators based on attribute type
-          url: "docs/features/attributes-operators"
+          url: "docs/attributes/attributes-operators"
         - title: Defining attributes in rules
-          url: "docs/features/attributes-in-rules"
+          url: "docs/attributes/attributes-rules"
             
     - title: "Projects and Environment"
       url: "docs/projects"
       children:
         - title: Creating projects and environments
-          url: "docs/features/projects-and-environments"
+          url: "docs/projects/projects-and-environments"
         - title: API keys in project
-          url: "docs/sdks/sdk-keys"
+          url: "docs/projects/sdk-keys"
         - title: Teams attached to project
           url: "docs/users/team"
         - title: Invite members
@@ -107,14 +107,14 @@
       url: "docs/features/audit-log"      
     
     - title: "Account Settings"
-      url: "docs/accounts/settings"
+      url: "docs/accounts"
       children:
         - title: Reset Password
           url: "docs/accounts/reset-password"
         - title: SSO using Google
           url: "docs/accounts/sso-google"
         - title: Two factor authentication for security
-          url: "docs/accounts/two-factor-authentication"
+          url: "docs/accounts/2F-auth"
     
     - title: "Billing"
       url: "docs/billing"
