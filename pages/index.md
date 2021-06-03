@@ -15,7 +15,7 @@ If you don't already have an *Unlaunch account*, please [create one for free](ht
 - [New to feature flags? Read our blog first](https://blog.unlaunch.io/2020-08-01-feature-flags/)
 - [Getting Started](docs/getting-started)
 - [Target users by ID or attributes to control what they see](docs/features/targetingrules)
-- [Create projects and environments](docs/features/projects-and-environments)
+- [Create projects and environments](docs/projects)
 - [Collaborate across your team](docs/users/team)
 - [Integrations with your favorite tools](docs/integrations)
 
@@ -24,7 +24,7 @@ If you don't already have an *Unlaunch account*, please [create one for free](ht
 To access feature flags from your applications, you'll need to use one of our SDKs. 
 
 - [Server-side and client-side SDKs](docs/sdks/client-vs-server-side-sdks)
-- [How to obtain API Keys](docs/sdks/sdk-keys)
+- [How to obtain API Keys](docs/projects/sdk-keys)
 
 ### Server-side SDKs 
 - [Java SDK](docs/sdks/java-sdk) <i class="devicon-java-plain colored icon-size"></i>

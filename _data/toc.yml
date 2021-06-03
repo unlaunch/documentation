@@ -44,10 +44,6 @@
     - title: "Feature Flags"
       url: "docs/features"
       children:
-        - title: Target user
-          url: "docs/features/target-users"
-        - title: Target user using rules
-          url: "docs/features/projects-and-environments"
         - title: Creating flag variation
           url: "docs/features/flagvariations"
         - title: Enabling/Disabling flag
