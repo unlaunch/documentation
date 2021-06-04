@@ -44,10 +44,6 @@
     - title: "Feature Flags"
       url: "docs/features"
       children:
-        - title: Target user
-          url: "docs/features/target-users"
-        - title: Target user using rules
-          url: "docs/features/projects-and-environments"
         - title: Creating flag variation
           url: "docs/features/flagvariations"
         - title: Enabling/Disabling flag
@@ -66,6 +62,8 @@
           url: "docs/features/archive-delete-flags"
         - title: Flag settings
           url: "docs/features/flag-settings"
+        - title: Debugger
+          url: "docs/features/debugger"
         - title: Activity 
           url: "docs/features/audit-log"
     
@@ -87,11 +85,9 @@
         - title: API keys in project
           url: "docs/projects/sdk-keys"
         - title: Teams attached to project
-          url: "docs/users/team"
-        - title: Invite members
-          url: "docs/users/invite-member"
+          url: "docs/projects/team"
         - title: Understanding member role
-          url: "docs/users/access-control"
+          url: "docs/projects/access-control"
       
     - title: "Integrations"
       url: "docs/integrations"
@@ -103,9 +99,6 @@
         - title: Sumo Logic
           url: "docs/integrations/sumologic"
   
-    - title: "Activity"
-      url: "docs/features/audit-log"      
-    
     - title: "Account Settings"
       url: "docs/accounts"
       children:
