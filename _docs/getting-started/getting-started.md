@@ -41,10 +41,6 @@ For more information on feature flags, please see this [blog post](https://blog.
 
 <hr/>
 
-Your feature flag is now ready to use. In Step 2, we'll learn how to call Unlaunch to evaluate flags from your SDKs using one of Unlaunch SDKs.
-
-<hr>
-
 ## Next Steps
 
 After you create your feature flag, you might want to try some of the following:

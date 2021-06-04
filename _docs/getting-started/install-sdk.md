@@ -31,7 +31,6 @@ The first step is deciding whether you should use **[client-side or server-side 
 Follow SDK integration guides to integrate SDK in your application:
 
 **Server-side SDKs:**
-
 - [Java](sdks/server-side-sdks/java-sdk) (Also explained below)
 - [Node.js](sdks/server-side-sdks/nodejs-sdk)
 - [.NET](sdks/server-side-sdks/dotnet-sdk)
@@ -40,7 +39,7 @@ Follow SDK integration guides to integrate SDK in your application:
 **Client-side SDKs:**
 
 - [Javascript Library](sdks/client-side-sdks/javascript-library) 
-- React
+- [React SDK](sdks/client-side-sdks/react-sdk)
 
 ### (Optional) Integration Instructions for the Java SDK
 
