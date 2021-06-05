@@ -85,11 +85,9 @@
         - title: API keys in project
           url: "docs/projects/sdk-keys"
         - title: Teams attached to project
-          url: "docs/users/team"
-        - title: Invite members
-          url: "docs/users/invite-member"
+          url: "docs/projects/team"
         - title: Understanding member role
-          url: "docs/users/access-control"
+          url: "docs/projects/access-control"
       
     - title: "Integrations"
       url: "docs/integrations"
@@ -101,9 +99,6 @@
         - title: Sumo Logic
           url: "docs/integrations/sumologic"
   
-    - title: "Activity"
-      url: "docs/features/audit-log"      
-    
     - title: "Account Settings"
       url: "docs/accounts"
       children:

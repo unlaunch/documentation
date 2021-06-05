@@ -1,3 +1,8 @@
+---
+title: Analyze Impact
+description: Analyze impact with help of Insights graph
+---
+
 ## Analyze Impact
 
 ## Overview
