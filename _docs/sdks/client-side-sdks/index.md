@@ -13,6 +13,6 @@ The topics in this category explain how to use different sdks to target flag var
 
 Here are the topics in this category:
 
-* [Javascript Library](/docs/sdks/client-side-sdks/javascript-library)
-* [React SDK](/docs/sdks/client-side-sdks/react-sdk)
-* [Android SDK](/docs/sdks/client-side-sdks/android-sdk)
+* [Javascript Library](/docs/sdks/javascript-library)
+* [React SDK](/docs/sdks/react-sdk)
+* [Android SDK](/docs/sdks/android-sdk)
