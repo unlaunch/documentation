@@ -5,11 +5,11 @@
       url: "docs/getting-started"
       children:
         - title: Create first feature flag
-          url: "docs/getting-started/first-feature-flag"
+          url: "docs/getting-started/create-first-feature"
         - title: Create attributes and define rules
           url: "docs/getting-started/attributes-and-rules"
         - title: Installing the SDK
-          url: "docs/getting-started/sdk"
+          url: "docs/getting-started/install-sdk"
         - title: Analyzing impact
           url: "docs/getting-started/analyze-impact"
    
@@ -22,24 +22,22 @@
           url: "docs/sdks/versioning-policy"
         - title: "Client Side SDK"
           url: "docs/sdks/client-side-sdks"
-          children:
-            - title: JavaScript Library
-              url: "docs/sdks/client-side-sdks/javascript-library"
-            - title: React SDK
-              url: "docs/sdks/client-side-sdks/react-sdk"
-            - title: Android SDK
-              url: "docs/sdks/client-side-sdks/android-sdk"
+        - title: JavaScript Library
+          url: "docs/sdks/javascript-library"
+        - title: React SDK
+          url: "docs/sdks/react-sdk"
+        - title: Android SDK
+          url: "docs/sdks/android-sdk"
         - title: "Server Side SDK"
           url: "docs/sdks/server-side-sdks"
-          children:
-            - title: Java SDK
-              url: "docs/sdks/server-side-sdks/java-sdk"
-            - title: Node.js SDK
-              url: "docs/sdks/server-side-sdks/nodejs-sdk"
-            - title: Go SDK
-              url: "docs/sdks/server-side-sdks/go-sdk"
-            - title: .NET SDK
-              url: "docs/sdks/server-side-sdks/dotnet-sdk"
+        - title: Java SDK
+          url: "docs/sdks/java-sdk"
+        - title: Node.js SDK
+          url: "docs/sdks/nodejs-sdk"
+        - title: Go SDK
+          url: "docs/sdks/go-sdk"
+        - title: .NET SDK
+          url: "docs/sdks/dotnet-sdk"
                 
     - title: "Feature Flags"
       url: "docs/features"
