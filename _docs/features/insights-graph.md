@@ -1,12 +1,14 @@
-
 ---
 title: Insights Graph
 description: This page will help you understand Insights graph.
 ---
 
-## Insights Graph
+# Insights Graph
 
+## Overview
 With the help of Insights graph, there is clear visibility of how many times a variation is served over a period of time and how it is affecting the business.
+
+## How to use Insights graph
 
 To navigate to the Insights tab:
 

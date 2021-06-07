@@ -1,3 +1,7 @@
+---
+title: Install SDK
+description: Install SDK and evaluate flag using SDKs
+---
 
 ## Install SDK
 
@@ -5,7 +9,7 @@
 
 To use feature flags in your application, you'd need to integrate one of Unlaunch SDKs depending on which programming language your app is written in. In order to integrate SDKs with your project, you'd need to initialize it with an SDK key
 
-Each Unlaunch environment has a unique set of SDK keys for security and performance reasons. You can read [more here](sdks/sdk-keys). 
+Each Unlaunch environment has a unique set of SDK keys for security and performance reasons. You can read [more here](projects/sdk-keys). 
 
 For this tutorial, we'll use the *Production* environment. Follow the steps in the diagram below to choose an SDK key.
 
@@ -27,6 +31,7 @@ The first step is deciding whether you should use **[client-side or server-side 
 Follow SDK integration guides to integrate SDK in your application:
 
 **Server-side SDKs:**
+<<<<<<< HEAD
 
 - [Java](sdks/java-sdk) (Also explained below)
 - [Node.js](sdks/nodejs-sdk)
@@ -37,6 +42,17 @@ Follow SDK integration guides to integrate SDK in your application:
 
 - [Javascript Library](sdks/javascript-library) 
 - React
+=======
+- [Java](sdks/server-side-sdks/java-sdk) (Also explained below)
+- [Node.js](sdks/server-side-sdks/nodejs-sdk)
+- [.NET](sdks/server-side-sdks/dotnet-sdk)
+- [Go](sdks/server-side-sdks/go-sdk)
+
+**Client-side SDKs:**
+
+- [Javascript Library](sdks/client-side-sdks/javascript-library) 
+- [React SDK](sdks/client-side-sdks/react-sdk)
+>>>>>>> aad6e569b6c4256196036aa0099126fbc0f89b25
 
 ### (Optional) Integration Instructions for the Java SDK
 

@@ -1,6 +1,9 @@
-## Attributes and Rules
+---
+title: Attributes and Rules
+description: Details about how to create attributes and use in rules
+---
 
-## Step 2: Defining Attributes
+## Step 2: Attributes and Rules
 
 #### 1. Create New Attribute
 1. Go to **Attributes** page using side navigation.
