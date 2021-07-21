@@ -67,7 +67,7 @@ Your feature flag is now ready to use. In Step 2, we'll learn how to create attr
 
 Targeting segments of users is a common use case. For example, you might want to show a feature only to users belonging to a certain geographic location such as South America. Unlaunch provides powerful mechanisms to target specific segment of your users using attributes and targeting rules. To learn more about attributes and targeting rules, [see this](../attributes/).
 
-Let's create a targeting rule that returns the "on" variation for registered users. Everyone else gets the "off" variation. 
+Let's create a targeting rule that returns the "on" variation for registered users. Everyone else gets the "off" variation. This step is **optional** and you can skip to the next step if you like.
 
 ### Create New Attribute
 1. Go to **Attributes** page using side navigation.
@@ -88,3 +88,61 @@ Let's create a targeting rule that returns the "on" variation for registered use
 <div class="justify-content-center">
     <img src="/assets/img/attributes/target.png" alt="target users by registered attribute"/>
 </div>
+
+## Step 3: Evaluate the Feature Flag in Your Application Using SDKs
+
+To use feature flags in your application, you'd need to integrate one of Unlaunch SDKs depending on which programming language your app is written in. In order to integrate SDKs with your project, you'd need to initialize it with an SDK key
+
+Each Unlaunch environment has a unique set of SDK keys for security and performance reasons. You can read [more here](projects/sdk-keys). 
+
+For this tutorial, we'll use the *Production* environment. Follow the steps in the diagram below to choose an SDK key.
+
+<div class="justify-content-center border">
+    <img src="/assets/img/sdk_keys.png" alt="Choose SDK keys"/>
+</div>
+
+This step will depend on the type of SDK that you choose depending on the programming language you're using. In a nutshell, these are the steps you need to follow to start using feature flags in your applications.
+
+1. Integrate the Unlaunch SDK in your project. This is usually done using a dependency manager like Maven, NPM, or Nuget.
+2. Import the Unlaunch libraries in your project to initialize the client. The client is the primary way your project uses the Unlaunch SDK and communicates with Unlaunch servers. 
+3. To initialize the client, you must provide it with an appropriate SDK/API key. The SDK key can be of three types: Server key, Mobile/App key or Browser/Public key. It uniquely identifies your project and environment and authorizes your project to use your feature flags.
+4. Evaluate feature flags using the client to control which variations your users will see. Feature flags are unique identified by keys. You can also control targeting by providing user IDs and attributes and defining targeting rules based on user attributes. For example, show features only to registered users.
+
+The first step is deciding whether you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. 
+
+Follow SDK integration guides to integrate SDK in your application:
+
+**Server-side SDKs:**
+- [Java](sdks/server-side-sdks/java-sdk) (Also explained below)
+- [Node.js](sdks/server-side-sdks/nodejs-sdk)
+- [.NET](sdks/server-side-sdks/dotnet-sdk)
+- [Go](sdks/server-side-sdks/go-sdk)
+
+**Client-side SDKs:**
+
+- [Javascript Library](sdks/client-side-sdks/javascript-library) 
+- [React SDK](sdks/client-side-sdks/react-sdk)
+
+## 4. Analyze Impact
+
+With the help of Insights graph, you get clear visibility of how many times a variation is served over a period of time and how it is affecting the business.
+
+To navigate to the Insights tab:
+
+1. Click the feature flag you wish to analyze.
+2. You will be landed to flag's **Targeting** page.
+3. Click into the **Insights** tab.
+4. Flag Insights graphs are generated on a per-flag evaluation basis. This means that if the same user has evaluated 20 times, the Insights graph records and displays all 20 evaluations.
+5. Flag variation evaluations can be investigated for last 24 hours, last 7 days, last 14 days and last 30 days.
+6. There is dropdown on top right to select the desired time period for insights graph.
+
+## Step 5: Clean up
+
+After you've finished with the feature flag that you created for this tutorial, you should clean up by archiving the flag. If you want to do more with this flag before you clean up, see Next steps.
+
+**To clean up your flag:**
+
+1. In the right sidebar, click on **Feature Flags**. In the list of instances, select the feature flag you created for this tutorial.
+2. Click on the **Setting** tab.
+3. Click on **Archive**.
+4. Choose **Yes** when prompted for confirmation.
