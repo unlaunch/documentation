@@ -61,7 +61,7 @@ At this time, you have created a feature flag with two *variations* : **on** and
 
 Your feature flag is now ready to use. In Step 2, we'll learn how to create attributes and use rules to target specific segments of your users. 
 
-<hr>
+<hr/>
 
 ## Step 2: Use Attributes and Targeting Rules 
 
@@ -79,7 +79,7 @@ Let's create a targeting rule that returns the "on" variation for registered use
     <img src="/assets/img/attributes/create.png" alt="create a new attribute"/>
 </div>
 
-### Creating Rules Using Attributes
+### Creating Targeting Rules
 1. Click on the **Add Rules** button.
 2. Select attribute along operator and fill in value for attribute.
 3. Click **Save Changes**.
@@ -88,6 +88,8 @@ Let's create a targeting rule that returns the "on" variation for registered use
 <div class="justify-content-center">
     <img src="/assets/img/attributes/target.png" alt="target users by registered attribute"/>
 </div>
+
+<hr/>
 
 ## Step 3: Evaluate the Feature Flag in Your Application Using SDKs
 
@@ -123,7 +125,51 @@ Follow SDK integration guides to integrate SDK in your application:
 - [Javascript Library](sdks/client-side-sdks/javascript-library) 
 - [React SDK](sdks/client-side-sdks/react-sdk)
 
-## 4. Analyze Impact
+### (Optional) Integration Instructions for the Java SDK
+
+If you are using the Java SDK, here's how you can integrate it. This assumes that the feature flag you have created has the key `2fa-rollout`.
+
+First add the dependency:
+
+```xml
+<dependency>
+    <groupId>io.unlaunch.sdk</groupId>
+    <artifactId>unlaunch-java-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Then, use the following code where you wish to use the feature flag:
+
+```java
+// initialize the client
+UnlaunchClient client = UnlaunchClient.create(->"INSERT_YOUR_SDK_KEY_HERE"<-);
+
+// wait for the client to be ready
+try {
+  client.awaitUntilReady(2, TimeUnit.SECONDS);
+} catch (InterruptedException | TimeoutException e) {
+  System.out.println("client wasn't ready " + e.getMessage());
+}
+// get variation
+String variation = client.getVariation("2fa-rollout", "user-id-123");
+
+// take action based on the returned variation
+if (variation.equals("on")) {
+    System.out.println("Variation is on");
+} else if (variation.equals("off")) {
+    System.out.println("Variation is off");
+} else {
+    System.out.println("control variation");
+}
+
+// shutdown the client to flush any events or metrics 
+client.shutdown();
+```
+
+<hr/>
+
+## Step 4. Analyze Impact
 
 With the help of Insights graph, you get clear visibility of how many times a variation is served over a period of time and how it is affecting the business.
 
@@ -135,6 +181,8 @@ To navigate to the Insights tab:
 4. Flag Insights graphs are generated on a per-flag evaluation basis. This means that if the same user has evaluated 20 times, the Insights graph records and displays all 20 evaluations.
 5. Flag variation evaluations can be investigated for last 24 hours, last 7 days, last 14 days and last 30 days.
 6. There is dropdown on top right to select the desired time period for insights graph.
+
+<hr/>
 
 ## Step 5: Clean up
 
