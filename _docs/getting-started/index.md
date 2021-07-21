@@ -15,7 +15,7 @@ Let's get started.
 
 To get started, you must sign up for Unlaunch. If you haven't done so already, please [visit our registration page](https://app.unlaunch.io/signup) to create a new account for free. 
 
-To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**. Each projects gets two environments by default: *Production* and *Test*. For this tutorial, you will use the Production environment. To learn more about projects and environments, please see [this guide](projects/index).
+To create a new account, you'll need a valid email address. To complete registration, we'll ask you to provide your company name and create your **first project**. Each projects gets two environments by default: *Production* and *Test*. For this tutorial, you will use the Production environment. To learn more about projects and environments, please see [this guide](../projects).
 
 #### Main Concepts
 
@@ -59,14 +59,32 @@ In this step, you'll create your first feature flag. A feature flag can have man
 
 At this time, you have created a feature flag with two *variations* : **on** and **off** and have **enabled** it. Because this flag is enabled and there are no targeting rules, it will serve variation specified under **Default Rule**, which is *on*. In other words, anyone who calls this flag will get the *on* variation. We can change this behavior, as we'll see later.
 
-Your feature flag is now ready to use. In Step 2, we'll learn how to call Unlaunch to evaluate flags from your SDKs using one of Unlaunch SDKs.
+Your feature flag is now ready to use. In Step 2, we'll learn how to create attributes and use rules to target specific segments of your users. 
 
 <hr>
 
-## Next Steps
+## Step 2: Use Attributes and Targeting Rules 
 
-After you create your feature flag, you might want to try some of the following:
+Targeting segments of users is a common use case. For example, you might want to show a feature only to users belonging to a certain geographic location such as South America. Unlaunch provides powerful mechanisms to target specific segment of your users using attributes and targeting rules. To learn more about attributes and targeting rules, [see this](../attributes/).
 
-- Learn how to add targeting rules to your feature flag.
-- Learn about environments and how to create and edit them.
-- Learn how to white user targeting to make it easy for QA and SDETs to test your flags.
+Let's create a targeting rule that returns the "on" variation for registered users. Everyone else gets the "off" variation. 
+
+### Create New Attribute
+1. Go to **Attributes** page using side navigation.
+2. Click on **Create Attribute**.
+3. Define name and select appropriate type for attribute. Hit save button.
+4. Go back to feature flag targeting screen.
+
+<div class="justify-content-center">
+    <img src="/assets/img/attributes/create.png" alt="create a new attribute"/>
+</div>
+
+### Creating Rules Using Attributes
+1. Click on the **Add Rules** button.
+2. Select attribute along operator and fill in value for attribute.
+3. Click **Save Changes**.
+4. To get your feature evaluated through rule(s) you must enable targeting by clicking **Enable** button on top. If your flag is not enabled you will be served default variation.
+
+<div class="justify-content-center">
+    <img src="/assets/img/attributes/target.png" alt="target users by registered attribute"/>
+</div>

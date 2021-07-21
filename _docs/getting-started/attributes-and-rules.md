@@ -8,7 +8,7 @@ description: Details about how to create attributes and use in rules
 #### 1. Create New Attribute
 1. Go to **Attributes** page using side navigation.
 2. Click on **Create Attribute**.
-3. Define name and select appropiate type for attribute. Hit save button.
+3. Define name and select appropriate type for attribute. Hit save button.
 4. Go back to feature flag targeting screen.
 
 <div class="justify-content-center">
