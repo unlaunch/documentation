@@ -3,15 +3,6 @@
   links:
     - title: "Getting Started"
       url: "docs/getting-started"
-      children:
-        - title: Create first feature flag
-          url: "docs/getting-started/create-first-feature"
-        - title: Create attributes and define rules
-          url: "docs/getting-started/attributes-and-rules"
-        - title: Installing the SDK
-          url: "docs/getting-started/install-sdk"
-        - title: Analyzing impact
-          url: "docs/getting-started/analyze-impact"
    
     - title: "Installing SDK"
       url: "docs/sdks"
