@@ -4,21 +4,20 @@
     - title: "Getting Started"
       url: "docs/getting-started"
    
-    - title: "Installing SDK"
+    - title: "Unlaunch SDKs"
       url: "docs/sdks"
       children:
-        - title: SDK Overview
+        - title: SDKs Overview
           url: "docs/sdks/client-vs-server-side-sdks"
         - title: Versioning policy
           url: "docs/sdks/versioning-policy"
-        - title: "Client Side SDK"
+        - title: "Client Side SDKs"
           url: "docs/sdks/client-side-sdks"
-        - title: JavaScript Library
-          url: "docs/sdks/javascript-library"
-        - title: React SDK
-          url: "docs/sdks/react-sdk"
-        - title: Android SDK
-          url: "docs/sdks/android-sdk"
+          children:
+            - title: JavaScript Library
+              url: "docs/sdks/javascript-library"
+            - title: React SDK
+              url: "docs/sdks/react-sdk"
         - title: "Server Side SDK"
           url: "docs/sdks/server-side-sdks"
         - title: Java SDK
