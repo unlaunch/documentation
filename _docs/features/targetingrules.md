@@ -3,7 +3,7 @@ title: Targeting Rules
 description: This page will help you understand what how to use targeting rules to control which variations your users see.
 ---
 
-# Flag Targeting
+# Targeting Rules
 
 ## Overview
 
@@ -68,7 +68,7 @@ Let's create a new attribute to type **Set** called `country`. Add the condition
 When you have done setting up the conditions for your rule, you can decide whether a single variation is sent to the user on rule success or a percentage rollout of variations.
 
 
-## Default Rule - If Nothing Else Matches
+## Default Rule
 
 If none of the rules matches on the *Targeting* screen including Targeting Users and Targeting Rules then Default Rule is served to the user. As with other rules, the default rule can be served as a single variation or a percentage rollout to a user.
 
@@ -76,7 +76,14 @@ If none of the rules matches on the *Targeting* screen including Targeting Users
     <img src="/assets/img/default-rule-pr.png" alt="Default Rule PR"/>
 </div> 
 
-## Default Variation - When Flag is Disabled
+To summarize, the variation selected under Default Rule is served when:
+
+1. Flag is enabled and no targeting rule is present.
+2. Flag is enabled and all rules evaluated to false.
+
+In case if flag is *disabled*, Default Variation will be served to user.
+
+## Default Variation
 
 When the feature flag is disabled, Unlaunch will serve the *Default Variation* for your feature flag. When a feature flag is created, the last variation is set as the off variation by default. You can change the off variation for your feature flag.
 

@@ -1,16 +1,16 @@
 ---
-title: Copy Rules
+title: Copying Rules
 description: This page will help you copy rules across environments
 ---
 
-## Copy Rules
+# Copying Rules Between Environments
 
-You can copy flag rules between two environments with the Copy Rules button. Find it on the **flag details** page.
+When you create and apply [Targeting Rules](targetingrules) to a feature flag, the rules only apply to the current environment. For example, you can create rules on the Test environment without affecting Production environment. This allows developers to try things out in the Test environment before bringing the change to the Production environment which applies to all users. For more information about environments, [read this](../projects).
 
-To copy a flag's rule:
+You can copy flag rules between **environments**, navigate to the rule you want to copy, and click on the Copy icon, present on the top right side.
 
-1. Navigate to the flag details page by cliking flag from dashboard
-2. Click on copy rule icon present with each rule. Copy rule modal appears.
-3. Choose destination environment from the dropdown. Hit **Copy Rule** button.
-4. Rule will be copied to selected destination environment.
+ <div class="justify-content-center border">
+    <img src="/assets/img/copy-rules.png" alt="Copy Rules between environments"/>
+</div> 
 
+When you click on the Copy icon, a popup will ask you to choose a destination environment to copy the rule to. After you make the selection and choose to continue, the rule will be copied to the selected environment.

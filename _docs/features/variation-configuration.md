@@ -1,18 +1,28 @@
 ---
-title: Variation Configuration
+title: Dynamic Configuration
 description: This page will explain variation configuration 
 ---
 
-## Variation Configuration
+# Dynamic Configuration
 
-In Unlaunch users can define configuration for each variation, which will be unique w.r.t environment. 
+Using Unlaunch, you can attach configuration (Key-Value pairs) to each variation of your feature flag and send it back to SDKs. This is sometimes also known as the **Dynamic Configuration**. This is useful when you want to things dynamically for each variation without changing the text. For example, you could define a key to represent text that's shown for each variation instead of defining it in your code. Then, whenever you want to change the text or its copy, you could just update it in the Unlaunch Console and your users will start seeing it automatically. 
 
-## Steps to define variation configuration
+<div class="justify-content-center border">
+    <img src="/assets/img/dynamic-config.png" alt="Dynamic Configuration"/>
+</div> 
 
-1. Click on desired flag from Dashboard. **Flag details** page appears.
-2. Click on **configuration** tab present in flag details page.
+To add dynamic configuration to your feature flags:
+
+1. Click on the feature flag from Dashboard to open flag details page.
+2. Click on **Configuration** tab.
 3. Click on **Add Configuration** button present for each variation.
-4. Two input fields will appear which is name and value. Fill in these fields.
-5. Save the changes.
-6. Users can also copy configuration across multiple environments.
-7. For copying configuration there is copy configuration icon present. Click on it and a    modal will appear. Select desired **destination environment** and click on **copy        configuration** button. 
+4. For each variation, add *key*s and *value*s.
+5. Save your changes.
+
+To fetch Dynamic Configuration in your app, please refer to SDK guides. For example, to fetch dynamic configuration in the [Java SDK](../sdks/java-sdk#get-variation-dynamic-configuration-and-evaluation-reason-getfeatureflagkey-identity), you could do the following:
+
+```java
+String ctaText = feature.getVariationConfig().getString("cta-text", "default value");
+```
+
+Dynamic Configuration is only applied to the current environment. To copy configuration from the current environment to another, click on the Copy button in the top right corder.
