@@ -30,8 +30,6 @@
           url: "docs/features/enable-disable-flags"
         - title: Archive & delete flags 
           url: "docs/features/archive-delete-flags"
-        - title: Copy rules and configuration
-          url: "docs/features/copy-rules"
     - title: "Attributes"
       url: "docs/attributes"
       children:
