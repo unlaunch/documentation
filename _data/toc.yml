@@ -8,8 +8,7 @@
       url: "docs/sdks"
       children:
         - title: "Server Side SDK"
-         url: "docs/sdks/server-side-sdks"
-
+          url: "docs/sdks/server-side-sdks"
         - title: "Client Side SDKs"
           url: "docs/sdks/client-side-sdks"         
     - title: "Feature Flags"

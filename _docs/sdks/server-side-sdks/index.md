@@ -14,5 +14,5 @@ The topics in this category explain how to use different server side sdks to tar
 Here are the topics in this category:
 * [Java SDK](/docs/sdks/java-sdk)
 * [Go SDK](/docs/sdks/go-sdk)
-* [Dotnet SDK](/docs/sdks/dotnet-sdk)
+* [.NET SDK](/docs/sdks/dotnet-sdk)
 * [Nodejs SDK](/docs/sdks/nodejs-sdk)
