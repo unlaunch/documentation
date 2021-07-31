@@ -15,4 +15,3 @@ Here are the topics in this category:
 
 * [Javascript Library](/docs/sdks/javascript-library)
 * [React SDK](/docs/sdks/react-sdk)
-* [Android SDK](/docs/sdks/android-sdk)

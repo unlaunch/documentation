@@ -5,13 +5,14 @@ description: High level overview of Unlaunch SDKs and concepts.
 
 # Getting Started with SDKs
 
-Our SDKs are designed for you to easily integrate with Unlaunch and call feature flags from your application.
+Our SDKs are designed for you to easily integrate with Unlaunch and evaluate feature flags from your application.
 
 ### General Topics
  - [Client-side and Server-side SDKs](client-vs-server-side-sdks)
- - [SDK keys](sdk-keys)
+ - [SDK keys](../projects/sdk-keys)
  - [Metrics - Impressions](metrics-impressions)
  - [Metrics - Variation Counts](metrics-variationcounts)
+ - [Versioning Policy](versioning-policy)
 
 
 ### Server-side SDKs 
