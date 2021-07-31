@@ -3,8 +3,9 @@ title: Attributes
 description: This page will help you understand what attributes are, their types and use cases.
 ---
 
-## Overview 
-The attributes are used to [**target**](targetingrules) users. They allow you to control which variations are shown to users based on user properties.
+# Attributes
+
+The attributes are used to [**target**](../features/targetingrules) users. They allow you to control which variations are shown to users based on user properties.
 
 ## Example Walkthrough
 To understand how attributes are used, let's walk through a complete example. Let's say you have launched a feature flag that has two variations: _on_ and _off_. You want to show the _on_ variation to all "registered" users of your application. To achieve this, you can define a new (boolean) attribute called "registered". Then in feature flag targeting rules, you'd define a new rule to show the _on_ variation when a user has "registered = true" property.
@@ -20,7 +21,7 @@ To understand how attributes are used, let's walk through a complete example. Le
 </div>
 
 #### 3. Pass Attributes in the SDK
-You can now start passing attributes in your application through Unlaunch SDKs and they'll be assigned appropriate variation based on the value of the attribute. For example, in JavaScript, you'd do something like this:
+You can now start passing attributes in your application through Unlaunch SDKs and they'll be assigned appropriate variation based on the value of the attribute. JavaScript and Java examples showing how to pass attributes are shown below. For more information, refer to your [SDK guide](../sdks/index).
 
 ##### 3a. JavaScript Example
 ```javascript
@@ -98,4 +99,4 @@ Unlaunch supports the following attribute types. To read more on [**attributes a
 
 ## Summary
 
-In this article, we explored attributes and looked at an example of how to use them in Unlaunch. Attributes are used to target users in [**target rules**](targetingrules) to control variations that are assigned to users.
+In this article, we explored attributes and looked at an example of how to use them in Unlaunch. Attributes are used to target users in [**target rules**](../features/targetingrules) to control variations that are assigned to users.
