@@ -1,9 +1,9 @@
 ---
-title: Feature Flags
+title: Feature Flags Overview
 description: Managing Feature Flags using the Unlaunch Console.
 ---
 
-# Feature Flags
+# Feature Flags Overview
 
 Feature Flags allow developers to release features safely and confidently. This section contains documentation on how to create feature flags, use projects and environments, define targeting rules, and more using [Unlaunch Console](https://app.unlaunch.io/). 
 

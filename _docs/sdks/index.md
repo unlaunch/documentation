@@ -3,16 +3,9 @@ title: Unlaunch SDKs
 description: High level overview of Unlaunch SDKs and concepts.
 ---
 
-# Getting Started with SDKs
+# Unlaunch SDKs
 
-Our SDKs are designed for you to easily integrate with Unlaunch and evaluate feature flags from your application.
-
-### General Topics
- - [Client-side and Server-side SDKs](client-vs-server-side-sdks)
- - [SDK keys](../projects/sdk-keys)
- - [Metrics - Impressions](metrics-impressions)
- - [Metrics - Variation Counts](metrics-variationcounts)
- - [Versioning Policy](versioning-policy)
+Unlaunch SDKs allows you to easily evaluate feature flags from your applications. We have SDKs available for all major programming languages. Integrating Unlaunch SDKs in your application is similar across all SDKs. To choose an SDK, learn more about our [Client-side and Server-side SDKs](client-vs-server-side-sdks)
 
 
 ### Server-side SDKs 
@@ -21,11 +14,9 @@ Our SDKs are designed for you to easily integrate with Unlaunch and evaluate fea
 - [.NET SDK](dotnet-sdk) <i class="devicon-csharp-line colored icon-size"></i>
 - [Go](go-sdk) <i class="devicon-go-line colored icon-size"></i>
 
-
 ### Client-side SDKs
 - [JavaScript Library](javascript-library) <i class="devicon-javascript-plain colored icon-size"></i>
 - [React](https://github.com/unlaunch/react-sdk) <i class="devicon-react-original colored icon-size"></i>
-
 
 ### Hello, World!
 - [Java Hello World](https://github.com/unlaunch/hello-java)
@@ -35,5 +26,8 @@ Our SDKs are designed for you to easily integrate with Unlaunch and evaluate fea
 - [JavaScript Library Hello World](https://github.com/unlaunch/hello-javascript-browser-library)
 - [Angular Hello World](https://github.com/unlaunch/hello-angular)
 
-Would you like to see another question type, or another kind of extra? Please
-[open an issue]({{ site.repo }}/issues/new).
+### General Topics
+ - [SDK keys](../projects/sdk-keys)
+ - [Metrics - Impressions](metrics-impressions)
+ - [Metrics - Variation Counts](metrics-variationcounts)
+ - [Versioning Policy](versioning-policy)

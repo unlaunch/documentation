@@ -33,6 +33,10 @@
     - title: "Attributes"
       url: "docs/attributes"
       children:
+        - title: Attributes
+          url: "docs/attributes/attributes"
+        - title: Using attributes
+          url: "docs/attributes/attributes-rules"
         - title: Attribute types & operators
           url: "docs/attributes/attributes-operators"
         - title: Using attributes
@@ -41,12 +45,16 @@
     - title: "Projects & Environments"
       url: "docs/projects"
       children:
+        - title: Introduction
+          url: "docs/projects/projectsandenvs"
         - title: SDK Keys
           url: "docs/projects/sdk-keys"
 
     - title: "Teams"
       url: "docs/users"
       children:
+        - title: Managing Users
+          url: "docs/users/managingusers"    
         - title: Access control
           url: "docs/users/access-control"    
       
@@ -70,8 +78,6 @@
         - title: Two factor authentication for security
           url: "docs/accounts/2F-auth"
     
-    - title: "Billing"
-      url: "docs/billing"
 
-    - title: "FAQ"
+    - title: "FAQs"
       url: "faq"
