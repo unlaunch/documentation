@@ -12,7 +12,7 @@
         - title: "Client Side SDKs"
           url: "docs/sdks/client-side-sdks"    
         - title: SDK Keys
-          url: "docs/projects/sdk-keys"
+          url: "docs/sdks/sdk-keys"
 
     - title: "Feature Flags"
       url: "docs/features"

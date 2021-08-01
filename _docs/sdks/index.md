@@ -27,7 +27,7 @@ Unlaunch SDKs allows you to easily evaluate feature flags from your applications
 - [Angular Hello World](https://github.com/unlaunch/hello-angular)
 
 ### General Topics
- - [SDK keys](../projects/sdk-keys)
+ - [SDK keys](../sdks/sdk-keys)
  - [Metrics - Impressions](metrics-impressions)
  - [Metrics - Variation Counts](metrics-variationcounts)
  - [Versioning Policy](versioning-policy)

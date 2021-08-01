@@ -44,7 +44,7 @@ Here's a table to help you understand what each role has access to.
     <img src="/assets/img/project-permissions.png" alt="project permissions table"/>
 </div>
 
-_*1_ = Can create in [non-production environments](../features/projects-and-environments#production-vs-non-production-environments) only; The flag will be created in all environments but will be in disabled state.
+_*1_ = Can create in [non-production environments](../projects/projectsandenvs) only; The flag will be created in all environments but will be in disabled state.
 
 _*2_ = Can edit flags in pre-production environments ONLY: targeting rules, dynamic configuration. For any flag that is active in production, can’t edit anything that affects the flag in production such as adding more variations. Can’t Enable/Disable flag in production environment, also cannot change Targeting Rules or anything in production.
 
