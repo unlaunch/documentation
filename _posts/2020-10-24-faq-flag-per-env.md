@@ -1,5 +1,6 @@
 ---
 title:  "Can I create a feature flag in just one environment only e.g. Test but not in Production?"
+date: 2020-10-24 5:52:21 -0500
 ---
 
 When you create a new feature flag, it becomes available for all environments of the project. Flags are created in **disabled** state. You can enable flag only for specific environments, leaving it disabled for all others. Targeting rules are also environment specific. 
