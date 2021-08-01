@@ -3,13 +3,17 @@
   links:
     - title: "Getting Started"
       url: "docs/getting-started"
+
     - title: "Unlaunch SDKs"
       url: "docs/sdks"
       children:
         - title: "Server Side SDK"
           url: "docs/sdks/server-side-sdks"
         - title: "Client Side SDKs"
-          url: "docs/sdks/client-side-sdks"         
+          url: "docs/sdks/client-side-sdks"    
+        - title: SDK Keys
+          url: "docs/projects/sdk-keys"
+
     - title: "Feature Flags"
       url: "docs/features"
       children:
@@ -47,8 +51,6 @@
       children:
         - title: Introduction
           url: "docs/projects/projectsandenvs"
-        - title: SDK Keys
-          url: "docs/projects/sdk-keys"
 
     - title: "Teams"
       url: "docs/users"

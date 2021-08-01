@@ -180,7 +180,7 @@ Just like the method above but uses attributes that are passed in to evaluate ta
 
 ### Passing Attributes 
 
-The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
+The [attributes and associated operators](../attributes/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
 The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
 

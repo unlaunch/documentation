@@ -49,7 +49,7 @@ Unlaunch supports different attribute type and their associated operators to per
 
 ### Example 1: Email Ending With yahoo.com
 
-Let's define a rule that serves `off` variation to all users whose e-mail address ends with `yahoo.com`. First, we'll create a [new attribute](attributes) of type **string** called `email`. Then we'll use the `ends with` operator, and provide `yahoo.com` as value. Click **Save Changes** to save the rule.
+Let's define a rule that serves `off` variation to all users whose e-mail address ends with `yahoo.com`. First, we'll create a [new attribute](../attributes/attributes) of type **string** called `email`. Then we'll use the `ends with` operator, and provide `yahoo.com` as value. Click **Save Changes** to save the rule.
 
 <div class="justify-content-center">
     <img src="/assets/img/target-rule-1.png" alt="Target Rule"/>
