@@ -5,7 +5,7 @@ description: This page will help you understand how to invite team members to yo
 
 # Teams Overview
 
-This section will help you understand how to add and remove members to your Unlaunch project and assign them appropriate roles and permissions
+This section will help you understand how to add and remove team members to your Unlaunch project and assign them appropriate roles and permissions
 
 ## Related Topics
 

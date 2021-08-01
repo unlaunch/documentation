@@ -5,7 +5,7 @@ description: This page will help you understand how to invite team members to yo
 
 # Managing Users
 
-This page will help you understand how to add and remove members to your Unlaunch project and assign them appropriate roles. To understand roles and permissions, please take a look at this [guide](access-control).
+This page will help you understand how to add and remove team members to your Unlaunch project and assign them appropriate roles. To understand roles and permissions, please take a look at this [guide](access-control).
 
 To add, remove and change members, you **must** have admin privileges.
 
