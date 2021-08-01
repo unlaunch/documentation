@@ -7,7 +7,7 @@ description: This page will help you understand how to enable or disable flag.
 
 This topic explains to you how to enable or disable a feature flag. A flag's state can be changed anytime, if you have the right permission for the environment you're changing on. By default, all new flags are created in disabled state. You must enable them manually when you are ready to use newly created feature flags in your application. 
 
-Feature flag state changes are only applicable to the current [environment](projects-and-environments). For example, you can enable a feature flag on 'Test' environment, while leaving it disabled on the 'Production' environment.
+Feature flag state changes are only applicable to the current [environment](../projects/projectsandenvs). For example, you can enable a feature flag on 'Test' environment, while leaving it disabled on the 'Production' environment.
 
 To know if a feature flag is enabled or disabled, we have provided an indicator. Enabled flags have a *Green* dot (icon) beside their name and disabled flags have a *Red* icon. 
 

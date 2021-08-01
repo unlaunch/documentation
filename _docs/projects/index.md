@@ -9,4 +9,5 @@ This section will help you understand Projects and Environments in Unlaunch and 
 
 ## Related Topics
 - [Overview](projectsandenvs)
-- [SDK Keys](sdk-keys)
+- [How to find SDK keys to connect from SDKs](../sdks/sdk-keys)
+- [How to add team members](../users/managingusers)

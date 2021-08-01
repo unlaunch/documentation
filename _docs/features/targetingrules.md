@@ -45,7 +45,7 @@ Please see examples below.
 
 ### Attributes and Associated Operators 
 
-Unlaunch supports different attribute type and their associated operators to perform operations on user values. To check out, see [**attribute types and their operators**](attributes-operators)
+Unlaunch supports different attribute type and their associated operators to perform operations on user values. To check out, see [**attribute types and their operators**](../attributes/attributes-operators)
 
 ### Example 1: Email Ending With yahoo.com
 
