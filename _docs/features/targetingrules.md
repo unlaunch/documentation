@@ -33,7 +33,7 @@ You can also remove users from targeting. Follow the steps shown in the image be
 
 ## Targeting Rules
 
-Feature flags can have targeting rules, that allows you to control variation served on the basis of certain **[attributes](attributes)** and **conditions**.
+Feature flags can have targeting rules, that allows you to control variation served on the basis of certain **[attributes](../attributes/attributes)** and **conditions**.
 
 Targeting Rules consists of three parts:
 

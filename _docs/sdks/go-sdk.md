@@ -22,7 +22,7 @@ This supports Go language version 1.13 and above.
 ## Import the SDK Library
 There are several ways to add the Unlaunch Go SDK to your project. It depends on what dependency management system you're using.
 
-- If you are using [Go Modules](https://blog.golang.org/using-go-modules,) you can simply import the Unlaunch SDK in your code and `go build` will automatically download it.
+- If you are using [Go Modules](https://blog.golang.org/using-go-modules), you can simply import the Unlaunch SDK in your code and `go build` will automatically download it.
 - If you are using `dep`, import the SDK packages in your code and run `dep ensure`.
 - Or you can simply use `go get` command to:
 
@@ -101,7 +101,7 @@ The Unlaunch Go SDK provides a few different ways to evaluate feature flags and 
 
 ##### `Variation(flagKey, identity, attributes)`
 
-This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](app.unlaunch.io).
+This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](https://app.unlaunch.io).
 
 This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never panic* nor will it ever return empty string. Instead, it will return `control` if there are any errors such as:
 
@@ -150,7 +150,7 @@ fmt.Printf("The variation for feature is: %s. Evaluation reason is: %s\n",
 
 ### Passing Attributes 
 
-The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
+The [attributes and associated operators](../attributes/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
 The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `GetVariation()` method.
 

@@ -106,7 +106,7 @@ The Unlaunch .NET SDK provides a few different ways to evaluate feature flags an
 
 ##### `GetVariation(flagKey, identity)`
 
-This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](app.unlaunch.io).
+This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](https://app.unlaunch.io).
 
 This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never throw an exception* nor will it ever return `null`. Instead, it will return `control` if there are any errors such as:
 

@@ -106,20 +106,20 @@ This step will depend on the type of SDK that you choose depending on the progra
 3. To initialize the client, you must provide it with an appropriate SDK/API key. The SDK key can be of three types: Server key, Mobile/App key or Browser/Public key. It uniquely identifies your project and environment and authorizes your project to use your feature flags.
 4. Evaluate feature flags using the client to control which variations your users will see. Feature flags are unique identified by keys. You can also control targeting by providing user IDs and attributes and defining targeting rules based on user attributes. For example, show features only to registered users.
 
-The first step is deciding whether you should use **[client-side or server-side SDK](sdks/client-vs-server-side-sdks)**. 
+The first step is deciding whether you should use **[client-side or server-side SDK](../sdks/client-vs-server-side-sdks)**. 
 
 Follow SDK integration guides to integrate SDK in your application:
 
 **Server-side SDKs:**
-- [Java](../sdks/server-side-sdks/java-sdk) (Also explained below)
-- [Node.js](../sdks/server-side-sdks/nodejs-sdk)
-- [.NET](../sdks/server-side-sdks/dotnet-sdk)
-- [Go](../sdks/server-side-sdks/go-sdk)
+- [Java](../sdks/java-sdk) (Also explained below)
+- [Node.js](../sdks/nodejs-sdk)
+- [.NET](../sdks/dotnet-sdk)
+- [Go](../sdks/go-sdk)
 
 **Client-side SDKs:**
 
-- [Javascript Library](../sdks/client-side-sdks/javascript-library) 
-- [React SDK](../sdks/client-side-sdks/react-sdk)
+- [Javascript Library](../sdks/javascript-library) 
+- [React SDK](../sdks/react-sdk)
 
 ### (Optional) Integration Instructions for the Java SDK
 

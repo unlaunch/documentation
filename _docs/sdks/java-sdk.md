@@ -113,7 +113,7 @@ To elaborate further on what it means to evaluate a feature flag, suppose you ha
 
 #### Get Variation Key: `getVariation(flagKey, identity)`
 
-This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](app.unlaunch.io).
+This method evaluates and returns the variation (variation key) for this feature flag that you have defined in the [Unlaunch Console](https://app.unlaunch.io).
 
 This method returns one of the variations according to *targeting or rollout rules* that you may have defined. It will *never throw an exception* nor will it ever return `null`. Instead, it will return `control` if there are any errors such as:
 
@@ -195,7 +195,7 @@ If you want to pass attributes to `getFeature()` method to be used in targeting 
 
 ### Passing Attributes 
 
-The [attributes and associated operators](https://docs.unlaunch.io/docs/features/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
+The [attributes and associated operators](../attributes/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
 
 The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `getVariation()` method.
 

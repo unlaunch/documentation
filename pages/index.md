@@ -16,7 +16,7 @@ If you don't already have an *Unlaunch account*, please [create one for free](ht
 - [Getting Started](docs/getting-started)
 - [Target users by ID or attributes to control what they see](docs/features/targetingrules)
 - [Create projects and environments](docs/projects)
-- [Collaborate across your team](docs/users/team)
+- [Collaborate across your team](docs/users/index)
 - [Integrations with your favorite tools](docs/integrations)
 
 ## <i class="fas fa-cubes gray"></i> SDKs
@@ -24,7 +24,7 @@ If you don't already have an *Unlaunch account*, please [create one for free](ht
 To access feature flags from your applications, you'll need to use one of our SDKs. 
 
 - [Server-side and client-side SDKs](docs/sdks/client-vs-server-side-sdks)
-- [How to obtain API Keys](docs/projects/sdk-keys)
+- [How to obtain API Keys](docs/sdks/sdk-keys)
 
 ### Server-side SDKs 
 - [Java SDK](docs/sdks/java-sdk) <i class="devicon-java-plain colored icon-size"></i>
