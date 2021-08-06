@@ -12,11 +12,11 @@ Unlaunch SDKs allows you to easily evaluate feature flags from your applications
 - [Java SDK](java-sdk) <i class="devicon-java-plain colored icon-size"></i>
 - [Node.js SDK](nodejs-sdk) <i class="devicon-nodejs-plain-wordmark colored icon-size"></i>
 - [.NET SDK](dotnet-sdk) <i class="devicon-csharp-line colored icon-size"></i>
-- [Go](go-sdk) <i class="devicon-go-line colored icon-size"></i>
+- [Go SDK](go-sdk) <i class="devicon-go-line colored icon-size"></i>
 
 ### Client-side SDKs
 - [JavaScript Library](javascript-library) <i class="devicon-javascript-plain colored icon-size"></i>
-- [React](https://github.com/unlaunch/react-sdk) <i class="devicon-react-original colored icon-size"></i>
+- [React SDK](react-sdk) <i class="devicon-react-original colored icon-size"></i>
 
 ### Hello, World!
 - [Java Hello World](https://github.com/unlaunch/hello-java)

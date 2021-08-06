@@ -1,5 +1,5 @@
 ---
-title: Unlaunch React.js SDK - Official Guide
+title: Unlaunch React SDK - Official Guide
 description: This guide provides complete information about the Unlaunch React SDK
 ---
 # Unlaunch React SDK
