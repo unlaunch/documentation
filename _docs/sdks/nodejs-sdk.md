@@ -16,9 +16,8 @@ The Node SDK supports Node.js version 6.x and npm 3.x or later.
 
 ## Import the SDK Library
 
-The first step is to import the Unlaunch SDK as npm dependency in your application. 
+The first step is to import the Unlaunch SDK. Using NPM:
 
-For Npm, 
 ```xml
 npm install --save unlaunch-node-sdk
 ```
@@ -223,7 +222,7 @@ Unlaunch Java SDK (all server-side SDKs) connect to Unlaunch servers upon initia
 Unlaunch Java SDK periodically sends events to Unlaunch servers. These events are used for showing metrics and to generate data for the Insights Graph.
 
 ### Offline Mode
-. In this mode, the SDK neither polls nor updates Unlaunch servers. Instead, it uses JSON file to determine which variation to show to the logged in user for each of the features. You can specify feature flags and variations in a JSON file in your machine and pass its path in configuration against `OfflineModeFilePath`. 
+In this mode, the SDK neither polls nor updates Unlaunch servers. Instead, it uses JSON file to determine which variation to show to the logged in user for each of the features. You can specify feature flags and variations in a JSON file in your machine and pass its path in configuration against `OfflineModeFilePath`. 
 
 ## More Questions?
 
