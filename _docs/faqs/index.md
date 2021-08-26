@@ -5,9 +5,19 @@ description: This page answers frequently asked questions about Unlaunch
 
 # FAQs
 
-## How to call feature flag from my application?
+## How to evaluate feature flag from my application?
 
 To evaluate and use feature flags in your application, you'll need to integrate and use [Unlaunch SDK](../sdks) for your programming language. To initialize the SDK, you'll need to pass it the [SDK keys](../sdks/sdk-keys) for the current environment. 
+<hr/>
+
+## Why am I getting the "control" variation and the flag is not available on my SDK?
+
+If you have just created a feature flag and are not seeing it in your application. Follow these steps:
+
+- If you're using a client-side SDK, such as React, JavaScript (Library) or Angular, check to make sure that flag is enabled for "client-side" access. You can do this by clicking on the "Settings" tab under the feature flag. 
+- If the above doesn't work or you're using a server-side SDK, make sure that the flag is not archived.
+
+If the problem persists, email us at help@unlaunch.io
 <hr/>
 
 ## Is it possible to create a new feature flag only in one environment?
