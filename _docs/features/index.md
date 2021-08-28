@@ -9,7 +9,7 @@ Feature Flags allow developers to release features safely and confidently. This 
 
 ### Related Topics
 - [Feature Flags Variations](flagvariations)
-- [UTargeting Users](targetingrules)
+- [Targeting Rules](targetingrules)
 - Use [Attributes](../attributes/) and [Operators](../attributes/attributes-operators) in Targeting Rules to control which variation your users see based on their attributes or behavior.
 - [Enable and Disable Flags](enable-disable-flags)
 - [Archive and Delete Flags](archive-delete-flags)
