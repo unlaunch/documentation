@@ -112,12 +112,13 @@ A *Set* data type is a collection of elements. The following operators are suppo
 |Has All of, Does not Have All of | Matches *all* of |
 
 **Examples**
+
 | Targeting Rule | Will Match |
 |--|--|
-|Equals [USA,CAN] | [USA,CAN]|
-|Is Part of [USA,CAN,MEX]  | [USA,CAN] |
-|Has Any of [IND,PAK]| [PAK] or [IND] |
-|Has All of [DEU,AUT] | [DEU,AUT] |
+|Equals (USA,CAN) | [USA,CAN)|
+|Is Part of (USA,CAN,MEX] | [USA,CAN) |
+|Has Any of (IND,PAK) | (PAK) or (IND) |
+|Has All of (DEU,AUT) | [DEU,AUT) |
 
 ### Example 6: Color Set contains [red,blue,green]
 
