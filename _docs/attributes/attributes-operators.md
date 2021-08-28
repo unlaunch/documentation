@@ -107,10 +107,17 @@ A *Set* data type is a collection of elements. The following operators are suppo
 | Operators | Meanings |
 |--|--|
 |Equals, Not Equal | Exact Match|
-|Is Part of, Is not Part of | Subset of a set |
-|Has Any of, Does not Have Any of | Matches any set value|
-|Has All of, Does not Have All of | Matches set |
+|Is Part of, Is not Part of | Subset of a set match|
+|Has Any of, Does not Have Any of | Matches *any* of |
+|Has All of, Does not Have All of | Matches *all* of |
 
+**Examples**
+| Targeting Rule | Will Match |
+|--|--|
+|Equals [USA,CAN] | [USA,CAN]|
+|Is Part of [USA,CAN,MEX]  | [USA,CAN] |
+|Has Any of [IND,PAK]| [PAK] or [IND] |
+|Has All of [DEU,AUT] | [DEU,AUT] |
 
 ### Example 6: Color Set contains [red,blue,green]
 
