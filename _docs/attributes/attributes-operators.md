@@ -115,14 +115,14 @@ A *Set* data type is a collection of elements. The following operators are suppo
 
 | Targeting Rule | Will Match |
 |--|--|
-|Equals (USA,CAN) | (USA,CAN)|
-|Is Part of (USA,CAN,MEX) | [(USA,CAN) |
-|Has Any of (IND,PAK) | (PAK) or (IND) |
-|Has All of (DEU,AUT) | (DEU,AUT) |
+|Equals `(USA,CAN)` | `(USA,CAN)`|
+|Is Part of `(USA,CAN,MEX)` | `(USA,CAN)` |
+|Has Any of `(IND,PAK)` | `(PAK)` or `(IND)` |
+|Has All of `(DEU,AUT)` | `(DEU,AUT)` |
 
-### Example 6: Color Set contains [red,blue,green]
+### Example 6: Color Set contains (red,blue,green)
 
-Let's define a rule that serves `on` variation to all users whose colors equals `[red,blue,green]`. First, we'll create a [new attribute](index) of type **set** called `colors`. Then we'll use the `equals` operator, and provide `[red,blue,green]` as value. Click **Save Changes** to save the rule.
+Let's define a rule that serves `on` variation to all users whose colors equals `(red,blue,green)`. First, we'll create a [new attribute](index) of type **set** called `colors`. Then we'll use the `equals` operator, and provide `(red,blue,green(` as value. Click **Save Changes** to save the rule.
 
 <div class="justify-content-center">
     <img src="/assets/img/attribute-set.png" alt="Target Rule Set Attribute"/>
