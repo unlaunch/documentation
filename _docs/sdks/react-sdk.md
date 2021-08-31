@@ -21,7 +21,7 @@ npm install --save unlaunch-react-sdk
 
 After you install the dependency, initialize the React SDK. For this, you need your project's [client-side SDK key](sdk-keys), which is available in the Settings page on the Unlaunch Dashboard. Client-side SDK keys are **public** so it can be exposed to your users with no risk.
 
-React SDK can be initializes in two ways:
+React SDK can be initialized the following ways.
  1. asyncWithUnlaunchProvider
  2. withUnlaunchProvider
 
@@ -80,7 +80,7 @@ The return value of withUnlaunchConsumer is a wrapper function that takes your c
 import { withUnlaunchConsumer } from 'unlaunch-react-sdk';
 
 const Home = ({ flags, unlaunchClient /*, ...otherProps */ }) => {
-  // You can call any of the methods from the JavaScript SDK
+  // You can call any of the methods from the Unlaunch JavaScript SDK
 
   return flags.testFlag ? <div>Flag on</div> : <div>Flag off</div>;
 };
