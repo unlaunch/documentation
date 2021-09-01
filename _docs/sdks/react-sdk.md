@@ -38,7 +38,7 @@ import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 
 (async () => {
   const unLaunchProvider = await asyncWithUnlaunchProvider({
-    flag : ['flag-1','flag-1'] // Flag key set
+    flag : ['flag-1','flag-2'] // Flag key set
     apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
     identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
     options = {
@@ -65,16 +65,16 @@ The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your
 import { withUnlaunchProvider } from 'unlaunch-react-sdk';
 
 export default withUnlaunchProvider({
-  flag : ['flag-1','flag-1'] // Flag key set
+  flag : ['flag-1','flag-2'] // Flag key set
   apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
   identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
   options: { /* ... */ }
 })(YourApp);
 
 ```
-#### 3. withUnlaunchConsumer
+### withUnlaunchConsumer
 
-The return value of withUnlaunchConsumer is a wrapper function that takes your component and returns a React component injected with flags & unlaunchClient as props.
+This is a wrapper function with which we can access flags and unlaunchClient as props in any component at any level of hierarchy. The return value of withUnlaunchConsumer is a wrapper function that takes your component and returns a React component injected with flags & unlaunchClient as props.
 
 ```js
 import { withUnlaunchConsumer } from 'unlaunch-react-sdk';
