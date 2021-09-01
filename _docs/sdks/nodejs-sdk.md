@@ -115,7 +115,7 @@ user is from the USA *and* is a subscriber, the "on" variation will be returned.
 ```javascript
 var attributes={
       country: "USA",
-      "subscribe": true
+      subscribe: true
     } 
 ulClient.variation(
     "show_bonus_pack", 
@@ -130,6 +130,38 @@ if (variation == "on")) {
 } else {
     // default code when feature isn't found or evaluated
 }
+```
+### Passing Attributes 
+
+The [attributes and associated operators](../attributes/attributes-operators) are used in [targeting rules](https://docs.unlaunch.io/docs/features/targetingrules). These attributes can be passed to the SDK so it can use them when evaluating rules. 
+
+The SDK method supports six types of attributes: String, Number, Boolean, Date, DateTime, and Set. Here's an example showing how to pass attributes to `variation()` method.
+
+```javascript
+
+const ulClient = factory.client();
+client.on('READY',() => {
+
+  const userId = "USER_UNIQUE_ID";
+  const currentDate = new Date();
+  
+  var attributes =  {
+        registered: true, // Boolean
+        device: "ABCS", // String
+        age: 30, // Integer
+        start_date: currentDate , // Date
+        start_time: currentDate.getTime(),// Datetime
+        user_ids: ["1", "2", "3", "4"] // Set
+    }
+
+  var variation = ulClient.variation(
+    "FEATURE_FLAG_KEY",
+    userId,
+    attributes
+    )
+
+  // shutdown the client to flush any events or metrics
+  ulClient.shutdown();
 ```
 
 ##### `feature(flagKey, identity)`
