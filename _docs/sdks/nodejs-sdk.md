@@ -16,10 +16,15 @@ The Node SDK supports Node.js version 6.x and npm 3.x or later.
 
 ## Import the SDK Library
 
-The first step is to import the Unlaunch SDK. Using NPM:
+The first step is to install the Unlaunch SDK. Using NPM:
 
 ```xml
 npm install --save unlaunch-node-sdk
+```
+Second step is to require the Unlaunch Node SDK.
+
+```xml
+const UnlaunchFactory = require("unlaunch-node-sdk")
 ```
 
 ## Initializing a New Unlaunch Client Instance
