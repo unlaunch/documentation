@@ -35,7 +35,7 @@ To access feature flags from your applications, you'll need to use one of our SD
 
 ### Client-side SDKs
 - [JavaScript Library](docs/sdks/javascript-library) <i class="devicon-javascript-plain colored icon-size"></i>
-- [React](https://github.com/unlaunch/react-sdk) <i class="devicon-react-original colored icon-size"></i>
+- [React](docs/sdks/react-sdk) <i class="devicon-react-original colored icon-size"></i>
 
 
 ### Hello, World!
