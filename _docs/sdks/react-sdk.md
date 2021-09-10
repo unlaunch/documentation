@@ -37,16 +37,14 @@ Due to the asynchronous nature of function, the rendering of your React app is d
 import { asyncWithUnlaunchProvider } from 'unlaunch-react-sdk';
 
 (async () => {
-  const unLaunchProvider = await asyncWithUnlaunchProvider({
-    flag : ['flag-1','flag-2'] // Flag key set
-    apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
-    identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
-    options = {
-       offline: false,         
-       requestTimeoutInMillis: 1000,
-       logLevel: 'debug'  
-    });
-
+  const UnlaunchProvider = await asyncWithUnlaunchProvider({
+    flagKeys: ['flag-1','flag-2'] // Flag key set
+    apiKey: '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
+    identity: 'anonymous' // Use special anonymous identity which generates a unique UUID
+    options: {
+      localStorage: false
+    }
+     
     render(
       <UnlaunchProvider>
         <YourApp />
@@ -65,9 +63,9 @@ The withUnlaunchProvider (HoC) function initializes the React SDK and wraps your
 import { withUnlaunchProvider } from 'unlaunch-react-sdk';
 
 export default withUnlaunchProvider({
-  flag : ['flag-1','flag-2'] // Flag key set
-  apiKey : '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
-  identity : 'anonymous' // Use special anonymous identity which generates a unique UUID
+  flagKeys: ['flag-1','flag-2'] // Flag key set
+  apiKey: '<PROVIDE_BROWSER_PUBLIC_KEY_FOR_YOUR_PROJECT>'
+  identity: 'anonymous' // Use special anonymous identity which generates a unique UUID
   options: { /* ... */ }
 })(YourApp);
 
