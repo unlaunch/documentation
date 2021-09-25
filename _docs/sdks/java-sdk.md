@@ -30,13 +30,13 @@ For Maven,
 <dependency>
     <groupId>io.unlaunch.sdk</groupId>
     <artifactId>unlaunch-java-sdk</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 For Gradle,
 ```
-compile group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '0.1.0'
+implementation group: 'io.unlaunch.sdk', name: 'unlaunch-java-sdk', version: '1.0.0'
 ```
 
 ## Initializing a New Unlaunch Client Instance
