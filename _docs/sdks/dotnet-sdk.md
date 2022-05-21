@@ -23,7 +23,7 @@ The Unlaunch .NET SDK supports .NET Framework 4.5+ and NetStandard 2.0+
 You can import the SDK using **Nuget**. For more information, [click here](https://www.nuget.org/packages/unlaunch).
 
 ```
-Install-Package unlaunch -Version 0.0.7
+Install-Package unlaunch -Version 1.0.0
 ```
 
 ## Initializing a New Unlaunch Client Instance
